@@ -46,10 +46,10 @@ We've provided starter code with a an API for threads and posts. Currently, all 
 
 Authentication routes can be found at the following locations, all of which are POST requests:
 
-- `/login` - Log the user in
-- `/logout` - Log the user out
-- `/loggedin` - Returns a user object with a status of 200 if the request is authenticated, and null with a status of 403 if not
-- `/signup` - Creates a new user. Returns the user object if successful, returns an error otherwise.
+- `/api/login` - Log the user in
+- `/api/logout` - Log the user out
+- `/api/loggedin` - Returns a user object with a status of 200 if the request is authenticated, and null with a status of 403 if not
+- `/api/signup` - Creates a new user. Returns the user object if successful, returns an error otherwise.
 
 ### Iteration 1 | Display All Threads
 
