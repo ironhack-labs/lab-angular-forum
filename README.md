@@ -85,6 +85,6 @@ Create a link on the homepage for each of the threads to link to the single thre
 
 In the single thread details component, create a form to add a reply. This form *should only be visible if a user is logged in*.
 
-This form should make a POST request to `/apis/threads/:id/comments` with a `content` in the request body.
+This form should make a POST request to `/apis/threads/:id/replies` with a `content` in the request body.
 
 If you notice the response for a single thread, it includes a all of the threads comments. Display this in the single thread details component.
