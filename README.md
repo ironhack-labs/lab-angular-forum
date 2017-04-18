@@ -46,10 +46,10 @@ We've provided starter code with a an API for threads and posts. Currently, all 
 
 Authentication routes can be found at the following locations, all of which are POST requests:
 
-- `/login` - Log the user in
-- `/logout` - Log the user out
-- `/loggedin` - Returns a user object with a status of 200 if the request is authenticated, and null with a status of 403 if not
-- `/signup` - Creates a new user. Returns the user object if successful, returns an error otherwise.
+- `/api/login` - Log the user in
+- `/api/logout` - Log the user out
+- `/api/loggedin` - Returns a user object with a status of 200 if the request is authenticated, and null with a status of 403 if not
+- `/api/signup` - Creates a new user. Returns the user object if successful, returns an error otherwise.
 
 ### Iteration 1 | Display All Threads
 
@@ -85,6 +85,6 @@ Create a link on the homepage for each of the threads to link to the single thre
 
 In the single thread details component, create a form to add a reply. This form *should only be visible if a user is logged in*.
 
-This form should make a POST request to `/apis/threads/:id/comments` with a `content` in the request body.
+This form should make a POST request to `/apis/threads/:id/replies` with a `content` in the request body.
 
 If you notice the response for a single thread, it includes a all of the threads comments. Display this in the single thread details component.
