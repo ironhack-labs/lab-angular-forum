@@ -4,7 +4,7 @@
 
 ## Introduction
 
-![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_ccd68c07aacd94d5d60c7fb3e5803694.png)
+![](images/forum-image.png)
 
 
 >An Internet forum is a discussion area on a website. Website members can post discussions and read and respond to posts by other forum members. A forum can be focused on nearly any subject and a sense of an online community, or virtual community, tends to develop among forum members.
