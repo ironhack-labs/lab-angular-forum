@@ -25,4 +25,10 @@ export class ThreadsService {
     return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
       .map((res) => res.json());
   }
+
+  addReply(id, reply) {
+    console.log(id, reply)
+    return this.http.post(`${this.BASE_URL}/api/threads/${id}/replies`, {content: reply}, this.options)
+      .map((res) => res.json());
+  }
 }
