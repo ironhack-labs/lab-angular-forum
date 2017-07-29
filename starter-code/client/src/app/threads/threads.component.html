@@ -1,0 +1,5 @@
+<div class="position" *ngIf="threads.length !== 0">
+  <div *ngFor="let thread of threads | async">
+    <h1>Title: {{thread.title}} <small>submitted on {{thread.date}} by {{thread._author}}</small></h1>
+  </div>
+</div>

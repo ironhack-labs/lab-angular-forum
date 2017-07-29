@@ -1,0 +1,9 @@
+<div *ngIf="!session.user && session.startLoginCompleted">
+  <a [routerLink]="['login']">Login</a>
+  <a [routerLink]="['signup']">signup</a>
+</div>
+<div *ngIf="session.user && session.startLoginCompleted">
+  <pre>Welcome user: {{ session.user.username }}</pre>
+  <button (click)="logout()">Logout</button>
+</div>
+<router-outlet></router-outlet>
