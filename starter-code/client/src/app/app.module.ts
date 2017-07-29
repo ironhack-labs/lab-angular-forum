@@ -7,17 +7,22 @@ import { FormsModule } from '@angular/forms';
 
 import { SessionService } from '../services/Session.service';
 import { ThreadsService } from '../services/Threads.service';
+
 import { AppComponent } from './app.component';
 import { ThreadsComponent } from './threads/threads.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent,
+    SingleThreadComponent
   ],
   imports: [
     BrowserModule,

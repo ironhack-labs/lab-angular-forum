@@ -6,6 +6,7 @@ import {environment} from '../environments/environment';
 @Injectable()
 export class ThreadsService {
   BASE_URL:string = environment.baseURL;
+  options:object = {withCredentials:true};
 
   constructor (private http: Http) { }
 
@@ -14,4 +15,14 @@ export class ThreadsService {
        .map((res) => res.json());
    }
 
+  addNew(thread) {
+    console.log(thread)
+    return this.http.post(`${this.BASE_URL}/api/threads`, thread, this.options)
+      .map((res) => res.json());
+  }
+
+  getSingleThread(id) {
+    return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
+      .map((res) => res.json());
+  }
 }
