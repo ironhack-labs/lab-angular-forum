@@ -13,6 +13,8 @@
   <div *ngIf="session.user && session.startLoginCompleted">
     <p>Welcome {{ session.user.username }}</p>
     <button (click)="logout()">Logout</button>
+     <a [routerLink]="['threads/new']">Create new Thread</a>
+      <a (click)="session.logout()">Logout</a>
   </div>
 
   <router-outlet></router-outlet>

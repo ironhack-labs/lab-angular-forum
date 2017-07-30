@@ -10,13 +10,17 @@ import { AppComponent } from './app.component';
 import { ThreadsListComponent } from './threads-list/threads-list.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
+import { ThreadDetailComponent } from './thread-detail/thread-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadsListComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewThreadComponent,
+    ThreadDetailComponent
   ],
   imports: [
     BrowserModule,

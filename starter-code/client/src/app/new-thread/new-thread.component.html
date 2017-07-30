@@ -1,0 +1,10 @@
+<h1> New thread </h1>
+<form (ngSubmit)="addThread(threadForm)" #threadForm="ngForm">
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <label> Content </label>
+  <input type="text" [(ngModel)]="content" name="content"/>
+
+  <button type="submit"> Create </button>
+</form>
+<p class="error"> {{ error }} </p>

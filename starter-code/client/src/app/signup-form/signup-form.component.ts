@@ -8,9 +8,7 @@ import { SessionService } from '../../services/session.service';
 })
 export class SignupFormComponent implements OnInit {
   error: string;
-  username:string;
-  password:string;
-  email:string;
+
   constructor(private session: SessionService, private router:Router) { }
 
   ngOnInit() {
