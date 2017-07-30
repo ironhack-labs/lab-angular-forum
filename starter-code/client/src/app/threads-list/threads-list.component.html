@@ -1,9 +1,13 @@
-<h3> Threads list </h3>
+<h1> Threads list </h1>
 <div>
-  <div *ngFor="let thread of threads | async" class="blocky">
-
-    <h3> {{ thread.title }} </h3>
-    <p> {{ thread.content }} </p>
-    <a [routerLink]=""> View Details </a>
+  <div *ngFor="let thread of threads | async" class="thread-container">
+    <div class="header">
+      <h2>Title: {{ thread.title }} </h2>
+      <h4><span>Author:</span>{{thread._author.username}}</h4>
+    </div>
+    <div class="content">
+      <p> {{ thread.content }} </p>
+    </div>
+    <a [routerLink]="['threads', thread._id]"> Read more... </a>
   </div>
 </div>

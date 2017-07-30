@@ -1,3 +1,28 @@
-<p>
-  thread-detail works!
-</p>
+<a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="thread">
+  <div class="thread-container">
+    <div class="header">
+      <h2>Title: {{ thread.title }} </h2>
+      <h4><span>Author:</span>{{thread._author.username}}</h4>
+    </div>
+    <div class="content">
+      <p> {{ thread.content }} </p>
+    </div>
+    <div class="replies">
+        <h1>Replies</h1>
+
+        <h3>Author: </h3>
+    </div>
+      <div *ngIf="session.user && session.startLoginCompleted" class="post-reply">
+        <form (ngSubmit)="addReply(replyForm)" #replyForm="ngForm">
+
+          <label> Reply </label>
+          <input type="text" [(ngModel)]="content" name="content"/>
+
+          <button type="submit"> Post a reply </button>
+        </form>
+        <p class="error"> {{ error }} </p>
+      </div>
+  </div>
+</div>

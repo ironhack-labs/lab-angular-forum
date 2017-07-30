@@ -7,7 +7,7 @@ import { SessionService } from '../services/session.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Iron-Forum';
   constructor (private session:SessionService, private router: Router){}
 
   logout(){
