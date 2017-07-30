@@ -26,7 +26,9 @@ export class ThreadDetailComponent implements OnInit {
   ngOnInit() {
   }
   addReply(form)  {
-    this.threadService.addReply(form.value)
+    console.log(this.route.params);
+    console.log(form.value);
+    /*this.threadService.addReply(,form.value)
       .subscribe(
         (reply) =>{
            console.log(reply);
@@ -34,5 +36,6 @@ export class ThreadDetailComponent implements OnInit {
          },
         (err) => this.error = err
       );
-  }
+  }*/
+}
 }
