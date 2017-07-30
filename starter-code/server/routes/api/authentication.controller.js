@@ -20,16 +20,26 @@ router.post("/login", (req, res, next) => {
     });
   })(req, res, next);
 });
+/* User authenticated Middleware: Returns JSON ERROR */
+function ensureLoginOrJsonError(error = "Unauthorized") {
+  return (req, res, next) => req.isAuthenticated() ? next() : res.status(403).json({
+    error: error
+  });
+}
+/* Check if user is logged in and returns the user or shows error as JSON instead*/
+router.get('/loggedin', ensureLoginOrJsonError(), (req, res, next) => {
+  return res.status(200).json(req.user);
+});
 
 router.post("/signup", (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const { username, email, password } = req.body;
 
   if (!username || !password || !email) {
     return res
       .status(400)
       .json({ message: "Please provide all fields" });
-    ;
+
   }
 
   User.findOne({ username }, "username", (err, user) => {
@@ -70,7 +80,7 @@ router.post("/logout", function(req, res) {
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
+router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
