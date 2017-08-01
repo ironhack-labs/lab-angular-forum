@@ -1,0 +1,9 @@
+<h1> New Thread </h1>
+<form (ngSubmit)="addNew(myForm)" #myForm="ngForm">
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <label> Content </label>
+  <textarea type="text" [(ngModel)]="content" name="content"></textarea>
+
+  <button type="submit"> add new thread </button>
+</form>

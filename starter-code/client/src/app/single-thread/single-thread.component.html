@@ -1,0 +1,23 @@
+<div class="position" *ngIf="thread">
+    <h1>Title: {{thread.title}}</h1>
+    <small>submitted on {{thread.date}} by {{thread._author.username}}</small>
+    <p>{{thread.content}}</p>
+    <h1>Replies</h1>
+    <div *ngIf="thread.replies.length !== 0">
+      <div *ngFor="let reply of thread.replies">
+        <p>{{reply.content}}</p>
+        <small>submitted on {{reply.date}} by {{reply._author.username}}</small>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="Session.user">
+  <h1> add reply </h1>
+  <form>
+    <label> reply </label>
+    <input type="text" [(ngModel)]="content" name="content"/>
+
+    <button (click)="addReply()"> add Reply </button>
+  </form>
+  <p class="error"> {{ error }} </p>
+</div>
