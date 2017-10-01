@@ -29,7 +29,6 @@ router.post("/signup", (req, res, next) => {
     return res
       .status(400)
       .json({ message: "Please provide all fields" });
-    ;
   }
 
   User.findOne({ username }, "username", (err, user) => {
