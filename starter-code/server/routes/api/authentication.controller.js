@@ -23,9 +23,9 @@ router.post("/login", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   console.log(req.body)
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
 
-  if (!username || !password || !email) {
+  if (!username || !password) {
     return res
       .status(400)
       .json({ message: "Please provide all fields" });
@@ -43,7 +43,6 @@ router.post("/signup", (req, res, next) => {
 
     const newUser = User({
       username,
-      email,
       password: hashPass
     });
 

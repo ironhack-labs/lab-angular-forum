@@ -1,0 +1,14 @@
+<p>
+  new-thread works!
+</p>
+<form *ngIf="!user" (ngSubmit)="create(myForm)" #myForm="ngForm" novalidate>
+  <h2> New thread</h2>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="formInfo.title" name="title"/>
+  <br>
+  <label> Content </label>
+  <input type="text" [(ngModel)]="formInfo.content" name="content"/>
+
+  <button type="submit"> Create </button>
+
+</form>

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 export class ProviderService {
 
   BASE_URL: string = 'http://localhost:3000';
-
+  private options = {withCredentials:true};
   constructor(private http: Http) { }
 
   getAll() {
@@ -14,5 +14,9 @@ export class ProviderService {
           .map((res) => res.json());
 
       }
+  create(title,content){
+    return this.http.post(`${this.BASE_URL}/api/threads`,{title,content}, this.options)
+    .map(res => res.json())
 
+  }
 }
