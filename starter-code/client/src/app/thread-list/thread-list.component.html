@@ -1,0 +1,6 @@
+<ul *ngIf="threads">
+  <li *ngFor="let thread of threads | async">
+    <b>{{ thread.title }}</b>
+    <br>Author: <em>{{ thread._author.username }}</em>
+  </li>
+</ul>
