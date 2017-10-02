@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import {routes} from './routes';
 
+
+import { AuthService } from './services/auth.service'
 import { AppComponent } from './app.component';
 import { ThreadsService } from './services/threads.service'
 import { ThreadsListComponent } from './threads-list/threads-list.component';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './services/auth.service'
 
 @NgModule({
   declarations: [
