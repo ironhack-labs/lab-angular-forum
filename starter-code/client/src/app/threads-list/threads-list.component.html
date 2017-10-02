@@ -5,6 +5,6 @@
 </div>
 <div *ngFor="let thread of threads | async">
     <p>{{thread.title}}</p>
-    <p>{{thread.author}}</p>
+    <p>{{thread._author.username}}</p>
     <p>{{thread.date}}</p>
 </div>
