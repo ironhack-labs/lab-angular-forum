@@ -8,19 +8,24 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {routes} from './routes';
 import {ThreadsService} from './services/threads.service';
+import {AuthService} from './services/auth.service';
+import { LoginformComponent } from './loginform/loginform.component';
+import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadsListComponent
+    ThreadsListComponent,
+    LoginformComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
-  providers: [ThreadsService],
+  providers: [ThreadsService, AuthService, IsLoggedInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
