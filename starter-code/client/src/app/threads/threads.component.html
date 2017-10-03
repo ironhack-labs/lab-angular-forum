@@ -1,0 +1,7 @@
+<div *ngFor ="let t of threads">
+  <h3> {{t.title}}</h3>
+  <h5> {{t._author.username}}</h5>
+  <h6> {{t.date | date:'medium'}}</h6>
+</div>
+<a [routerLink] = "['/login']">Login</a> |
+<a [routerLink] = "['/signup']">SignUp</a>

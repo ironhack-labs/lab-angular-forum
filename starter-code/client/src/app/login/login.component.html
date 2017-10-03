@@ -1,0 +1,11 @@
+<form *ngIf="!user">
+  <h2> Login or Signup </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+
+  <button (click)="login()"> login </button>
+  <button (click)="signup()"> signup </button>
+</form>

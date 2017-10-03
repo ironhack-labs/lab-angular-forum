@@ -23,9 +23,9 @@ router.post("/login", (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   console.log(req.body)
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
 
-  if (!username || !password || !email) {
+  if (!username || !password) {
     return res
       .status(400)
       .json({ message: "Please provide all fields" });
@@ -44,7 +44,6 @@ router.post("/signup", (req, res, next) => {
 
     const newUser = User({
       username,
-      email,
       password: hashPass
     });
 
@@ -65,12 +64,12 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.post("/logout", function(req, res) {
+router.get("/logout", function(req, res) {
   req.logout();
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
+router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
