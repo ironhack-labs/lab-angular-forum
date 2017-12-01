@@ -4,6 +4,7 @@ const favicon      = require('serve-favicon');
 const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
+const cors = require('cors');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const session      = require('express-session');
@@ -14,6 +15,8 @@ const configure    = require('./config/passport.js');
 mongoose.connect('mongodb://localhost/forum-development');
 
 const app = express();
+
+app.use(cors());
 
 app.use(session({
   secret: "forum-app",
