@@ -10,10 +10,12 @@ const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost/forum-development');
 
 const app = express();
+app.use(cors());
 
 app.use(session({
   secret: "forum-app",
