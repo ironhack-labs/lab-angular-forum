@@ -8,11 +8,15 @@ import { AppComponent } from './app.component';
 import { ThreadListComponent } from './components/thread-list/thread-list.component';
 import { routes } from './routes'
 import { ThreadService } from './services/thread.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadListComponent
+    ThreadListComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
