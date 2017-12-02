@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngFor="let e of listThread">
+    <p>{{e.title}}</p>
+    <p>{{e.date}} </p>
+    <p>{{e.content}}</p>
+    <p>{{e._author.username}}</p>
+  </div>
+</div>
+<p class="error" *ngIf="error">{{ error }}</p>

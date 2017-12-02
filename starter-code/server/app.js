@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -10,16 +11,24 @@ const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
+const cors = require('cors');
+const corsConfig = require('./config/cors.config');
 
-mongoose.connect('mongodb://localhost/forum-development');
+// const dbURL = process.env.dbURL;
+
+mongoose.connect('localhost/forum-development',{useMongoClient: true});
 
 const app = express();
 
 app.use(session({
-  secret: "forum-app",
+  secret: "forum-app555",
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  cookie: {
+      httpOnly: true,
+      maxAge: 2419200000
+    }
+  //store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 configure(passport);
@@ -35,6 +44,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
