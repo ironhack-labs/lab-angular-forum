@@ -1,8 +1,11 @@
-<div class="links">
+<div *ngIf="!user" class="links">
   <a [routerLink]="['../login']">Login</a>
   <a [routerLink]="['../register']">Register</a>
 </div>
-
+<div *ngIf="user" class="private">
+  <button (click)="authService.logout().subscribe()">Logout</button>
+  <a [routerLink]="['../private/newThread']">New Thread</a>
+</div>
 <div class="container">
   <div *ngFor="let e of listThread">
     <p>{{e.title}}</p>
@@ -12,3 +15,4 @@
   </div>
 </div>
 <p class="error" *ngIf="error">{{ error }}</p>
+<p></p>

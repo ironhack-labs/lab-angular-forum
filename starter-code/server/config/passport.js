@@ -3,33 +3,40 @@ const User            = require('../models/user.model');
 const bcrypt          = require('bcrypt');
 
 function configure(passport){
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
+
+  passport.serializeUser((loggedInUser, next) => {
+    next(null, loggedInUser._id);
   });
 
-  passport.deserializeUser((id, done) => {
-   User.findById(id, function(err, user) {
-       done(err, user);
-   });
-  });
+     passport.deserializeUser((userIdFromSession, next) => {
+       User.findById(userIdFromSession)
+       .then(user => next(null,user))
+       .catch(e => next(e));
+     });
 
   passport.use(new LocalStrategy((username, password, next) => {
-    User.findOne({ username }, (err, user) => {
+    User.findOne({ username }, (err, foundUser) => {
       if (err) {
-        return next(err);
+        next(err);
+        return;
       }
 
-      if (!user) {
-        return next(null, false, { message: "Incorrect username" });
+      if (!foundUser) {
+        next(null, false, { message: 'Incorrect username' });
+        return;
       }
 
-      if (!bcrypt.compareSync(password, user.password)) {
-        return next(null, false, { message: "Incorrect password" });
+      if (!bcrypt.compareSync(password, foundUser.password)) {
+        next(null, false, { message: 'Incorrect password' });
+        return;
       }
 
-      return next(null, user);
+      next(null, foundUser);
     });
   }));
+
+
+
 }
 
 module.exports = configure;

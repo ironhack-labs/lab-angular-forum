@@ -8,15 +8,19 @@ import { AppComponent } from './app.component';
 import { ThreadListComponent } from './components/thread-list/thread-list.component';
 import { routes } from './routes'
 import { ThreadService } from './services/thread.service';
+import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NewThreadComponent } from './components/new-thread/new-thread.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ThreadService],
+  providers: [ThreadService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
