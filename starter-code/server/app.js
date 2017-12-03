@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -9,40 +10,57 @@ const mongoose     = require('mongoose');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
-const configure    = require('./config/passport.js');
-
-mongoose.connect('mongodb://localhost/forum-development');
-
+const configure    = require('./config/passport');
+const cors = require('cors');
+const corsConfig = require('./config/cors.config');
 const app = express();
+// const dbURL = process.env.dbURL;
 
-app.use(session({
-  secret: "forum-app",
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+mongoose.connect('localhost/forum-development',{useMongoClient: true});
 
-configure(passport);
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.locals.title = 'Express - Generated with IronGenerator';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+
+app.use(session({
+  secret: "forum-app555",
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+      httpOnly: true,
+      maxAge: 2419200000
+    },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+configure(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 const index = require('./routes/index');
 app.use('/', index);
+
+app.use((req,res,next) => {
+   res.locals.title = "Express - Generated with IronGenerator";
+   res.locals.user = req.user;
+   next();
+ });
+
+// app.use((req, res, next) => {
+//   res.sendfile(__dirname + '/public/index.html');
+// });
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

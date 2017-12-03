@@ -1,0 +1,20 @@
+<p>login works!</p>
+<div *ngIf="!user">
+<form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="formInfo.username" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="formInfo.password" required>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+</form>
+</div>
+<div *ngIf="user">
+  <p>You are allready Logged</p>
+  <a [href]="['home']">Go Home</a>
+</div>

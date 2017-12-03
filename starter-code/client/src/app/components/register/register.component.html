@@ -1,0 +1,23 @@
+<p>register works!</p>
+<div *ngIf="!user">
+<form (ngSubmit)="onSubmitSign(signForm)" #signForm="ngForm">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="formInfo.username" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="formInfo.password" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="formInfo.email" required>
+    </div>
+    <button type="submit" [disabled]="!signForm.valid">Signup</button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+</form>
+</div>
+<div *ngIf="user">
+  <p>You are allready Logged</p>
+  <a [href]="['home']">Go Home</a>
+</div>

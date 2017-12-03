@@ -1,0 +1,9 @@
+.container{
+  width: 80%;
+}
+.thread {
+  border: 1px solid #000;
+  margin:10px;
+  width: 70%;
+  padding-left: 20px;
+}

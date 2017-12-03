@@ -15,17 +15,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res, next) => {
-  Thread
-    .findById(req.params.id)
-    .populate('_author replies._author')
-    .exec( (err, thread) => {
-      if (err)     { return res.status(500).json(err); }
-      if (!thread) { return res.status(404).json(err); }
-
-      return res.status(200).json(thread);
-    });
-});
 
 router.post('/', loggedIn, (req, res, next) => {
   const newThread = new Thread({
@@ -45,26 +34,44 @@ router.post('/', loggedIn, (req, res, next) => {
 router.post('/:id/replies', loggedIn, (req, res, next) => {
   const newReply = new Reply({
     _author: req.user._id,
-    title: req.body.title,
+    date: new Date(),
     content: req.body.content
   });
+
+  console.log("dentro de añadir reply");
+  console.log(req.params.id);
 
   Thread
     .findById(req.params.id)
     .populate('_author replies._author')
     .exec((err, thread) => {
-      if (err)     { return res.status(500).json(err); }
+      if (err)     {
+
+         return res.status(500).json(err);
+      }
       if (!thread) { return res.status(404).json(err); }
 
       thread.replies.push(newReply);
 
       thread.save( (err) => {
-        if (err)          { return res.status(500).json(err); }
+         if (err)          { return res.status(500).json(err); }
         if (thread.errors){ return res.status(400).json(thread); }
 
         return res.status(200).json(thread);
       });
   });
+});
+
+router.get('/:id', (req, res, next) => {
+  Thread
+    .findById(req.params.id)
+    .populate('_author replies._author')
+    .exec( (err, thread) => {
+      if (err)     { return res.status(500).json(err); }
+      if (!thread) { return res.status(404).json(err); }
+
+      return res.status(200).json(thread);
+    });
 });
 
 module.exports = router;
