@@ -6,7 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ThreadsComponent } from './components/threads/threads.component';
-import { ThreadService } from './shared/services/thread.service';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { ThreadService } from './shared/services/thread/thread.service';
+import { AuthService } from './shared/services/auth/auth.service';
 import { router } from './shared/routes/routes';
 
 import './shared/operators/rxjs.operators';
@@ -14,14 +18,18 @@ import './shared/operators/rxjs.operators';
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadsComponent
+    ThreadsComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(router)
   ],
   providers: [
+    AuthService,
     ThreadService
   ],
   bootstrap: [AppComponent]

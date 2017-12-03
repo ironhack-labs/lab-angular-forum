@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ThreadService } from './../../shared/services/thread.service';
+import { ThreadService } from './../../shared/services/thread/thread.service';
 import { IThread } from './../../shared/interfaces/thread.interface';
 
 @Component({

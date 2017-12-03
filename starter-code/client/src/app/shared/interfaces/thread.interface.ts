@@ -1,5 +1,7 @@
 export interface IThread {
+  _author: string,
   title: string;
-  author: string;
+  content: string;
   date: Date;
+  replies: Array<any>;
 }

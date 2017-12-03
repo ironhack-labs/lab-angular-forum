@@ -1,6 +1,12 @@
-<ul>
-  <li *ngFor="let thread of threads">
-    <p>{{ thread.title}} - {{ thread.author}}</p>
-    <p>{{ thread.date | date }}</p>
-  </li>
-</ul>
+<div>
+  <a [routerLink]="['login']">Login</a>
+  <a [routerLink]="['signup']">Sign up</a>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let thread of threads">
+      <p>{{ thread.title}} - {{ thread.author}}</p>
+      <p>{{ thread.date | date }}</p>
+    </li>
+  </ul>
+</div>

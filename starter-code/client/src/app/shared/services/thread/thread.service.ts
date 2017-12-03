@@ -3,8 +3,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
 
-import { IThread } from './../interfaces/thread.interface';
-import { environment } from './../../../environments/environment';
+import { IThread } from './../../interfaces/thread.interface';
+import { environment } from './../../../../environments/environment';
 
 
 @Injectable()
