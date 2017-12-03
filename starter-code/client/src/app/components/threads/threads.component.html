@@ -2,6 +2,9 @@
   <a [routerLink]="['login']">Login</a>
   <a [routerLink]="['signup']">Sign up</a>
 </div>
+<div *ngIf="isAuth">
+  <a [routerLink]="['threads', 'new']">New thread</a>
+</div>
 <div>
   <ul>
     <li *ngFor="let thread of threads">

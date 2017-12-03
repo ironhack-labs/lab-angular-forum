@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ThreadsComponent } from './components/threads/threads.component';
+import { NewThreadComponent } from './components/new-thread/new-thread.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -19,8 +20,9 @@ import './shared/operators/rxjs.operators';
   declarations: [
     AppComponent,
     ThreadsComponent,
+    NewThreadComponent
     SignupComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

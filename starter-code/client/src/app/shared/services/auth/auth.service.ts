@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private http: Http) {}
 
   login(user: IUser): Observable<IUser> {
-    this.http.post(`${this.baseUrl}/login`, JSON.stringify(user)), this.options)
+    this.http.post(`${this.baseUrl}/login`, JSON.stringify(user), this.options)
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }
@@ -26,6 +26,10 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/signup`, JSON.stringify(user), this.options)
       .map(res => res.json())
       .catch(error => this.handleError(error));
+  }
+
+  isAuthenticated(): boolean {
+    return this.user !== null && this.user !== undefined;
   }
 
   private handleError(error: Response | any): Observable<any> {
