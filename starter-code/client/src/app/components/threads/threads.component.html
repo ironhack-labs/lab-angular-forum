@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let thread of threads">
+    <p>{{ thread.title}} - {{ thread.author}}</p>
+    <p>{{ thread.date | date }}</p>
+  </li>
+</ul>
