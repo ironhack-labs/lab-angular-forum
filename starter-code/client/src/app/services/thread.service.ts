@@ -20,10 +20,16 @@ export class ThreadService {
         .catch (this.handleError);
     }
 
+    addThread(thread):Observable<Thread>{
+      return this.http.post(this.baseUrl,thread, this.options)
+        .map(res => res.json())
+        .catch (this.handleError)
+    }
+
 
   protected handleError (error :Response | any ): Observable<any> {
     console.log( error );
-    return Observable.throw (error.joson());
+    return Observable.throw (error.json());
   }
 
 }

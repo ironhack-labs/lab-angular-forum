@@ -12,7 +12,7 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
-
+import { IsLoggedInService } from './services/isLoggedIn.canActivate.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { NewThreadComponent } from './components/new-thread/new-thread.component
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ThreadService, AuthService],
+  providers: [ThreadService, AuthService, IsLoggedInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
