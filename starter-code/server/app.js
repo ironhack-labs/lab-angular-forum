@@ -14,6 +14,9 @@ const configure    = require('./config/passport.js');
 mongoose.connect('mongodb://localhost/forum-development');
 
 const app = express();
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(session({
   secret: "forum-app",
