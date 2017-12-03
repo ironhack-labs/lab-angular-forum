@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
 import { IsLoggedInService } from './services/isLoggedIn.canActivate.service';
+import { ThreadComponent } from './components/thread/thread.component';
+import { ReplyComponent } from './components/reply/reply.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { IsLoggedInService } from './services/isLoggedIn.canActivate.service';
     ThreadListComponent,
     LoginComponent,
     RegisterComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    ThreadComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

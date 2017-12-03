@@ -4,7 +4,7 @@ import { User } from '../../models/User.model';
 
 import { ThreadService } from '../../services/thread.service';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router} from '@angular/router';
 
 
 @Component({
@@ -17,9 +17,10 @@ export class ThreadListComponent implements OnInit {
   error: String;
   user: User;
 
-  constructor(private threadSercice : ThreadService,
+  constructor(private threadService : ThreadService,
               private authService : AuthService,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              private router: Router ){
       this.user = this.authService.getUser();
       this.authService.getLoginEventEmitter()
         .subscribe( user => this.user = user );
@@ -35,10 +36,15 @@ export class ThreadListComponent implements OnInit {
        });
 
     console.log("--- into thread-list.component ogOnInit");
-    this.threadSercice.list().subscribe(
-      (threads)=> this.listThread=threads,
+    this.threadService.list().subscribe(
+      (threads)=> {
+        this.listThread=threads;
+        //console.log(threads)
+      },
       (error)=> this.error=error.message,
     );
   }
+
+
 
 }

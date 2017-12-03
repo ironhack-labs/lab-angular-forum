@@ -3,6 +3,7 @@ import { ThreadListComponent } from './components/thread-list/thread-list.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NewThreadComponent } from './components/new-thread/new-thread.component';
+import { ThreadComponent } from './components/thread/thread.component';
 import {IsLoggedInService} from './services/isLoggedIn.canActivate.service';
 
 const routes : Routes = [
@@ -11,13 +12,8 @@ const routes : Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'private/newThread', component: NewThreadComponent ,canActivate: [ IsLoggedInService ] },
+  { path: 'private/threadDetail', component: ThreadComponent },
   { path: '**', redirectTo: 'home' }
-
-
-  // { path: 'users/:id', component: UserComponent, canActivate: [IsAuthenticatedGuard],
-  //   canDeactivate: [CanLeaveEditUserGuard], resolve: {
-  //     user: UserResolverGuard
-  //   } },
 ];
 
 export { routes }

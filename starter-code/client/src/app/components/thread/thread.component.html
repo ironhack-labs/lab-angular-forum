@@ -1,0 +1,24 @@
+<div class="container">
+    <p>Title: {{thread.title}}</p>
+    <p>Content: {{thread.content}}</p>
+    <p>Author: {{thread._author.username}}</p>
+</div>
+
+  <div *ngIf="thread.replies.length >0">
+    <h2>Replies</h2>
+    <div *ngFor="let e of thread.replies">
+        <app-reply [reply]="e"></app-reply><br>
+    </div>
+  </div>
+<div *ngIf="user">
+  <form (ngSubmit)="onSubmitReply(replyForm,thread._id)" #replyForm="ngForm">
+    <div>
+      <label for="Content">Reply Content</label>
+      <input type="text" name="content" [(ngModel)]="content" required>
+    </div>
+    <button type="submit" [disabled]="!replyForm.valid">Submint</button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</div>
+<br>
+<a [routerLink]="['']">Go Home</a>
