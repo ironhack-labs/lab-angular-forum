@@ -11,7 +11,10 @@ import { IThread } from './../../shared/interfaces/thread.interface';
 })
 export class NewThreadComponent implements OnInit {
 
-  thread: IThread = {};
+  thread: IThread = {
+    title: "",
+    content: ""
+  };
   error: string;
 
   constructor(

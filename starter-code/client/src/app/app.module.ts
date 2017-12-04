@@ -15,14 +15,16 @@ import { AuthService } from './shared/services/auth/auth.service';
 import { router } from './shared/routes/routes';
 
 import './shared/operators/rxjs.operators';
+import { SingleThreadComponent } from './components/single-thread/single-thread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadsComponent,
-    NewThreadComponent
     SignupComponent,
     LoginComponent,
+    ThreadsComponent,
+    SingleThreadComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

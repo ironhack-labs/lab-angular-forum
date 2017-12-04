@@ -11,7 +11,7 @@ import { AuthService } from './../../shared/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: IUser = new Object();
+  user: IUser;
   error: string;
 
   constructor(private authService: AuthService, private router: Router) {}

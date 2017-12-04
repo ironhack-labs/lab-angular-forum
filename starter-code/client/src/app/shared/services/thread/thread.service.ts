@@ -21,6 +21,12 @@ export class ThreadService {
       .catch((error: Response | any) => this.handleError(error));
   }
 
+  getThreadById(id): Observable<IThread> {
+    return this.http.get(`${this.baseUrl}/${id}`, this.options)
+      .map((res: Response) => res.json())
+      .catch((error: Response | any) => this.handleError(error));
+  }
+
   createNewThread(thread): Observable<IThread> {
     return this.http.post(this.baseUrl, this.options)
       .map((res: Response) => res.json())
