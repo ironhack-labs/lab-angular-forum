@@ -1,0 +1,15 @@
+<div>
+  <a [routerLink]="['login']">Login</a>
+  <a [routerLink]="['signup']">Sign up</a>
+</div>
+<div *ngIf="isAuth">
+  <a [routerLink]="['threads', 'new']">New thread</a>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let thread of threads">
+      <p><a [routerLink]="['threads', thread._id]">{{ thread.title}}</a> - {{ thread._author}}</p>
+      <p>{{ thread.date | date }}</p>
+    </li>
+  </ul>
+</div>
