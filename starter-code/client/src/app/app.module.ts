@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ThreadsComponent } from './threads/threads.component';
 import { ForumService } from '../services/forum.service';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { routes }  from "./routes";
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ForumService],
   bootstrap: [AppComponent]
