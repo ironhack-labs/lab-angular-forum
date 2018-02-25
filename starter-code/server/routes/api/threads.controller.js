@@ -5,10 +5,11 @@ const Reply    = require('../../models/reply.model');
 const loggedIn = require('../../utils/isAuthenticated');
 
 router.get('/', (req, res, next) => {
+console.log("holi estoy llamando aqui")
   Thread
     .find({})
     .populate('_author replies._author')
-    .exec( (err, threads) => {
+    .exec( (err, threads) => { console.log(threads)
       if (err) { return res.status(500).json(err); }
 
       return res.status(200).json(threads);
