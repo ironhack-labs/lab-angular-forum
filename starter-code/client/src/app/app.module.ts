@@ -9,12 +9,14 @@ import { SessionService } from '../services/session.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadsComponent
+    ThreadsComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

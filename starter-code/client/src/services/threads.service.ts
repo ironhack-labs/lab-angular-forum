@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ThreadsService {
   BASE_URL = 'http://localhost:3000';
+  options: object = { withCredentials: true };
   constructor(private http: Http) {}
 
   getThreads() {
@@ -13,12 +14,15 @@ export class ThreadsService {
   }
 
   get(id) {
-    return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
+    return this.http.get(`${this.BASE_URL}/api/threads/${id}`,
+    this.options)
       .map((res) => res.json());
   }
 
-  create(entry) {
-    return this.http.post(`${this.BASE_URL}/api/threads`, entry)
+  create(title, content) {
+    console.log('create: ' + title, content);
+    return this.http.post(`${this.BASE_URL}/api/threads`, {title, content},
+    this.options)
       .map((res) => res.json());
   }
 }

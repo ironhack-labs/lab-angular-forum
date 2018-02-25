@@ -1,0 +1,25 @@
+<p>
+  new-thread works!
+</p>
+
+<div *ngIf="session.getUser()">
+  <h2>New Post</h2>
+  <form (ngSubmit)="newPost(myTitle, myContent)" #myForm="ngForm" novalidate>
+    <p>Title</p>
+    <input type="text" name="title" [(ngModel)]="title" #myTitle="ngModel" />
+    <div *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+      <p class="error" [hidden]="!myTitle.errors.minlength">
+        Title is required 
+      </p>
+    </div>
+    <p> Content </p>
+    <textarea type="text" name="content" [(ngModel)]="content" #myContent="ngModel" required>
+    </textarea>
+    <div *ngIf="myContent.errors && (myContent.dirty || myContent.touched)">
+      <p class="error" [hidden]="!myContent.errors.required">
+        Content is required
+      </p>
+    </div>
+    <button type="submit"> Create New Post </button>
+  </form>
+</div>
