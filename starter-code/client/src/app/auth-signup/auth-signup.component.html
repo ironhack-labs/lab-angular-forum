@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <div *ngIf="!session.getUser()">
+      <h6>Signup!</h6>
+      <form class="text-center">
+        <div class="form-group">
+          <label> Username </label>
+          <input class="form-control" type="text" [(ngModel)]="username" name="username" /> </div>
+        <div class="form-group">
+          <label> Email </label>
+          <input class="form-control" type="email" [(ngModel)]="email" name="email" /> </div>
+        <div class="form-group">
+          <label> Password </label>
+          <input class="form-control" type="password" [(ngModel)]="password" name="password" /> </div>
+        <div class="form-group">
+          <button class="btn btn-warning" (click)="signup(username, password)"> signup </button>
+        </div>
+      </form>
+      <p *ngIf="error" class="error"> {{ error }} </p>
+    </div>
+    <div *ngIf="session.getUser()">
+      <button class="btn btn-warning" (click)="logout()"> Logout </button>
+    </div>
+    <div>
+      <a class="btn btn-warning" [routerLink]="['/']">Go back</a>
+    </div>
+  </div>
+</div>
