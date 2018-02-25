@@ -14,6 +14,7 @@ import { routes } from './routes';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewThreadComponent } from './new-thread/new-thread.component';
+import { ThreadDetailComponent } from './thread-detail/thread-detail.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { NewThreadComponent } from './new-thread/new-thread.component';
     ThreadsListComponent,
     LoginFormComponent,
     SignupFormComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    ThreadDetailComponent
   ],
   imports: [
     BrowserModule,
