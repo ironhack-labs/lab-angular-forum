@@ -1,5 +1,5 @@
 <div class="topbar">
-  <h1>Fosforito</h1>
+  <a [routerLink]="['']"><h1>Fosforito</h1></a> 
   <div class="links" *ngIf="!session.getUser()" >
     <a [routerLink]="['/login']">Login</a> |
     <a [routerLink]="['/signup']">Signup</a>

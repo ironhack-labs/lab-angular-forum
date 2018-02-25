@@ -8,6 +8,17 @@ h2{
   border: 1px solid darkturquoise;
   margin: 10px;
   padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  transition: background ease .2s;
+}
+.thread:hover{
+  background: darkturquoise;
+  color: #fff;
+}
+.thread:hover small{
+  color: #fff;
 }
 .thread h3{
   margin: 5px;

@@ -1,0 +1,21 @@
+h2{
+  background: darkturquoise;
+  padding: 5px 10px;
+  color: white;
+  margin: 30px 10px 20px 10px;
+}
+.thread{
+  border: 1px solid darkturquoise;
+  margin: 10px;
+  padding: 10px;
+}
+.thread h3{
+  margin: 5px;
+}
+.thread p{
+  margin: 0;
+  margin-top: 10px;
+}
+.thread small{
+  color: darkturquoise;
+}

@@ -15,11 +15,15 @@ export class ForumService {
   }
 
   newThread(_author,title,content){
-    console.log("hey")
     return this.http
       .post(`${this.BASE_URL}/api/threads`, {_author,title,content})
       .map(res => res.json())
       .catch(this.handleError);
+  }
+
+  getSingleThread(id) {
+    return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
+      .map((res) => res.json());
   }
 
   handleError(e) {

@@ -1,6 +1,9 @@
 <h2>Threads</h2>
 <a [routerLink]="['threads/new']" *ngIf="session.getUser()" class="btn">New Thread</a>
-<div class="thread" *ngFor="let t of threads">
-  <h3>{{t.title}} <small>@{{t._author.username}}</small></h3>
-  <p>{{t.date | date:'yyyy-MM-dd HH:mm'}}</p>
+
+<div *ngFor="let t of threads">
+  <a class="thread" [routerLink]="['threads', t._id]">
+    <h3>{{t.title}} <small>by @{{t._author.username}}</small></h3>
+    <p>{{t.date | date:'yyyy-MM-dd HH:mm'}}</p>
+  </a>
 </div>
