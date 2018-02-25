@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ThreadsComponent } from './threads/threads.component';
 import { ThreadsService } from '../services/threads.service';
+import { SessionService } from '../services/session.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
@@ -21,7 +22,7 @@ import { routes } from './routes';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ThreadsService],
+  providers: [ThreadsService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
