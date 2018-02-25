@@ -1,0 +1,5 @@
+<h2>Threads</h2>
+<div class="thread" *ngFor="let t of threads">
+  <h3>{{t.title}} <small>@{{t._author.username}}</small></h3>
+  <p>{{t.date | date:'yyyy-MM-dd HH:mm'}}</p>
+</div>
