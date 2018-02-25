@@ -37,9 +37,9 @@ export class SessionService {
     return this.user;
   }
 
-  signup(user) {
+  signup(username, email, password) {
     return this.http
-      .post(`${this.baseURL}/api/signup`, user, this.options)
+      .post(`${this.baseURL}/api/signup`, {username,email,password}, this.options)
       .map(res => res.json())
       .map(this.configureUser())
       .catch(this.handleError);
@@ -71,7 +71,6 @@ export class SessionService {
   }
 
   handleError(e) {
-    console.log(e)
     return Observable.throw(e.json().message);
   }
 }

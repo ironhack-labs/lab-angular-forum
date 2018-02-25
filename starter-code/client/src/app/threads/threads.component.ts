@@ -14,9 +14,7 @@ export class ThreadsComponent implements OnInit {
               .subscribe(res => this.threads = res)
   }
 
-  ngOnInit() {
-    
-    console.log(this.threads)
+  ngOnInit() { 
   }
 
 }

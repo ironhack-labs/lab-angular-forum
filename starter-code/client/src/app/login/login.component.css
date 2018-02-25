@@ -42,3 +42,12 @@ button:hover{
   cursor: pointer;
   background: darkturquoise;
 }
+
+.error {
+  border: 2px solid crimson;
+  background: rgba(237, 20, 61 , .1);
+  padding: 10px;
+  color: crimson;
+  margin: 20px 0 0 0;
+  font-weight: bold;
+}

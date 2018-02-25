@@ -1,10 +1,11 @@
 <form>
-    <h2> Login</h2>
-    
-    <input type="text" [(ngModel)]="username" name="username" placeholder="username" />
-  
+    <h2> Signup </h2>
+    <input type="text" [(ngModel)]="username" name="username" placeholder="username"/>
+
+    <input type="email" [(ngModel)]="email" name="email" placeholder="email"/>
+
     <input type="password" [(ngModel)]="password" name="password" placeholder="password"/>
   
-    <button (click)="login()"> Login </button>
+    <button (click)="signup()"> Signup </button>
+    <p class="error" *ngIf="error"> {{ error }} </p>
   </form>
-  <p class="error"> {{ error }} </p>
