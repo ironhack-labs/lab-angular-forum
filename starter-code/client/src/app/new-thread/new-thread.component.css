@@ -1,0 +1,56 @@
+form{
+  display: block;
+  width: 400px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid darkturquoise;
+}
+
+form h2{
+  margin-top: 0;
+}
+
+input, button,textarea {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  height: 40px;
+  line-height: 38px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+input,textarea{
+  border: 2px solid teal;
+}
+textarea{
+  min-height: 100px;
+  resize: vertical;
+}
+input:hover, input:focus,textarea:hover,textarea:focus{
+  border: 2px solid darkturquoise;
+  outline: none;
+}
+
+button{
+  background: teal;
+  border: none;
+  color: #fff;
+}
+
+button:hover{
+  cursor: pointer;
+  background: darkturquoise;
+}
+
+.error {
+  border: 2px solid crimson;
+  background: rgba(237, 20, 61 , .1);
+  padding: 10px;
+  color: crimson;
+  margin: 20px 0 0 0;
+  font-weight: bold;
+}

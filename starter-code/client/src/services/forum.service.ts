@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs/Rx";
+
 
 @Injectable()
 export class ForumService {
@@ -11,5 +13,16 @@ export class ForumService {
     return this.http.get(`${this.BASE_URL}/api/threads`)
       .map((res) => res.json());
   }
-  
+
+  newThread(_author,title,content){
+    console.log("hey")
+    return this.http
+      .post(`${this.BASE_URL}/api/threads`, {_author,title,content})
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  handleError(e) {
+    return Observable.throw(e.json().message);
+  }
 }

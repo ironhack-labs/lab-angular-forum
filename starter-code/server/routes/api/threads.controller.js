@@ -27,13 +27,16 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/', loggedIn, (req, res, next) => {
+router.post('/', (req, res, next) => {
+  console.log("authorised")
+  console.log(req.body)
   const newThread = new Thread({
-    _author: req.user._id,
+    _author: req.body._author,
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    date: new Date()
   });
-
+  console.log(newThread)
   newThread.save((err) => {
     if (err)              { return res.status(500).json(err); }
     if (newThread.errors) { return res.status(400).json(newThread); }

@@ -12,6 +12,7 @@ import { SessionService } from '../services/session.service';
 import { TopbarComponent } from './topbar/topbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SignupComponent } from './signup/signup.component';
     ThreadsComponent,
     TopbarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from '../../services/forum.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-threads',
@@ -9,7 +10,7 @@ import { ForumService } from '../../services/forum.service';
 export class ThreadsComponent implements OnInit {
 
   threads;
-  constructor( private forum: ForumService) { 
+  constructor( private forum: ForumService, private session: SessionService) { 
     this.forum.getThreads()
               .subscribe(res => this.threads = res)
   }

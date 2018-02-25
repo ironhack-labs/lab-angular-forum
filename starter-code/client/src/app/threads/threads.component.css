@@ -18,3 +18,22 @@ h2{
 .thread small{
   color: darkturquoise;
 }
+.btn {
+  display: block;
+  width: fit-content;
+  margin: 30px 10px 20px 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: monospace;
+  text-decoration: none;
+  background: teal;
+  border: none;
+  color: #fff;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background: darkturquoise;
+}
