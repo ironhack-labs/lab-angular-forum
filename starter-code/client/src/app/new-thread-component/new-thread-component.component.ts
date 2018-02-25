@@ -23,7 +23,8 @@ export class NewThreadComponentComponent implements OnInit {
   }
 
   addThread(){
-    this.thread.addThread(this.title,this.content,this.session.getUser()._id)
+    let userId = this.session.getUser()._id
+    this.thread.addThread(this.title,this.content,userId)
     .catch(e => this.error = e)
     .subscribe(()=> this.router.navigate(['/']));
   }

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 interface User {
+  _id: string,
   username: string,
   password: string
 }

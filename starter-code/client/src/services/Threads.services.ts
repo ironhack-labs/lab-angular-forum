@@ -13,17 +13,21 @@ export class ThreadService {
     handleError(e) {
         console.log(e);
         return Observable.throw(e.json().message);
-      }
+    }
 
     getThreads() {
         return this.http.get(`${this.BASE_URL}/api/threads`)
           .map((res) => res.json());
-      }
+    }
 
     addThread(title: string, content:string, id:string): Observable<any> {
             return this.http.post(`${this.BASE_URL}/api/threads`, { title, content, id }, this.options)
               .map(res => res.json())
               .catch(this.handleError);
-          }
+    }
+
+    getThread(id){
+        return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
+        .map((res) => res.json())
     }
 }

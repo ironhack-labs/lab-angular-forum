@@ -10,14 +10,16 @@ import { ThreadService } from '../services/Threads.services';
 import { AuthenticationService } from '../services/Authentication.services';
 import { NewThreadComponentComponent } from './new-thread-component/new-thread-component.component';
 import { RouterModule } from '@angular/router';
-import { routes } from './routes'
+import { routes } from './routes';
+import { SingleThreadComponent } from './single-thread/single-thread.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     HomeComponent,
-    NewThreadComponentComponent
+    NewThreadComponentComponent,
+    SingleThreadComponent
   ],
   imports: [
     BrowserModule,
