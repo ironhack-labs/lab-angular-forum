@@ -16,14 +16,4 @@ export class ThreadsService {
     return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
       .map((res) => res.json());
   }
-  
-//   edit(threads) {
-//     return this.http.put(`${this.BASE_URL}/api/threads/${threads.id}`, threads)
-//       .map((res) => res.json());
-//   }
-  
-//   remove(id) {
-//     return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
-//       .map((res) => res.json());
-//   }
 }
