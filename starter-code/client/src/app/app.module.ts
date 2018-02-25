@@ -10,13 +10,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadsComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    SingleThreadComponent
   ],
   imports: [
     BrowserModule,

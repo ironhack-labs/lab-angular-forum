@@ -6,6 +6,6 @@
   <div class="thread" *ngFor="let thread of threads">
     <h3> {{ thread.title }} </h3>
     <p>{{ thread._author.username }} - {{ thread.date | date:'yyyy-MM-dd HH:mm' }}</p>
-    <!-- <a [routerLink]="['threads', thread._id]"> See Thread </a> -->
+    <a [routerLink]="['threads', thread._id]"> See Details </a>
   </div>
 </div>

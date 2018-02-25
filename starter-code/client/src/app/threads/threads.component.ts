@@ -19,13 +19,4 @@ export class ThreadsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // newPost(title, content) {
-  //   console.log('newPost');
-  //   title = title.value;
-  //   content = content.value;
-  //   this.threadsSer.create(title, content).subscribe (post => {
-  //     console.log(post);
-  //   });
-  // }
 }

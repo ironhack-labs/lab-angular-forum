@@ -1,0 +1,5 @@
+<div *ngIf="thread">
+    <p>{{ thread.title }} - {{ thread.date | date:'yyyy-MM-dd HH:mm' }}</p>
+    <p>{{ thread._author.username }}</p>
+    <p>{{ thread.content }}</p>
+  </div>
