@@ -1,0 +1,8 @@
+<h1> THREAD DETAILS</h1>
+<a [routerLink]="['']"> Back to list </a>
+
+<div *ngIf="thread">
+  <h2>{{thread.title}}</h2>
+  <p>{{thread.content}}</p>
+  <p>By {{thread._author.username}}</p>
+</div>
