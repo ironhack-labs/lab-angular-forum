@@ -1,0 +1,32 @@
+<div class="row" *ngIf="thread">
+  <div class="col-sm-12">
+    <h1>{{thread.title}}</h1>
+    <div class="row">
+      <div class="col-sm-4">
+        <div>{{thread._author.username}}</div>
+        <div>{{thread._author.email}}</div>
+        <div>{{thread.date | date:'short'}}</div>
+      </div>
+      <div class="col-sm-8">
+        <div>{{thread.content}}</div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h3>Replies</h3>
+            <small>This thread has {{thread.replies.length}} replies</small>
+            <div class="row" *ngFor="let reply of thread.replies">
+              <div class="col-sm-12">
+                <!-- {{reply | json}}-->
+                <div class="reply-user"><small>On {{reply.date | date:"short"}}, {{reply._author.username}} replied:</small> </div>
+                <div class="reply-content"> {{reply.content}} </div>
+              </div>
+            </div>
+            <reply-form (outputcall)="reloadReplies()"></reply-form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a class="btn btn-warning" [routerLink]="['/']">Go back</a>
+    </div>
+  </div>
+</div>

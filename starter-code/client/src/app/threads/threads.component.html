@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div *ngIf="session.getUser()"> <small>Hola {{session.user.username}}</small>
+      </div>
+      <div *ngIf="!session.getUser()">
+        <div class="user-btns">
+          <a class="btn btn-success" [routerLink]="['/login']">Login</a>
+          <a class="btn btn-success" [routerLink]="['/signup']">Signup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="threadList.length==0" class="row">
+    <div class="col-sm-12">
+      <div> No threads yet! </div>
+    </div>
+  </div>
+  <div *ngIf="threadList.length>0" id="thread-list" class="row">
+    <div class="col-sm-12">
+      <div class="row thread" *ngFor="let thread of threadList; let i=index">
+        <div class="col-sm-4">
+          <div class="title"> {{thread._author.username}} on {{thread.date | date:'short'}}  </div>
+          <div><small>{{thread.replies.length}} replies</small></div>
+        </div>
+        <div class="col-sm-8">
+          <div class="content"> <a [routerLink]="['/thread/',thread._id]">{{thread.title}}</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="new-thread">
+    <div class="col-sm-12">
+      <div *ngIf="session.getUser()">
+        <a class="btn btn-success" [routerLink]="['/thread/new']">New thread</a>
+        <button class="btn btn-success" (click)="logout()"> Logout </button>
+      </div>
+    </div>
+  </div>
+</div>
