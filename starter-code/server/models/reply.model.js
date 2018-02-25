@@ -8,7 +8,7 @@ const ReplySchema = new Schema({
   },
   content: {
     type: String,
-    required: [true, "Content is required"]
+    required: String
   },
   date: {
     type: Date,

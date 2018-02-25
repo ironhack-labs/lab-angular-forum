@@ -17,11 +17,13 @@ export class SingleThreadComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe( params => this.getEntry(params["id"]))
+    this.route.params.subscribe( params => this.getThread(params["id"]))
   }
-  getEntry(id){
+         
+   getThread(id){
     this.forum.getSingleThread(id).subscribe( thread => {
       this.thread = thread;
+      return thread;
     })
   }
 }

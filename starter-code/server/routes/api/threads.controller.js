@@ -45,12 +45,14 @@ router.post('/', (req, res, next) => {
   });
 });
 
-router.post('/:id/replies', loggedIn, (req, res, next) => {
+router.post('/:id/replies', (req, res, next) => {
+  console.log("POST REPLY")
   const newReply = new Reply({
-    _author: req.user._id,
-    title: req.body.title,
-    content: req.body.content
+    _author: req.body._author,
+    content: req.body.content,
+    date: new Date()
   });
+
 
   Thread
     .findById(req.params.id)

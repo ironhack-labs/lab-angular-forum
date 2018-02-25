@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NewThreadComponent } from './new-thread/new-thread.component';
 import { SingleThreadComponent } from './single-thread/single-thread.component';
+import { ReplyComponent } from './reply/reply.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SingleThreadComponent } from './single-thread/single-thread.component';
     LoginComponent,
     SignupComponent,
     NewThreadComponent,
-    SingleThreadComponent
+    SingleThreadComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

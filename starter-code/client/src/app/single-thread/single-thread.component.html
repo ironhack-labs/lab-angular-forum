@@ -1,7 +1,23 @@
-<h2>{{thread.title}}
-  <small>by @{{thread._author.username}}</small>
-</h2>
-<div class="thread" >
-  <strong>{{thread.date | date:'yyyy-MM-dd HH:mm'}}</strong>
-  <p>{{thread.content}}</p>
+<div *ngIf="thread">
+  <h2>{{thread.title}}
+  </h2>
+  <div class="thread">
+    <h3>by
+      <strong>@{{thread._author.username}}</strong>
+      <small> | {{thread.date | date:'yyyy-MM-dd HH:mm'}}</small>
+    </h3>
+    <p>{{thread.content}}</p>
+  </div>
+  <h2 class="reply">Replies
+  </h2>
+  <div class="thread reply" *ngFor="let r of thread.replies">
+    <h3>Reply by
+      <strong>@{{r._author.username}}</strong>
+      <small> | {{r.date | date:'yyyy-MM-dd HH:mm'}}</small>
+    </h3>
+    <p>{{r.content}}</p>
+  </div>
+  <div class="reply">
+    <app-reply></app-reply>
+  </div>
 </div>
