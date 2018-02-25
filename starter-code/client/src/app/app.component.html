@@ -1,8 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="topbar">
   <h1>
-    Welcome to {{ title }}!
+    Forito
   </h1>
+  <div class="links">
+    <a [routerLink]="['/login']">Login</a> | <a [routerLink]="['/signup']">Signup</a>
+  </div>
+  <div class="links">
+    <span>Hello fulanito</span> | <a [routerLink]="['/logout']">Logout</a> 
+  </div>
 </div>
 <router-outlet></router-outlet>
 
