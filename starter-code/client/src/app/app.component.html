@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <div *ngIf="!session.user && session.startLoginCompleted">
+  <a  [routerLink]="['login']">Login</a>
+  <a  [routerLink]="['signup']">Signup</a>
+  </div>
+
+
+
+  <div *ngIf="session.user && session.startLoginCompleted">
+    <p>Welcome {{ session.user.username }}</p>
+    <button (click)="logout()">Logout</button>
+     <a [routerLink]="['threads/new']">Create new Thread</a>
+  <!--    <a (click)="session.logout()">Logout</a>-->
+  </div>
+
+  <router-outlet></router-outlet>
