@@ -1,0 +1,11 @@
+<div class="topbar">
+  <h1>Forito</h1>
+  <div class="links" *ngIf="!session.getUser()" >
+    <a [routerLink]="['/login']">Login</a> |
+    <a [routerLink]="['/signup']">Signup</a>
+  </div>
+  <div class="links" *ngIf="session.getUser()">
+    <span>Hello {{session.getUser().username}}</span> |
+    <a (click)="logout()">Logout</a>
+  </div>
+</div>
