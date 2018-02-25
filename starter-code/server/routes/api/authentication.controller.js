@@ -70,7 +70,7 @@ router.get("/logout", function(req, res) {
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
+router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }

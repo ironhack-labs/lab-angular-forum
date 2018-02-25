@@ -30,6 +30,7 @@ app.use(
     secret: "forum-app",
     resave: true,
     saveUninitialized: true,
+    cookie: { httpOnly: true, maxAge: 2419200000 },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
