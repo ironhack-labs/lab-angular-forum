@@ -1,0 +1,9 @@
+<div class="parent">
+  <div class="el" *ngFor="let t of threadList">
+      <h1>{{t.title}}</h1>
+      <h1>{{t.date}}</h1>
+      <h1>{{t._author.username}}</h1>
+    </div>
+    <div><a [routerLink]="['/thread', t._id]"> View Details </a></div>
+  </div>
+

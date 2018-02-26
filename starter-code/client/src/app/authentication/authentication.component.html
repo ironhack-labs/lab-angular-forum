@@ -1,0 +1,21 @@
+<div *ngIf="!session.getUser()">
+  <form>
+    <h2> Login or Signup </h2>
+    <label> Name </label>
+    <input type="text" [(ngModel)]="username" name="name" />
+    <br>
+    <label> Password </label>
+    <input type="password" [(ngModel)]="password" name="password" />
+    <div>
+      <button (click)="login()"> login </button>
+      <button (click)="signup()"> signup </button>
+    </div>
+  </form>
+  <p *ngIf="error" class="error"> {{ error }} </p>
+</div>
+
+<div *ngIf="session.getUser()">
+  <pre> {{ session.getUser() | json }} </pre>
+  <button [routerLink]="['threads/new']"> New </button>
+  <button (click)="logout()"> Logout </button>
+</div>
