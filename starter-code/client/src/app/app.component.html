@@ -1,0 +1,12 @@
+<h1>Forum</h1>
+<router-outlet></router-outlet>
+<div *ngIf=true>
+    <div>
+        <a [routerLink]="['/login']">Login</a>
+        <a [routerLink]="['/signup']">Signup</a>
+    </div>
+</div>
+<div *ngIf=true>
+    <pre> {{ session.getUser() | json }} </pre>
+    <button (click)="logout()"> Logout </button>
+</div>
