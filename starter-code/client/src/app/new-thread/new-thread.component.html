@@ -1,0 +1,10 @@
+<form>
+  <h2> New Thread</h2>
+
+  <input type="text" [(ngModel)]="title" name="title" placeholder="title" />
+
+  <textarea type="text" [(ngModel)]="content" name="content" placeholder="content"> </textarea>
+
+  <button (click)="newThread()"> Create </button>
+  <p class="error" *ngIf="error"> {{ error }} </p>
+</form>

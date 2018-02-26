@@ -27,13 +27,16 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/', loggedIn, (req, res, next) => {
+router.post('/', (req, res, next) => {
+  console.log("authorised")
+  console.log(req.body)
   const newThread = new Thread({
-    _author: req.user._id,
+    _author: req.body._author,
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    date: new Date()
   });
-
+  console.log(newThread)
   newThread.save((err) => {
     if (err)              { return res.status(500).json(err); }
     if (newThread.errors) { return res.status(400).json(newThread); }
@@ -42,12 +45,14 @@ router.post('/', loggedIn, (req, res, next) => {
   });
 });
 
-router.post('/:id/replies', loggedIn, (req, res, next) => {
+router.post('/:id/replies', (req, res, next) => {
+  console.log("POST REPLY")
   const newReply = new Reply({
-    _author: req.user._id,
-    title: req.body.title,
-    content: req.body.content
+    _author: req.body._author,
+    content: req.body.content,
+    date: new Date()
   });
+
 
   Thread
     .findById(req.params.id)

@@ -1,0 +1,11 @@
+<div class="topbar">
+  <a [routerLink]="['']"><h1>Fosforito</h1></a> 
+  <div class="links" *ngIf="!session.getUser()" >
+    <a [routerLink]="['/login']">Login</a> |
+    <a [routerLink]="['/signup']">Signup</a>
+  </div>
+  <div class="links" *ngIf="session.getUser()">
+    <span>Hello {{session.getUser().username}}</span> |
+    <a (click)="logout()">Logout</a>
+  </div>
+</div>

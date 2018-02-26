@@ -1,0 +1,10 @@
+body{
+  font-family: monospace;
+  padding-top: 50px;
+}
+a{
+  text-decoration: underline;
+}
+a:hover{
+  cursor: pointer;
+}

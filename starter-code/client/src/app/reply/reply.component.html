@@ -1,0 +1,8 @@
+<form *ngIf="session.getUser()">
+  <h2> New Reply</h2>
+
+  <textarea type="text" [(ngModel)]="content" name="content" placeholder="content"> </textarea>
+
+  <button (click)="newReply()"> Reply </button>
+  <p class="error" *ngIf="error"> {{ error }} </p>
+</form>

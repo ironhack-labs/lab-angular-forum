@@ -1,0 +1,50 @@
+h2{
+  background: darkturquoise;
+  padding: 5px 10px;
+  color: white;
+  margin: 30px 10px 20px 10px;
+}
+.thread{
+  border: 1px solid darkturquoise;
+  margin: 10px;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  transition: background ease .2s;
+}
+.thread:hover{
+  background: darkturquoise;
+  color: #fff;
+}
+.thread:hover small{
+  color: #fff;
+}
+.thread h3{
+  margin: 5px;
+}
+.thread p{
+  margin: 3px 5px;
+}
+.thread small{
+  color: darkturquoise;
+}
+.btn {
+  display: block;
+  width: fit-content;
+  margin: 30px 10px 20px 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: monospace;
+  text-decoration: none;
+  background: teal;
+  border: none;
+  color: #fff;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background: darkturquoise;
+}
