@@ -15,7 +15,9 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Password is required"]
   }
-});
+}, {
+		usePushEach: true
+	});
 
 UserSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

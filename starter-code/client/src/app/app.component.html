@@ -1,0 +1,15 @@
+<div class="container">
+  <section id="main">
+
+    <div *ngIf="!logged">
+      <a class="btn btn-default" [routerLink]="['login']">Log in</a>
+      <a class="btn btn-default" [routerLink]="['signup']">Sign up</a>
+    </div>
+
+    <div *ngIf="logged">
+      <button class="btn btn-default" (click)="logout()"> logout </button>
+    </div>
+  </section>
+
+  <router-outlet></router-outlet>
+</div>

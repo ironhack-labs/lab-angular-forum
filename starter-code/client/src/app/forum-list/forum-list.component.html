@@ -1,0 +1,11 @@
+<h1>Threads</h1>
+<div class="alert alert-danger" *ngIf="error">
+  {{error}}
+</div>
+
+<div *ngFor="let thread of threads">
+  <a [routerLink]="['/threads/', thread._id]"><h3>{{thread.title}}</h3></a>
+  <h5>{{thread._author.username}} <small>{{thread.date | date: 'medium'}}</small></h5>
+  <hr />
+</div>
+<a *ngIf="logged" [routerLink]="['/threads/new']" class="btn btn-primary">New thread</a>

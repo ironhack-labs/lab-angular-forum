@@ -1,0 +1,30 @@
+<div class="alert alert-danger" *ngIf="error">
+  {{error}}
+</div>
+<h1>
+  {{thread?.title}}
+</h1>
+<p>{{thread?.content}}</p>
+<h5>{{thread?._author.username}} <small>{{thread?.date | date: 'medium'}}</small></h5>
+<div *ngIf="thread">
+  <hr />
+  <h1>Replies</h1>
+  <span *ngIf="!thread.replies.length">No replies</span>
+  <hr *ngIf="!thread.replies.length"/>
+  <div *ngFor="let reply of thread.replies">
+    <p>{{reply.content}}</p>
+    <h5>{{reply._author.username}} <small>{{reply.date | date: 'medium'}}</small></h5>
+    <hr />
+  </div>
+</div>
+<div *ngIf="logged">
+  <form>
+    <div class="form-group" [ngClass]="{'has-error': errors && errors.content}">
+      <label class="control-label"> Content </label>
+      <textarea class="form-control" [(ngModel)]="replyInfo.content" name="content" required></textarea>
+      <p *ngIf="errors && errors.content" class="help-block">{{errors.content}}</p>
+    </div>
+
+    <button class="btn btn-primary" (click)="newReply()">Send</button>
+  </form>
+</div>

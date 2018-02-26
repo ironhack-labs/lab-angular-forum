@@ -9,23 +9,31 @@ const mongoose     = require('mongoose');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
-const configure    = require('./config/passport.js');
+const configure	   = require('./config/passport.js');
+const cors		   = require("cors");
 
-mongoose.connect('mongodb://localhost/forum-development');
+mongoose.connect('mongodb://localhost:27017/forum-development');
 
 const app = express();
 
+configure(passport);
+
 app.use(session({
-  secret: "forum-app",
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+	secret: "forum-app",
+	resave: true,
+	saveUninitialized: true,
+	store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-configure(passport);
+const corsOptions = {
+	origin: 'http://localhost:4200',
+	optionsSuccessStatus: 200,
+	credentials: true
+}
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors(corsOptions));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
