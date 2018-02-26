@@ -1,0 +1,29 @@
+<div *ngIf="thread">
+  <p>{{ thread.title }} - {{ thread.date | date:'yyyy-MM-dd HH:mm' }}</p>
+  <p>{{ thread._author.username }}</p>
+  <p>{{ thread.content }}</p>
+  <hr>
+  <div *ngIf="thread.replies">
+    <div *ngFor="let reply of thread.replies">
+      <p>{{ reply._author.username }} - {{ reply.date | date:'yyyy-MM-dd HH:mm' }}</p>
+      <p>{{ reply.content }}</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div *ngIf="session.getUser()">
+  <h2>New Reply</h2>
+  <form (ngSubmit)="addReply(myContent.value, myForm)" #myForm="ngForm" novalidate>
+    <p> Content </p>
+    <textarea type="text" name="content" [(ngModel)]="content" #myContent="ngModel" required>
+    </textarea>
+    <div *ngIf="myContent.errors && (myContent.dirty || myContent.touched)">
+      <p class="error" [hidden]="!myContent.errors.required">
+        Content is required
+      </p>
+    </div>
+    <button type="submit"> Submit Reply </button>
+  </form>
+</div>
+
