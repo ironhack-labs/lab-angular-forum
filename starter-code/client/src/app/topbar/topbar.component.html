@@ -1,0 +1,16 @@
+<p>
+  topbar works!
+</p>
+
+<div>
+  <a [routerLink]="['']"><h1>Home</h1></a> 
+  <div  *ngIf="!session.getUser()" >
+    <a [routerLink]="['/login']">Login</a> |
+    <a [routerLink]="['/signup']">Signup</a>
+  </div>
+  <div  *ngIf="session.getUser()">
+    <span>Hello {{session.getUser().username}}</span> |
+    <a (click)="logout()">Logout</a>
+  </div>
+</div>
+
