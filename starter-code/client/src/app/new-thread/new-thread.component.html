@@ -1,0 +1,10 @@
+<form>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title" />
+  <br>
+  <label> Content </label>
+  <input type="text" [(ngModel)]="content" name="content" />
+  <div>
+    <button (click)="addThread()"> Send </button>
+  </div>
+</form>
