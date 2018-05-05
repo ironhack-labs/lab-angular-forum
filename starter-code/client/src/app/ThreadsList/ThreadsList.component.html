@@ -4,12 +4,14 @@
 </div>
 
 <div *ngIf="sessionService.user">
-  <a [routerLink]="['/home']" class="btn btn-primary">Logout</a>
+  <h1>Welcome {{sessionService.user.username}}</h1>
+  <a [routerLink]="['/threads/new']">New Thread</a>
+  <button (click)="sessionService.logout().subscribe()" class="btn btn-primary">Logout</button>
 </div>
 
 <div *ngIf="threads">
   <div *ngFor="let t of threads">
-    <h2>{{t.title}}</h2>
+    <h2><a [routerLink]="['/threads',t._id]">{{t.title}}</a></h2>
     <h3>Author: {{t._author.username}}</h3>
     <h3>Date: {{t.date | date: "dd/MM/yyyy"}}</h3>
   </div>

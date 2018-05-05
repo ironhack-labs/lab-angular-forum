@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { SessionService } from './services/Session.service';
 import { AuthLoginComponent } from './AuthLogin/AuthLogin.component';
 import { AuthSignupComponent } from './AuthSignup/AuthSignup.component';
+import { NewThreadComponent } from './NewThread/NewThread.component';
+import { SingleThreadComponent } from './SingleThread/SingleThread.component';
+import { RepliesComponent } from './Replies/Replies.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { AuthSignupComponent } from './AuthSignup/AuthSignup.component';
     AppComponent,
     ThreadsListComponent,
     AuthLoginComponent,
-    AuthSignupComponent
+    AuthSignupComponent,
+    NewThreadComponent,
+    SingleThreadComponent,
+    RepliesComponent
 ],
   imports: [
     BrowserModule,

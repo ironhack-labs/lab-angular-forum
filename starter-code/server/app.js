@@ -15,17 +15,6 @@ const cors = require("cors");
 mongoose.connect("mongodb://localhost/forum-development");
 
 const app = express();
-
-app.use(
-  session({
-    secret: "forum-app",
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
-  })
-);
-
-configure(passport);
 var whitelist = ["http://localhost:4200"];
 var corsOptions = {
   origin: function(origin, callback) {
@@ -36,6 +25,22 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "forum-app",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+app.use(express.static(path.join(__dirname, "public")));
+app.use(layouts);
+
+configure(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -46,12 +51,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-app.use(layouts);
+
 
 const index = require("./routes/index");
 app.use("/", index);
