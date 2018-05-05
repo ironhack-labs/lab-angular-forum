@@ -1,0 +1,13 @@
+.container{
+    margin-top: 25px;
+}
+h1{
+    color: palevioletred;
+    text-decoration-line: underline;
+}
+h2{
+    color: grey;
+}
+h5{
+    font-style: italic;
+}

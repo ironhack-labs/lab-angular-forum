@@ -1,0 +1,15 @@
+<div class="container">
+<a [routerLink]="['/login']" class="btn btn-outline-info btn-sm">Log In </a> 
+ <a [routerLink]="['/signup']" class="btn btn-outline-info btn-sm">Register </a>
+</div>
+<div class="container">
+ <h1>All threads</h1>
+<div class="container">
+  <div *ngFor="let t of threads">
+<h2>{{t.title}}</h2>
+<p>{{t.date}}</p>
+<h5>Author: {{t._author.username}}</h5>
+<!-- <a [routerLink]="['/dish', d._id]"> View Details </a> -->
+  </div>
+</div>
+</div>
