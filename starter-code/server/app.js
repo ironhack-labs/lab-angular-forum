@@ -31,7 +31,10 @@ app.use(
     secret: "forum-app",
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 * 60 // 1 day
+    })
   })
 );
 

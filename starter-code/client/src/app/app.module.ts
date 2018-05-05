@@ -5,11 +5,18 @@ import { AllThreadsComponent } from "./all-threads/all-threads.component";
 import { ThreadsRouterRoutes } from "./threads-router.routing";
 import { ThreadsServiceService } from "./threads-service.service";
 import { HttpModule } from "@angular/http";
+import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { AuthSignupComponent } from './auth-signup/auth-signup.component';
+import { FormsModule } from "@angular/forms";
+import { SessionService } from "./session-service.service";
 
 @NgModule({
-  declarations: [AppComponent, AllThreadsComponent],
-  imports: [BrowserModule, ThreadsRouterRoutes, HttpModule],
-  providers: [ThreadsServiceService],
+  declarations: [AppComponent, AllThreadsComponent,
+    AuthLoginComponent,
+    AuthSignupComponent
+],
+  imports: [BrowserModule, ThreadsRouterRoutes, HttpModule, FormsModule],
+  providers: [ThreadsServiceService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
