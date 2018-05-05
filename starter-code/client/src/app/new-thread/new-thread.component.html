@@ -1,0 +1,15 @@
+<p>New Thread works!</p>
+
+<form>
+  <h2> Create a new thread </h2>
+  <label> title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <br>
+  <label> content </label>
+  <input type="text" [(ngModel)]="content" name="content"/>
+
+  <div style="padding-top:30px">
+    <button (click)="threadService.postThread(title, content).subscribe()"> Create thread </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p>

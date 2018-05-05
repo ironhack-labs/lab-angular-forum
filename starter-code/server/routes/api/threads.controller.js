@@ -33,11 +33,10 @@ router.post('/', loggedIn, (req, res, next) => {
     title: req.body.title,
     content: req.body.content
   });
-
+  console.log(newThread);
   newThread.save((err) => {
     if (err)              { return res.status(500).json(err); }
     if (newThread.errors) { return res.status(400).json(newThread); }
-
     return res.status(200).json(newThread);
   });
 });

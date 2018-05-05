@@ -50,8 +50,7 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http
-      .get(`${BASEURL}/api/loggedin`, this.options)
+    return this.http.get(`${BASEURL}/api/loggedin`, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);

@@ -10,9 +10,10 @@ import { routes } from './routes';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
 import { SessionService } from './session.service';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 @NgModule({
-  declarations: [AppComponent, MyThreadsComponent, AuthLoginComponent, AuthSignupComponent],
+  declarations: [AppComponent, MyThreadsComponent, AuthLoginComponent, AuthSignupComponent, NewThreadComponent],
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), FormsModule],
   providers: [ThreadsService, SessionService],
   bootstrap: [AppComponent]
