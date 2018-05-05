@@ -7,6 +7,7 @@ const loggedIn = require('../../utils/isAuthenticated');
 router.get('/', (req, res, next) => {
   Thread
     .find({})
+    .sort('-date')
     .populate('_author replies._author')
     .exec( (err, threads) => {
       if (err) { return res.status(500).json(err); }
