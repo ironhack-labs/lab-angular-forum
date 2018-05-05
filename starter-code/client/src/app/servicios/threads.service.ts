@@ -43,4 +43,10 @@ export class ThreadsService {
       .get(`${this.BASE_URL}/api/threads/${idThread}`)
       .map(res => res.json());
   }
+  reply(idThread, reply){
+    return this.http
+      .post(`${this.BASE_URL}/api/threads/${idThread}/replies`, reply)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

@@ -11,6 +11,7 @@ import { AuthLoginComponent } from './componentes/auth-login/auth-login.componen
 import { AuthSignupComponent } from './componentes/auth-signup/auth-signup.component';
 import { NewThreadComponent } from './componentes/new-thread/new-thread.component';
 import { ThreadComponent } from './componentes/thread/thread.component';
+import { ReplyComponent } from './componentes/reply/reply.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ThreadComponent } from './componentes/thread/thread.component';
     AuthSignupComponent,
     NewThreadComponent,
     ThreadComponent,
+    ReplyComponent,
     
   ],
   imports: [
