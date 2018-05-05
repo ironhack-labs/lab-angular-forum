@@ -2,7 +2,7 @@
   <app-auth-signup></app-auth-signup>
   <app-auth-login></app-auth-login>
 </div>
-<div *ngIf="this.sessionService.user"><button (click)="logout()">Log out</button></div>
+<div *ngIf="this.sessionService.user"><button (click)="sessionService.logout().subscribe()">Log out</button></div>
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!

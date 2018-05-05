@@ -9,16 +9,6 @@ import { SessionService } from './session.service';
 export class AppComponent {
   title = 'ElForUm';
   constructor(public sessionService: SessionService) {
-    this.sessionService.userEvent.subscribe(user => {
-      console.log('USER EVENT');
-      if (user) {
-        this.title = `HOLA ${user.username}`;
-      } else {
-        this.title = 'PLIZ LOGIARSE!';
-      }
-    });
-  }
-  logout() {
-    this.sessionService.logout().subscribe();
+    this.sessionService.userEvent.subscribe();
   }
 }
