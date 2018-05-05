@@ -1,0 +1,22 @@
+<a [routerLink]="['/home']" class="btn btn-primary">Home</a>
+
+<div *ngIf="thread">
+  <h1>{{thread.title}}</h1>
+  <h2>Author: {{thread._author.username}}</h2>
+  <p>{{thread.content}}</p>
+
+  <div class="container" *ngIf="sessionService.user">
+    <h3>Reply:</h3>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" [(ngModel)]="replyInfo.title" class="form-control" id="title" name="title">
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea name="content" id="content" cols="30" rows="10" [(ngModel)]="replyInfo.content" class="form-control"></textarea>
+      </div>
+      <button (click)="newReply(thread._id)" class="btn btn-primary btn-lg btn-block">New Reply</button>
+    </form>
+  </div>
+</div>
