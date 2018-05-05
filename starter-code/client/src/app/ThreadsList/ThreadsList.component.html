@@ -1,3 +1,12 @@
+<div *ngIf="!sessionService.user">
+  <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
+  <a [routerLink]="['/signup']" class="btn btn-primary">Signup</a>
+</div>
+
+<div *ngIf="sessionService.user">
+  <a [routerLink]="['/home']" class="btn btn-primary">Logout</a>
+</div>
+
 <div *ngIf="threads">
   <div *ngFor="let t of threads">
     <h2>{{t.title}}</h2>
