@@ -9,6 +9,8 @@ import { ThreadsService } from './servicios/threads.service';
 import { ListThreadsComponent } from './componentes/list-threads/list-threads.component';
 import { AuthLoginComponent } from './componentes/auth-login/auth-login.component';
 import { AuthSignupComponent } from './componentes/auth-signup/auth-signup.component';
+import { NewThreadComponent } from './componentes/new-thread/new-thread.component';
+import { ThreadComponent } from './componentes/thread/thread.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { AuthSignupComponent } from './componentes/auth-signup/auth-signup.compo
     ListThreadsComponent,
     AuthLoginComponent,
     AuthSignupComponent,
+    NewThreadComponent,
+    ThreadComponent,
     
   ],
   imports: [

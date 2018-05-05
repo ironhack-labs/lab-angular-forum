@@ -3,13 +3,16 @@
  <a [routerLink]="['/signup']" class="btn btn-outline-info btn-sm">Register </a>
 </div>
 <div class="container">
- <h1>All threads</h1>
+  <h1>All threads</h1>
+       <div *ngIf="sesionThreads.user">
+       <a [routerLink]="['/threads/new']" class="btn btn-outline-secondary btn-lg">New Threads </a>
+      </div>
 <div class="container">
   <div *ngFor="let t of threads">
 <h2>{{t.title}}</h2>
 <p>{{t.date}}</p>
 <h5>Author: {{t._author.username}}</h5>
-<!-- <a [routerLink]="['/dish', d._id]"> View Details </a> -->
+ <a [routerLink]="['/threads', t._id]"> View Details </a> 
   </div>
 </div>
 </div>

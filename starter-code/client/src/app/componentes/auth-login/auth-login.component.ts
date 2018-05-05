@@ -18,6 +18,6 @@ export class AuthLoginComponent implements OnInit {
   logIn() {
     this.sessionService
       .login(this.formInfo)
-      .subscribe(() => this.router.navigate(["/private"]));
+      .subscribe(() => this.router.navigate(["/home"]));
   }
 }

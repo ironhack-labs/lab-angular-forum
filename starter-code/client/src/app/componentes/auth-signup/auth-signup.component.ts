@@ -19,6 +19,6 @@ export class AuthSignupComponent implements OnInit {
   signup() {
     this.sessionService
       .signup(this.formInfo)
-      .subscribe(() => this.router.navigate(["/private"]));
+      .subscribe(() => this.router.navigate(["/home"]));
   }
 }

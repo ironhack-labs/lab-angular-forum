@@ -11,3 +11,7 @@ h2{
 h5{
     font-style: italic;
 }
+.btn-outline-secondary{
+    background-color: palevioletred;
+    color:white;
+}
