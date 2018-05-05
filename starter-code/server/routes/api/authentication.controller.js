@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next) => {
     ;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({ username }, "username", (user) => {
     if (user !== null) {
       return res
           .status(400)
