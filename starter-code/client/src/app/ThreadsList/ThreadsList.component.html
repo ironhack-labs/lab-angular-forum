@@ -5,7 +5,7 @@
       <h1>Welcome {{sessionService.user.username}}</h1>
     </div>
     <div class="col-md-5 text-right">
-      <a [routerLink]="['/threads/new']">New Thread</a>
+      <a class="btn btn-success" [routerLink]="['/threads/new']">New Thread</a>
       <button (click)="sessionService.logout().subscribe()" class="btn btn-primary">Logout</button>
     </div>
 

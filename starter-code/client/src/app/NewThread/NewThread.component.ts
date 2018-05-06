@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ThreadsService } from '../services/Threads.service';
 
 @Component({
   selector: 'app-NewThread',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewThreadComponent implements OnInit {
 
-  constructor() { }
+  info = {
+    title: '',
+    content: ''
+  };
+  constructor(public threadService: ThreadsService, public router: Router) { }
 
   ngOnInit() {
   }
 
+  newThread() {
+    this.threadService.newThread(this.info).subscribe(() => this.router.navigate(['/home']));
+  }
+
 }
+
