@@ -12,6 +12,7 @@ import { AuthSignupComponent } from './AuthSignup/AuthSignup.component';
 import { NewThreadComponent } from './NewThread/NewThread.component';
 import { SingleThreadComponent } from './SingleThread/SingleThread.component';
 import { ThreadsListComponent } from './ThreadsList/ThreadsList.component';
+import { ThreadsService } from './services/Threads.service';
 
 
 
@@ -30,7 +31,7 @@ import { ThreadsListComponent } from './ThreadsList/ThreadsList.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ThreadsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
