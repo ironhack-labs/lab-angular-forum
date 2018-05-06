@@ -9,6 +9,7 @@
       <h4>{{ thread.title }}
         <span class="secondary">{{ thread._author.username }}</span>
         <span class="secondary">{{thread.date}}</span>
+        <a [routerLink]="['thread', thread._id]"> > Read</a>
       </h4>
     </li>
   </ul>

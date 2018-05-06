@@ -11,6 +11,7 @@ import { SessionService } from "./services/session.service";
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { NewThreadComponent } from './newThread/newThread.component';
+import { ThreadDetailComponent } from './threadDetail/threadDetail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewThreadComponent } from './newThread/newThread.component';
     ThreadsListComponent,
     LoginComponent,
     SignupComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    ThreadDetailComponent
 ],
   imports: [
     BrowserModule,
