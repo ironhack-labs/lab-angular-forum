@@ -1,0 +1,17 @@
+<a [routerLink]="['/home']" class="btn btn-primary">Home</a>
+<h1> SIGN UP  </h1>
+<form>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="user.username" name="username" />
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="user.password" name="password" />
+  <br>
+  <label> email </label>
+  <input type="email" [(ngModel)]="user.email" name="email" />
+
+  <div>
+    <button (click)="signup()"> SIGN UP </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p>
