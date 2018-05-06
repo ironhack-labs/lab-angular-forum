@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { SessionService } from "./services/session.service";
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { NewThreadComponent } from './newThread/newThread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadsListComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent
 ],
   imports: [
     BrowserModule,
