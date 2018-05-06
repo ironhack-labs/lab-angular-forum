@@ -15,6 +15,7 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
 import { SessionService } from './session.service';
 import { NewThreadComponent } from './new-thread/new-thread.component';
+import { MyThreadComponent } from './my-thread/my-thread.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NewThreadComponent } from './new-thread/new-thread.component';
     MyThreadsComponent,
     AuthLoginComponent,
     AuthSignupComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    MyThreadComponent
 ],
   imports: [
     BrowserModule,

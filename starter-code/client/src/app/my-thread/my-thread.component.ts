@@ -4,14 +4,13 @@ import { ThreadService } from '../thread.service';
 import { SessionService } from '../session.service';
 
 @Component({
-  selector: 'app-new-thread',
-  templateUrl: './new-thread.component.html',
-  styleUrls: ['./new-thread.component.css']
+  selector: 'app-my-thread',
+  templateUrl: './my-thread.component.html',
+  styleUrls: ['./my-thread.component.css']
 })
-export class NewThreadComponent implements OnInit {
-  title:string ="";
-  content:string = "";
-  thread: any;
+export class MyThreadComponent implements OnInit {
+threadId:string;
+thread: any;
   constructor(
     private route: ActivatedRoute, 
     private threadService: ThreadService,
@@ -20,10 +19,13 @@ export class NewThreadComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.route.params
+    .subscribe((params) => {
+      this.threadId = params['id'];
+  });
+    this.threadService.getOneThread(this.threadId).subscribe(thread =>
+      this.thread = thread);
+    
   }
-newThread(){
 
-  this.threadService.createThread(this.title, this.content).subscribe()
-  
-}
 }

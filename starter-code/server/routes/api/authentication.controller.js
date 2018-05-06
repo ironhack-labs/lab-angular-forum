@@ -39,7 +39,7 @@ router.post("/signup", (req, res, next) => {
           .json({ message: "The username already exists" });
     }
 
-    const salt     = bcrypt.genSaltSync(10);
+    const salt     = bcrypt.genSaltSync(8);
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = User({
@@ -70,7 +70,7 @@ router.post("/logout", function(req, res) {
   res.status(200).json({ message: 'Success' });
 });
 
-router.get("/loggedin", function(req, res) {
+router.post("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }

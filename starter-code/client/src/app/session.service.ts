@@ -10,7 +10,9 @@ const BASEURL = 'http://localhost:3000';
 export class SessionService {
 
   user: any;
-  options: object = {withCredentials:true}
+  options: object = {withCredentials:true};
+  userEvent: EventEmitter<any> = new EventEmitter();
+
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();
@@ -19,25 +21,30 @@ export class SessionService {
   handleError(e) {
     return Observable.throw(e.json().message);
   }
+  handleUser(user?:object){
+    this.user = user;
+    // this.userEvent.emit(this.user);
+    return this.user;
+  }
 
   signup(user) {
     return this.http.post(`${BASEURL}/api/signup`, user, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   login(username, password) {
     return this.http.post(`${BASEURL}/api/login`, {username, password}, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   isLoggedIn() {
-    return this.http.get(`${BASEURL}/api/loggedin`, this.options)
+    return this.http.post(`${BASEURL}/api/loggedin`,{}, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
@@ -45,7 +52,7 @@ export class SessionService {
     return this.http
       .post(`${BASEURL}/api/logout`, {}, this.options)
       .map(res => res.json())
-      .map(() => (this.user = null))
+      .map(() => this.handleUser())
       .catch(this.handleError);
   }
 

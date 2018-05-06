@@ -4,7 +4,7 @@
     <li *ngFor="let thread of threads">
       <h4>{{thread.title}} </h4>
       <p>{{thread.content}} </p>
-
+      <a [routerLink]="['/threads',thread._id]">View</a>
     </li>
   </ul>
 </div>
