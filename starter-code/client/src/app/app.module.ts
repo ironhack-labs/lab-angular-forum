@@ -11,10 +11,12 @@ import { ThreadListComponent } from "./ThreadList/ThreadList.component";
 import { ThreadService } from "./services/thread.service";
 import { SessionService } from "./services/session.service";
 import { LoginFormComponent } from './login-form/login-form.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 @NgModule({
   declarations: [AppComponent, ThreadListComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    NewThreadComponent
 ],
   imports: [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [ThreadService, SessionService],

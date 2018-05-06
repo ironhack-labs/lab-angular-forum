@@ -1,0 +1,9 @@
+<form>
+    <h2> New Thread </h2>
+    <label> Title </label>
+    <input type="text" [(ngModel)]="form.title" name="title">
+    <br>
+    <label> Content </label>
+    <textarea name="form.content" id="" cols="30" rows="10"></textarea>
+  </form>
+  <button (click)="submitThread()"> Submit </button>

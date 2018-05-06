@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -7,22 +8,26 @@ import { SessionService } from '../services/session.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  username: string;
-  password: string;
+  form = {
+    username: '',
+    password: ''
+  };
 
-  constructor(public sessionService: SessionService) {}
+  constructor(public router: Router, public sessionService: SessionService) {}
 
   ngOnInit() {}
 
   login() {
-    this.sessionService.login(this.username, this.password).subscribe();
+    this.sessionService
+      .login(this.form)
+      .subscribe(() => this.router.navigate(['/home']));
+  }
+
+  logout() {
+    this.sessionService.logout().subscribe();
   }
 
   signup() {
-    const user = {
-      username: this.username,
-      password: this.password
-    };
-    this.sessionService.signup(user).subscribe();
+    this.sessionService.signup(this.form).subscribe();
   }
 }
