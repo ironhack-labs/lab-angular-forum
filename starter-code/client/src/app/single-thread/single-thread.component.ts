@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThreadsService } from '../threads.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-single-thread',
@@ -12,7 +13,8 @@ export class SingleThreadComponent implements OnInit {
   constructor(
     public threadsService: ThreadsService,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public sessionService: SessionService
   ) {
     this.route.params.subscribe(p => {
       console.log(p.id);

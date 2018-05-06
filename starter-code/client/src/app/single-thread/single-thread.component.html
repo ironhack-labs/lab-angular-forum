@@ -3,3 +3,14 @@
 <p>Posteado por:   {{thread._author.username}}</p>
 
 <a [routerLink]='["/"]'>Go back</a>
+
+<div class="comments" *ngIf="this.sessionService.user">
+    <label>Reply to the thread</label>
+    <input type="text" [(ngModel)]="title" name="title">
+    <input type="text" [(ngModel)]="content" name="content">
+    <button (click)="this.threadsService.postReply(this.thread._id, title, content).subscribe()"> Post reply</button>
+</div>
+
+<div *ngFor="let reply of thread.replies">
+  <p>{{reply.title}}</p>
+</div>
