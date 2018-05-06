@@ -9,6 +9,7 @@ export class ThreadsService {
   BASE_URL: string = "http://localhost:3000";
   user: any;
   thread: any;
+  option: any = {withCredentials: true };
   constructor(private http: Http) {}
   handleError(e) {
     return Observable.throw(e.json().message);
@@ -32,9 +33,9 @@ export class ThreadsService {
       .map(user => (this.user = user))
       .catch(this.handleError);
   }
-  tnew(thread) {
+  tnew(option) {
     return this.http
-      .post(`${this.BASE_URL}/api/threads`, thread)
+      .post(`${this.BASE_URL}/api/threads`, option)
       .map(res => res.json())
       .catch(this.handleError);
   }

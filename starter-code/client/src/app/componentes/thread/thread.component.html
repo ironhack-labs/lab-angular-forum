@@ -1,0 +1,15 @@
+<div *ngIf = "thread">
+    <h1>{{thread.title}}</h1>
+    <div class="container">
+    <h6>{{thread.date}}</h6>
+    <p>{{thread.content}}</p>
+    </div>
+    </div>
+    <div>
+     <div *ngIf = "sessionService.user">   
+    <app-reply></app-reply>
+    </div>
+    </div>
+    
+    
+  
