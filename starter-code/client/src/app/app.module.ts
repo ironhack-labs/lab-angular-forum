@@ -8,20 +8,26 @@ import { routes } from './routes';
 import { AppComponent } from './app.component';
 import { ThreadsService } from './threads.service';
 import { ListThreadsComponent } from './list-threads/list-threads.component';
+import { SessionService } from './session.service'
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListThreadsComponent
+    ListThreadsComponent,
+    LoginComponent,
+    SignupComponent
 ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
+    FormsModule
   ],
-  providers: [ThreadsService],
+  providers: [ThreadsService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

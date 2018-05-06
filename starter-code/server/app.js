@@ -35,7 +35,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //Cors para poder conectar ambos
 var whitelist = [
-  'http://localhost:3000',
+  'http://localhost:4200',
 ];
 var corsOptions = {
   origin: function(origin, callback){
