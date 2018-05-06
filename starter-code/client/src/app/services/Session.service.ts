@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Injectable, EventEmitter } from "@angular/core";
+import { Http, Response } from "@angular/http";
+import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
-import { Observable } from "rxjs/Rx";
 
 @Injectable()
 export class SessionService {
   BASE_URL: string = "http://localhost:3000";
   user: any;
+  userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials: true };
 
   constructor(private http: Http) {
@@ -18,11 +19,17 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
+  handleUser(user?:object){
+    this.user = user;
+    this.userEvent.emit(this.user);
+    return this.user;
+  }
+
   signup(user) {
     return this.http
       .post(`${this.BASE_URL}/api/signup`, user, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
@@ -30,7 +37,7 @@ export class SessionService {
     return this.http
       .post(`${this.BASE_URL}/api/login`, user, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
@@ -38,7 +45,7 @@ export class SessionService {
     return this.http
       .post(`${this.BASE_URL}/api/logout`, {}, this.options)
       .map(res => res.json())
-      .map(() => (this.user = null))
+      .map(() => this.handleUser())
       .catch(this.handleError);
   }
 
@@ -46,7 +53,7 @@ export class SessionService {
     return this.http
       .post(`${this.BASE_URL}/api/loggedin`, {}, this.options)
       .map(res => res.json())
-      .map(user => (this.user = user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 }

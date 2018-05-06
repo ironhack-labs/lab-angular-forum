@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThreadsService } from '../services/Threads.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../services/Session.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class SingleThreadComponent implements OnInit {
   }
 
 
-  constructor(private threadService: ThreadsService, public sessionService: SessionService, private route: ActivatedRoute) { }
+  constructor(private threadService: ThreadsService, public sessionService: SessionService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe( params => {
@@ -28,7 +28,7 @@ export class SingleThreadComponent implements OnInit {
   }
 
   newReply(id) {
-    this.threadService.newReply(id, this.replyInfo).subscribe();
+    this.threadService.newReply(id, this.replyInfo).subscribe( () => this.router.navigate(["/threads", id]) );
   }
 
 }

@@ -14,7 +14,6 @@ import { AuthLoginComponent } from './AuthLogin/AuthLogin.component';
 import { AuthSignupComponent } from './AuthSignup/AuthSignup.component';
 import { NewThreadComponent } from './NewThread/NewThread.component';
 import { SingleThreadComponent } from './SingleThread/SingleThread.component';
-import { RepliesComponent } from './Replies/Replies.component';
 
 
 @NgModule({
@@ -24,8 +23,7 @@ import { RepliesComponent } from './Replies/Replies.component';
     AuthLoginComponent,
     AuthSignupComponent,
     NewThreadComponent,
-    SingleThreadComponent,
-    RepliesComponent
+    SingleThreadComponent
 ],
   imports: [
     BrowserModule,

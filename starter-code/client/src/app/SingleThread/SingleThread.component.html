@@ -9,14 +9,15 @@
     <h3>Reply:</h3>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" [(ngModel)]="replyInfo.title" class="form-control" id="title" name="title">
-      </div>
-      <div class="form-group">
         <label for="content">Content</label>
         <textarea name="content" id="content" cols="30" rows="10" [(ngModel)]="replyInfo.content" class="form-control"></textarea>
       </div>
       <button (click)="newReply(thread._id)" class="btn btn-primary btn-lg btn-block">New Reply</button>
     </form>
+  </div>
+
+  <div *ngFor="let r of thread.replies">
+    <p>Date: {{r.date | date:"dd/MM/yyyy" }} by {{r._author.username}}</p>
+    <p>{{r.content}}</p>
   </div>
 </div>
