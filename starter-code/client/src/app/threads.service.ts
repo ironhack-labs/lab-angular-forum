@@ -21,6 +21,10 @@ export class ThreadsService {
     return this.http.get(`${this.BASE_URL}/api/threads`).map(res => res.json());
   }
 
+  getOneThread (id) {
+    return this.http.get(`${this.BASE_URL}/api/threads/${id}`).map(res => res.json());
+  }
+
   postThread(title: string, content: string) {
     console.log(title, content);
     const thread = {

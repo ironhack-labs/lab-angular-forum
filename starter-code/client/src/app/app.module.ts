@@ -11,9 +11,10 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
 import { SessionService } from './session.service';
 import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 @NgModule({
-  declarations: [AppComponent, MyThreadsComponent, AuthLoginComponent, AuthSignupComponent, NewThreadComponent],
+  declarations: [AppComponent, MyThreadsComponent, AuthLoginComponent, AuthSignupComponent, NewThreadComponent, SingleThreadComponent],
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), FormsModule],
   providers: [ThreadsService, SessionService],
   bootstrap: [AppComponent]
