@@ -19,6 +19,19 @@ constructor(private http: Http) { }
             .map(res => res.json());
     }
 
+    getThreadsId(id) {
+        return this.http.get(`${this.BASE_URL}/api/threads/${id}`)
+        .map(res => res.json());
+    }
 
+    newThread(info) {
+        return this.http.post(`${this.BASE_URL}/api/threads`, info)
+            .map(res => res.json());
+    }
+
+    newReply(id, info) {
+        return this.http.post(`${this.BASE_URL}/api/threads/${id}/replies}`, info )
+        .map( res => res.json());
+    }
 
 }

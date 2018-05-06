@@ -1,6 +1,8 @@
 
 <h2>Welcome to home page</h2>
 
+<a [routerLink]="['/threads/new']" >Crear un post </a>
+
 
 <div *ngIf="threads">
   <div *ngFor="let t of threads">
