@@ -28,12 +28,12 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', loggedIn, (req, res, next) => {
+  console.log('holaaaaaaaaaaaaa')
   const newThread = new Thread({
     _author: req.user._id,
     title: req.body.title,
     content: req.body.content
   });
-
   newThread.save((err) => {
     if (err)              { return res.status(500).json(err); }
     if (newThread.errors) { return res.status(400).json(newThread); }
