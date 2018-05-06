@@ -1,0 +1,16 @@
+<a [routerLink]="['/home']" class="btn btn-danger">Home</a>
+
+<h1 class="text-center">New Thread</h1>
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" [(ngModel)]="info.title" class="form-control" name="title">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" cols="30" rows="10" [(ngModel)]="info.content" class="form-control"></textarea>
+    </div>
+    <button type="submit" (click)="newThread()" class="btn btn-primary btn-lg btn-block">New Thread</button>
+  </form>
+</div>

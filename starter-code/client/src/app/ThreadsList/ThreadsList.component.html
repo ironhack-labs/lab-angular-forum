@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row" *ngIf="sessionService.user">
+
+    <div class="col-md-7">
+      <h1>Welcome {{sessionService.user.username}}</h1>
+    </div>
+    <div class="col-md-5 text-right">
+      <a class="btn btn-success" [routerLink]="['/threads/new']">New Thread</a>
+      <button (click)="sessionService.logout().subscribe()" class="btn btn-primary">Logout</button>
+    </div>
+
+  </div>
+  <div *ngIf="!sessionService.user" class="col-md-12">
+    <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
+    <a [routerLink]="['/signup']" class="btn btn-primary">Signup</a>
+  </div>
+
+
+  <div *ngIf="threads">
+    <div *ngFor="let e of threads">
+      <h2>
+        <a [routerLink]="['/threads',e._id]">{{e.title}}</a>
+      </h2>
+      <h3>Author: {{e._author.username}}</h3>
+      <h3>Date: {{e.date | date: "dd/MM/yyyy"}}</h3>
+    </div>
+  </div>
+</div>
