@@ -1,0 +1,9 @@
+<h2>Threads List</h2>
+
+<div>
+  <div class="thread" *ngFor="let thread of threads">
+    <h3> {{ thread.title }} </h3>
+    <p> {{ thread._author.username }} </p>
+    <p> {{ thread.date | date: "dd/MM/yyyy hh:mm"}}</p>
+  </div>
+</div>
