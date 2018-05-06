@@ -12,6 +12,7 @@ export class NewThreadComponent implements OnInit {
   title:string ="";
   content:string = "";
   thread: any;
+  threadId:string;
   constructor(
     private route: ActivatedRoute, 
     private threadService: ThreadService,
@@ -23,7 +24,10 @@ export class NewThreadComponent implements OnInit {
   }
 newThread(){
 
-  this.threadService.createThread(this.title, this.content).subscribe()
+  this.threadService.createThread(this.title, this.content).subscribe(threadId=>{
+    this.threadId = threadId._id;
+    this.router.navigate([`/threads/${this.threadId}`]);
+  })
   
 }
 }

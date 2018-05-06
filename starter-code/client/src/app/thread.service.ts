@@ -31,6 +31,11 @@ getOneThread(id){
   return this.http.get(`${BASEURL}/api/threads/${id}`)
   .map((res) => res.json());
 }
+createReply(id, content){
+  return this.http.post(`${BASEURL}/api/threads/${id}/replies`, {content}, this.options)
+  .map((res) => res.json())
+}
+
 
 }
 

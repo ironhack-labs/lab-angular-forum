@@ -11,6 +11,7 @@ import { SessionService } from '../session.service';
 export class MyThreadComponent implements OnInit {
 threadId:string;
 thread: any;
+reply: string;
   constructor(
     private route: ActivatedRoute, 
     private threadService: ThreadService,
@@ -26,6 +27,12 @@ thread: any;
     this.threadService.getOneThread(this.threadId).subscribe(thread =>
       this.thread = thread);
     
+  }
+  newReply(){
+    this.threadService.createReply(this.threadId, this.reply).subscribe(() =>{
+      this.threadService.getOneThread(this.threadId).subscribe(thread =>
+        this.thread = thread)
+    })
   }
 
 }

@@ -2,15 +2,16 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <a [routerLink]="['/home']" class="btn btn-primary">Home </a>
   <div *ngIf="!service.user">
   <a [routerLink]="['/login']" class="btn btn-primary">Log In </a>
   <a [routerLink]="['/signup']" class="btn btn-primary">Sign Up </a>
   </div>
   <div *ngIf="service.user">
-    <h2>SECRETS</h2>
     <button class="btn btn-danger" (click)="service.logout().subscribe()" > Logout </button>
   </div>
-  <router-outlet></router-outlet>
   <div *ngIf="service.user">
-    <a [routerLink]="['/threads/new']" class="btn btn-primary"> New thread </a>
-  </div>
+      <a [routerLink]="['/threads/new']" class="btn btn-primary"> New thread </a>
+    </div>
+  <router-outlet></router-outlet>
+  

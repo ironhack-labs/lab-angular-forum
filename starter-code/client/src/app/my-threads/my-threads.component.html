@@ -1,10 +1,11 @@
 
-<div>
+<div class="container">
   <ul>
-    <li *ngFor="let thread of threads">
+    <div class="poster" *ngFor="let thread of threads">
       <h4>{{thread.title}} </h4>
+      <p><strong>{{thread._author.username}}</strong> </p>
       <p>{{thread.content}} </p>
       <a [routerLink]="['/threads',thread._id]">View</a>
-    </li>
+    </div>
   </ul>
 </div>
