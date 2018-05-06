@@ -79,12 +79,12 @@ router.post("/logout", function(req, res) {
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
-  if(req.isAuthenticated()) {
-    return res.status(200).json(req.user);
-  }
-
-  return res.status(403).json({ message: 'Unauthorized' });
+router.post('/loggedin', (req, res) => {
+    if(req.user){
+        return res.status(200).json(req.user);
+    }else{
+        return res.status(400).json({message:"You should loggin first"});
+    }
 });
 
 module.exports = router;

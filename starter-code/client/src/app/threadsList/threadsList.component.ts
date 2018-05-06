@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ThreadsService } from "../services/threads.service";
+import { SessionService } from "../services/session.service";
 
 @Component({
   selector: "app-threadsList",
@@ -9,7 +10,17 @@ import { ThreadsService } from "../services/threads.service";
 })
 export class ThreadsListComponent implements OnInit {
   threads;
-  constructor(private thread: ThreadsService) {}
+  title;
+  constructor(private thread: ThreadsService, public sessionService: SessionService) {
+    this.sessionService.userEvent.subscribe( user => {
+      console.log("USER EVENT");
+      if(user){
+        this.title = `HOLA ${user.username}`;
+      }else{
+        this.title = "PLIZ LOGIARSE!";
+      }
+    })
+  }
 
   ngOnInit() {
     this.thread.getList().subscribe(threads => {

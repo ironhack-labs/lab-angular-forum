@@ -4,6 +4,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { Observable } from "rxjs/Rx";
 const BASEURL = "http://localhost:3000";
+
 @Injectable()
 export class SessionService {
   user: any;
@@ -19,7 +20,7 @@ export class SessionService {
   }
   handleUser(user?: object) {
     this.user = user;
-    this.userEvent.emit(this.user);
+    //this.userEvent.emit(this.user);
     return this.user;
   }
   signup(user) {
@@ -33,7 +34,10 @@ export class SessionService {
   login(username, password) {
     return this.http
       .post(`${BASEURL}/api/login`, { username, password }, this.options)
-      .map(res => res.json())
+      .map(res => {
+        console.log(res);
+        return res.json()
+      })
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
@@ -47,7 +51,7 @@ export class SessionService {
 
   isLoggedIn() {
     return this.http
-      .post(`${BASEURL}/api/loggedin`, this.options)
+      .post(`${BASEURL}/api/loggedin`, {}, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);

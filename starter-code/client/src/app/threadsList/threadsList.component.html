@@ -1,9 +1,15 @@
-<a [routerLink]="['login']">Login</a>
-<a [routerLink]="['signup']">Sign up</a>
+<div *ngIf="!sessionService.user">
+  <a [routerLink]="['login']">Login</a>
+  <a [routerLink]="['signup']">Sign up</a>
+</div>
 <div class="container">
+  <a *ngIf="sessionService.user" [routerLink]="['newThread']">New Thread</a>
   <ul class="threads-list">
     <li *ngFor="let thread of threads">
-      <h4>{{ thread.title }} <span class="secondary">{{ thread._author.username }}</span> <span class="secondary">{{thread.date}}</span></h4>
+      <h4>{{ thread.title }}
+        <span class="secondary">{{ thread._author.username }}</span>
+        <span class="secondary">{{thread.date}}</span>
+      </h4>
     </li>
   </ul>
 </div>
