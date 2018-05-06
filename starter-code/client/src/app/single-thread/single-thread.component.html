@@ -1,0 +1,26 @@
+<div class="container">
+  <div *ngIf="thread">
+    <div class="thread">
+      <h2>{{thread.title}}</h2>
+      <h4>Author: {{thread._author.username}}</h4>
+      <p>{{thread.content}}</p>
+    </div>
+    
+    <div class="comment-form" *ngIf="userSessionService.user">
+      <h4>Reply:</h4>
+      <form>
+        <div class="form-group">
+          <textarea name="content" cols="40" rows="5" [(ngModel)]="replyInfo.content" class="form-control"></textarea>
+        </div>
+        <button (click)="newReply(thread._id)" class="btn btn-primary btn-lg btn-block">New Reply</button>
+      </form>
+    </div>
+    
+    <div *ngFor="let reply of thread.replies" class="comments">
+      <p class="comments-info">{{reply._author.username}}  ({{reply.date | date:"dd/MM/yyyy hh:mm" }})</p>
+      <p>{{reply.content}}</p>
+    </div>
+  </div>
+</div>
+
+<a [routerLink]="['/home']" class="btn btn-primary">Back Home</a>

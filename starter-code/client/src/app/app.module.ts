@@ -13,13 +13,17 @@ import { HttpModule } from '@angular/http';
 import { UserSessionService } from './services/user-session.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllThreadsComponent,
     SignUpComponent,
-    LogInComponent
+    LogInComponent,
+    NewThreadComponent,
+    SingleThreadComponent
 ],
   imports: [
     BrowserModule,
