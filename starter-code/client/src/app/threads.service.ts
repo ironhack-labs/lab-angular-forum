@@ -16,9 +16,6 @@ export class SessionService {
 
   constructor(private http: Http) {
 
-
-
-
   }
 
   GetThreads() {
