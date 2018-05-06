@@ -1,0 +1,12 @@
+.thread-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.thread-container div {
+  width: 30%;
+  margin-bottom: 30px;
+  box-shadow: 2px 2px 2px grey;
+  text-align: center;
+}

@@ -1,23 +1,28 @@
 <a [routerLink]="['/home']" class="btn btn-primary">Home</a>
 
-<div *ngIf="thread">
-  <h1>{{thread.title}}</h1>
-  <h2>Author: {{thread._author.username}}</h2>
-  <p>{{thread.content}}</p>
+<div class="container">
+  <div *ngIf="thread">
+    <div class="thread">
+      <h1>{{thread.title}}</h1>
+      <h2>Author:
+        <span>{{thread._author.username}}</span>
+      </h2>
+      <p>{{thread.content}}</p>
+    </div>
 
-  <div class="container" *ngIf="sessionService.user">
-    <h3>Reply:</h3>
-    <form>
-      <div class="form-group">
-        <label for="content">Content</label>
-        <textarea name="content" id="content" cols="30" rows="10" [(ngModel)]="replyInfo.content" class="form-control"></textarea>
-      </div>
-      <button (click)="newReply(thread._id)" class="btn btn-primary btn-lg btn-block">New Reply</button>
-    </form>
-  </div>
+    <div class="comment-form" *ngIf="sessionService.user">
+      <h3>Reply:</h3>
+      <form>
+        <div class="form-group">
+          <textarea name="content" id="content" cols="30" rows="10" [(ngModel)]="replyInfo.content" class="form-control" placeholder="Comment"></textarea>
+        </div>
+        <button (click)="newReply(thread._id)" class="btn btn-primary btn-lg btn-block">New Reply</button>
+      </form>
+    </div>
 
-  <div *ngFor="let r of thread.replies">
-    <p>Date: {{r.date | date:"dd/MM/yyyy" }} by {{r._author.username}}</p>
-    <p>{{r.content}}</p>
+    <div *ngFor="let r of thread.replies" class="comments">
+      <p class="comments-info">{{r._author.username}} - {{r.date | date:"dd/MM/yyyy" }}</p>
+      <p>{{r.content}}</p>
+    </div>
   </div>
 </div>
