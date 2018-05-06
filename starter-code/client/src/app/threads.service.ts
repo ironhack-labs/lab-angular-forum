@@ -13,7 +13,6 @@ export class threadsService {
   user: object;
   userEvent: EventEmitter<any> =  new EventEmitter();
   options: any = { withCredentials: true };
-
   constructor(private http: Http) {
 
   }
@@ -33,6 +32,11 @@ export class threadsService {
     return this.http
       .get(`${BASEURL}/api/threads/${id}`)
       .map((res: Response) => res.json());
+  }
+
+  newReply(id,content) {
+    return this.http.post(`${BASEURL}/api/threads/${id}/replies`, content, this.options)
+    .map( res => res.json() );
   }
   
   

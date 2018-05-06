@@ -4,19 +4,26 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { SessionService } from '../session.service';
 
 
+
 @Component({
   selector: 'app-single-thread',
   templateUrl: './single-thread.component.html',
   styleUrls: ['./single-thread.component.css'],
   providers: [threadsService, SessionService],
 })
+
 export class SingleThreadComponent implements OnInit {
  thread: any;
+ reply: {
+   title: '',
+   content: ''
+ }
 
   constructor(
     public threadsService: threadsService,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public sessionService: SessionService
 
   ) { }
 
@@ -26,5 +33,10 @@ export class SingleThreadComponent implements OnInit {
       .subscribe(thread => this.thread = thread)
     })  
   }
- 
+
+  newReply(id){
+    this.threadsService.newReply(id, this.reply)
+    .subscribe(thread => this.thread = thread)
+   
+}
 }
