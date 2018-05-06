@@ -18,7 +18,6 @@ export class NewThreadComponent implements OnInit {
       title: this.title,
       content: this.content
     };
-
     this.threadsServiceService.newThread(thread).subscribe(e => console.log(e));
   }
 }
