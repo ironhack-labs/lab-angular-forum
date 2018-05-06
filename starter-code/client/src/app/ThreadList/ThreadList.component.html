@@ -4,8 +4,10 @@
 
 <ul>
   <li *ngFor="let thread of threads">
-      {{thread.title}}
-      {{thread._author.username}}
-      {{thread.date | date: "dd-MM-yyyy"}}
+    {{thread.title}} {{thread._author.username}} {{thread.date | date: "dd-MM-yyyy"}}
   </li>
 </ul>
+
+<div>
+  <app-login-form></app-login-form>
+</div>

@@ -4,15 +4,19 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { routes } from "../routes.routing";
+import { FormsModule } from '@angular/forms';
 
 import { ThreadListComponent } from "./ThreadList/ThreadList.component";
 
 import { ThreadService } from "./services/thread.service";
 import { SessionService } from "./services/session.service";
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, ThreadListComponent],
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes)],
+  declarations: [AppComponent, ThreadListComponent,
+    LoginFormComponent
+],
+  imports: [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [ThreadService, SessionService],
   bootstrap: [AppComponent]
 })
