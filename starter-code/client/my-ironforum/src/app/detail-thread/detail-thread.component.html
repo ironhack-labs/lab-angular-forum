@@ -1,0 +1,7 @@
+<h3> {{ thread.title }} </h3>
+    <p>{{ thread._author.username }} </p>
+    <p>{{ thread.content }} </p>
+    <p>{{ thread.date | date:'yyyy-MM-dd HH:mm' }}</p> 
+
+    <a [routerLink]="['']"> Back to Home </a>
+   
