@@ -1,9 +1,24 @@
-<h2>Threads List</h2>
+<div class="container">
+  <div class="row" *ngIf="userSessionService.user">
 
-<div>
-  <div class="thread" *ngFor="let thread of threads">
-    <h3> {{ thread.title }} </h3>
-    <p> {{ thread._author.username }} </p>
-    <p> {{ thread.date | date: "dd/MM/yyyy hh:mm"}}</p>
+    <h2>Welcome {{userSessionService.user.username}}</h2>
+    <button (click)="logOut()" type="submit" class="btn btn-primary btn-lg btn-block">Log Out</button>
+
+  </div>
+  <div *ngIf="!userSessionService.user" class="col-md-12">
+
+    <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
+    <a [routerLink]="['/signup']" class="btn btn-primary">Signup</a>
+    
+  </div>
+  
+  <h2>Threads List</h2>
+
+  <div>
+    <div class="thread" *ngFor="let thread of threads">
+      <h3> {{ thread.title }} </h3>
+      <p> {{ thread._author.username }} </p>
+      <p> {{ thread.date | date: "dd/MM/yyyy hh:mm"}}</p>
+    </div>
   </div>
 </div>
