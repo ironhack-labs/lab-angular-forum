@@ -8,7 +8,6 @@ const BASEURL = "http://localhost:3000/api";
 
 @Injectable()
 export class ThreadsServiceService {
-
   options: any = { withCredentials: true };
   constructor(private http: Http) {}
 
@@ -19,8 +18,16 @@ export class ThreadsServiceService {
   }
 
   newThread(thread) {
-    console.log("here",thread)
-    return this.http.post(`${BASEURL}/threads`, thread, this.options).map(res => {
+    console.log("here", thread);
+    return this.http
+      .post(`${BASEURL}/threads`, thread, this.options)
+      .map(res => {
+        return res.json();
+      });
+  }
+
+  getOneThread(id) {
+    return this.http.get(`${BASEURL}/threads/${id}`, this.options).map(res => {
       return res.json();
     });
   }
