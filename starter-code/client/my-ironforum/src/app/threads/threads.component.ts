@@ -11,12 +11,12 @@ import { SessionService } from "../services/session.service";
 export class ThreadsComponent implements OnInit {
   threads:Array<any> = [];
 
-  constructor(threadsService:ThreadsService,public session: SessionService) {
-    threadsService.getThreads().subscribe( threads => this.threads = threads);
-    console.log(this.threads)
+  constructor(public threadsService:ThreadsService,public session: SessionService) {
+   
   }
 
   ngOnInit() {
+    this.threadsService.getThreads().subscribe( threads => this.threads = threads);
   }
 
 }

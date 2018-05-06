@@ -1,13 +1,13 @@
-<!-- <div *ngIf="!sessionService.user"> -->
+<div *ngIf="!sessionService.user">
     <button [routerLink]="['/login']">LOGIN</button>
     <button [routerLink]="['/signup']">SIGNUP</button>
-  <!-- </div> -->
+  </div>
   
-  <!-- <div *ngIf="sessionService.user"> -->
+  <div *ngIf="sessionService.user">
     <h1>Welcome {{sessionService.user.username}}</h1>
     <button [routerLink]="['/threads/new']">ADD NEW THREADS</button>
     <button (click)="sessionService.logout().subscribe()">Logout</button>
-  <!-- </div> -->
+  </div>
 
 <router-outlet></router-outlet>
 
