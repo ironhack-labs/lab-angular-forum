@@ -1,0 +1,18 @@
+<form>
+  <h2> Sign-Up | Login </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="form.username" name="username">
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="form.password" name="password">
+  <div>
+    <button (click)="login()"> Login </button>
+    <button (click)="signup()"> Sign-Up </button>
+  </div>
+</form>
+
+
+  <div *ngIf="sessionService.user">
+    <button (click)="logout()">Logout</button>
+    <button [routerLink]="['/thread/new']">New Thread</button>
+  </div>

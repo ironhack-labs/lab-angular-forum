@@ -1,0 +1,13 @@
+<p>
+  ThreadList works!
+</p>
+
+<ul>
+  <li *ngFor="let thread of threadsList">
+    {{thread.title}} {{thread._author.username}} {{thread.date | date: "dd-MM-yyyy"}}
+  </li>
+</ul>
+
+<div>
+  <app-login-form></app-login-form>
+</div>
