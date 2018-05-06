@@ -13,6 +13,7 @@ import { NewThreadComponent } from './NewThread/NewThread.component';
 import { SingleThreadComponent } from './SingleThread/SingleThread.component';
 import { ThreadsListComponent } from './ThreadsList/ThreadsList.component';
 import { ThreadsService } from './services/Threads.service';
+import { SessionService } from './services/Session.service';
 
 
 
@@ -31,7 +32,7 @@ import { ThreadsService } from './services/Threads.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ThreadsService],
+  providers: [ThreadsService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
