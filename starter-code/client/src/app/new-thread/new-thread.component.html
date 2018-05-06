@@ -1,0 +1,12 @@
+
+<div class="container">
+  <br>
+    <div>
+      <input name="title" placeholder="title" [(ngModel)]='title'>
+      <br><br>
+      <textarea name="content" id="content" cols="30" rows="10" [(ngModel)]='content'></textarea>
+    </div>
+    <div>
+      <button (click)="newThread()">Create Thread </button>
+    </div>
+</div>
