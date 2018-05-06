@@ -11,6 +11,7 @@ import { ListAllThreadsComponent } from './listAllThreads/listAllThreads.compone
 import { AuthSignupComponent } from './auth-signup/auth-signup.component';
 import { routes } from './routes';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 
 
@@ -19,7 +20,8 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
     AppComponent,
     ListAllThreadsComponent,
     AuthSignupComponent,
-    AuthLoginComponent
+    AuthLoginComponent,
+    NewThreadComponent
 ],
   imports: [
     BrowserModule,

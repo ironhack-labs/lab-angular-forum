@@ -4,9 +4,9 @@
 
 <ul>
   <li *ngFor="let e of threads"> 
-    <h1> Tittle: {{e.title}} </h1>
-     <h2>Author: {{e._author.username}}</h2> 
-    <p>Fecha: {{e.date}}</p>  
+    <h2> Tittle: {{e.title}} </h2>
+     <h3>Author: {{e._author.username}}</h3> 
+    <h3>Fecha: {{e.date}}</h3>  
   </li>  
-  hola
 </ul>
+<a [routerLink]="['/threads/new']">New Thread</a>

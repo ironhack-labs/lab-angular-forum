@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       if (user) {
         this.title = `HOLA ${user.username}`;
       } else {
-        this.title = "PLIZ LOGIARSE!";
+        this.title = "LOGIARSE!";
       }
     });
   }

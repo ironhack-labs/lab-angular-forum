@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../threads.service';
+import { threadsService } from '../threads.service';
 import { Threads  } from '../threads-interface';
 import { ActivatedRoute } from "@angular/router";
 import { promised } from "q";
@@ -10,19 +10,19 @@ import { promised } from "q";
   selector: 'app-listAllThreads',
   templateUrl: './listAllThreads.component.html',
   styleUrls: ['./listAllThreads.component.css'],
-  providers: [SessionService],
+  providers: [threadsService],
 
 })
 export class ListAllThreadsComponent implements OnInit {
   threads: Array <Threads> 
 
   constructor(
-    private dishesService: SessionService,
+    private threadsService: threadsService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.dishesService.GetThreads()
+    this.threadsService.getThreads()
     .subscribe((data) => this.threads = data)
   
   } 

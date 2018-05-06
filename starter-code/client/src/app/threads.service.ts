@@ -9,7 +9,7 @@ import { Threads } from "./threads-interface";
 const BASEURL = "http://localhost:3000";
 
 @Injectable()
-export class SessionService {
+export class threadsService {
   user: object;
   userEvent: EventEmitter<any> =  new EventEmitter();
   options: any = { withCredentials: true };
@@ -18,9 +18,15 @@ export class SessionService {
 
   }
 
-  GetThreads() {
+  getThreads() {
     return this.http
       .get(`${BASEURL}/api/threads`)
       .map((res: Response) => res.json());
   }
+
+  newThread(info) {
+    return this.http.post(`${BASEURL}/api/threads`, info, this.options)
+    .map( res => res.json() );
+  }
+  
 }
