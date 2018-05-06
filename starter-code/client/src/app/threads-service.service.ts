@@ -31,4 +31,11 @@ export class ThreadsServiceService {
       return res.json();
     });
   }
+
+  newReply(reply, id){
+
+    return this.http.post(`${BASEURL}/threads/${id}/replies`, reply, this.options).map(res => {
+      return res.json();
+    });
+  }
 }

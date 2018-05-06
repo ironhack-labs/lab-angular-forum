@@ -8,12 +8,16 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./single-thread.component.css"]
 })
 export class SingleThreadComponent implements OnInit {
-  thread: Object = {}
+  thread: Object = {};
+  title: string = "";
+  content: string = "";
+  id = "";
   constructor(
     public threadsServiceService: ThreadsServiceService,
     route: ActivatedRoute
   ) {
     route.params.subscribe(params => {
+      this.id = params.id;
       this.threadsServiceService.getOneThread(params.id).subscribe(thread => {
         this.thread = thread;
       });
@@ -21,4 +25,13 @@ export class SingleThreadComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  newReply() {
+    let reply = {
+      title: this.title,
+      content: this.content
+    };
+
+    this.threadsServiceService.newReply(reply, this.id).subscribe();
+  }
 }
