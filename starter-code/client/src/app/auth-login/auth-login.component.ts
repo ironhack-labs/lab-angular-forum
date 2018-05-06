@@ -11,16 +11,14 @@ export class AuthLoginComponent implements OnInit {
   username: string = "";
   password: string = "";
   error: string = "";
+  user: any; 
   constructor(public sessionService: SessionService, public router: Router) {}
 
   ngOnInit() {}
-
   login() {
     console.log(this.username, this.password);
-    this.sessionService.login(this.username, this.password).subscribe(
-      //this.router.navigate(["/private"]);
-      (user) => console.log(user),
-      (err) => this.error = err
-    );
+    this.sessionService.login(this.username, this.password).subscribe(() => {
+     // this.router.navigate(["/private"]);
+    });
   }
 }

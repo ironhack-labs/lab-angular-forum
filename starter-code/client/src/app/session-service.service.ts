@@ -20,7 +20,6 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-
   handleUser(user?: object) {
     this.user = user;
     this.userEvent.emit(this.user);

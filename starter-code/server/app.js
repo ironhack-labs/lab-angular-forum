@@ -4,20 +4,19 @@ const favicon = require("serve-favicon");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const layouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const configure = require("./config/passport.js");
+const cors = require("cors");
 
 mongoose.connect("mongodb://localhost/forum-development");
 
 const app = express();
 
-const whitelist = ["http://localhost:4200"];
-
+var whitelist = ["http://localhost:4200"];
 var corsOptions = {
   origin: function(origin, callback) {
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
@@ -25,16 +24,14 @@ var corsOptions = {
   },
   credentials: true
 };
+app.use(cors(corsOptions));
 
 app.use(
   session({
     secret: "forum-app",
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60 * 60 // 1 day
-    })
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
@@ -42,7 +39,6 @@ configure(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors(corsOptions));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
