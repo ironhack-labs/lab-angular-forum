@@ -4,21 +4,30 @@ const router   = express.Router();
 const User     = require('../../models/user.model');
 const bcrypt   = require('bcrypt');
 
-router.post("/login", (req, res, next) => {
-  passport.authenticate('local', (err, user, info) =>  {
-    if (err) { return next(err); }
-
-    if (!user) { return res.status(401).json(info); }
-
-    req.login(user, (err) => {
-      if (err) {
-        return res.status(500).json({
-          message: 'something went wrong :('
-        });
-      }
-      res.status(200).json(req.user);
+const logInPromise = (user, req) => new Promise((resolve,reject) => {
+  req.login(user, (err) => {
+      if (err) return reject('Something went wrong');
+      resolve(user);
     });
-  })(req, res, next);
+}); 
+
+router.post('/login', (req, res, next) => {
+  const {username, password} = req.body;
+
+  if (!username || !password) {
+    res.status(400).json({ message: 'Provide username and password' });
+    return;
+  }
+
+  User.findOne({ username })
+  .then( user => {
+      if(!user) throw new Error('The username does not exist');
+      if(!bcrypt.compareSync(password, user.password)) throw new Error('The password is not correct');
+      return logInPromise(user,req);    
+  })
+  .then(user => res.status(200).json(user))
+  .catch(e => res.status(500).json({message:e.message}));
+
 });
 
 router.post("/signup", (req, res, next) => {
