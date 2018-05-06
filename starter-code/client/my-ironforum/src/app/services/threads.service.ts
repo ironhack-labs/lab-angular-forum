@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class ThreadsService {
-    newThreads: any;
+    
     BASE_URL: string = 'http://localhost:3000/api';
     options:object = {withCredentials:true};
     constructor(private http: Http, private router: Router) { }
@@ -15,9 +15,8 @@ export class ThreadsService {
             .map((res) => res.json());
     }
     addThreads(newThreads){
-        return this.http.post(`${this.BASE_URL}/threads`,newThreads)
-            .map((res)=> res.json ());
-            this.router.navigate(['/']);
+        return this.http.post(`${this.BASE_URL}/threads`,newThreads,this.options)
+            .map((res)=> res.json ());     
     }
     getThread(id) {
         return this.http.get(`${this.BASE_URL}/threads/${id}`)

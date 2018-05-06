@@ -34,9 +34,9 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  login(username, password) {
+  login(user) {
     return this.http
-      .post(`${BASEURL}/api/login`, { username, password }, this.options)
+      .post(`${BASEURL}/api/login`, user, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
@@ -50,7 +50,7 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http.get(`${BASEURL}/api/loggedin`, this.options)
+    return this.http.post(`${BASEURL}/api/loggedin`, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);

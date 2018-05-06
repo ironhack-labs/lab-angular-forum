@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import { ThreadsService } from '../services/threads.service';
-import { SessionService } from "../services/session.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-thread',
@@ -9,13 +8,19 @@ import { SessionService } from "../services/session.service";
   styleUrls: ['./new-thread.component.css']
 })
 export class NewThreadComponent implements OnInit {
-  newThreads:Array<any> = [];
 
-  constructor(threadsService:ThreadsService,public session: SessionService) {
-    threadsService.addThreads(this.newThreads).subscribe(newThreads => this.newThreads = newThreads);
+  newThread = {
+    title: "",
+    content: ""
+  }
+  constructor(public threadsService:ThreadsService, public router: Router) {
+   
   }
 
   ngOnInit() {
   }
-
+  createThread() {
+    this.threadsService.addThreads(this.newThread).subscribe( () => this.router.navigate(["/home"]) );
+  }
+  
 }

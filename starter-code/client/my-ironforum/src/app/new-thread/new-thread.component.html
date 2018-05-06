@@ -1,17 +1,15 @@
-<!-- <div *ngIf="session.user"> -->
+<a [routerLink]="['']" class="btn btn-primary">Home</a>
 
   <form>
     <h2> Create a new thread </h2>
     <label> Title </label>
-    <input type="text" [(ngModel)]="title" name="title"/>
+    <input type="text" [(ngModel)]="newThread.title" name="title"/>
     <br>
     <label> Content </label>
-    <input type="text" [(ngModel)]="content" name="content"/>
+    <input type="text" [(ngModel)]="newThread.content" name="content"/>
   
     <div>
-      <button (click)="threadService.postThread(title, content).subscribe()"> Create thread </button>
+      <button (click)="createThread ()"> Create thread </button>
     </div>
   </form>
   <p class="error"> {{ error }} </p>
-  <a [routerLink]="['']"> Back to Home </a>
-<!-- </div> -->

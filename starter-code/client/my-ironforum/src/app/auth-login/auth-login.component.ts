@@ -8,16 +8,18 @@ import { Router } from "@angular/router";
   styleUrls: ["./auth-login.component.css"]
 })
 export class AuthLoginComponent implements OnInit {
-  username: string = "";
-  password: string = "";
+  user = {
+  username: "",
+  password: ""
+  }
+  
   error: string = "";
   constructor(public sessionService: SessionService, public router: Router) {}
 
   ngOnInit() {}
 
   login() {
-    console.log(this.username, this.password);
-    this.sessionService.login(this.username, this.password).subscribe(() => {
+    this.sessionService.login(this.user).subscribe(() => {
        this.router.navigate(["/"]);
     });
   }

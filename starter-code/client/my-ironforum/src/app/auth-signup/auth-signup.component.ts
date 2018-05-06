@@ -7,19 +7,17 @@ import { Router } from "@angular/router";
   styleUrls: ["./auth-signup.component.css"]
 })
 export class AuthSignupComponent implements OnInit {
-  username: string = "";
-  password: string = "";
-  email: string = "";
+  user = {
+        username: "",
+        password: "",
+        email: ""
+      };
   error: string = "";
   constructor(public sessionService: SessionService, public router: Router) {}
   ngOnInit() {}
 
   signup() {
-      const user = {
-        username: this.username,
-        password: this.password,
-        email: this.email
-      };
-      this.sessionService.signup(user).subscribe(() => this.router.navigate(['/']));
+      
+      this.sessionService.signup(this.user).subscribe(() => this.router.navigate(['/']));
     }
   }
