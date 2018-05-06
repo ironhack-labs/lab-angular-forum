@@ -10,6 +10,7 @@ import { SessionService } from '../session.service';
 })
 export class SingleThreadComponent implements OnInit {
   thread: object;
+  
   constructor(
     public threadsService: ThreadsService,
     public route: ActivatedRoute,
@@ -19,7 +20,7 @@ export class SingleThreadComponent implements OnInit {
     this.route.params.subscribe(p => {
       console.log(p.id);
       this.threadsService.getOneThread(p.id).subscribe(thread => {
-        this.thread = thread;
+        this.thread = thread
       });
     });
   }
