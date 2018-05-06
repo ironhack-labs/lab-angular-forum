@@ -28,7 +28,9 @@ export class SingleThreadComponent implements OnInit {
   }
 
   newReply(id) {
-    this.threadService.newReply(id, this.replyInfo).subscribe( () => this.router.navigate(["/threads", id]) );
+    this.threadService.newReply(id, this.replyInfo).subscribe( 
+      thread => this.thread = thread
+    );
   }
 
 }
