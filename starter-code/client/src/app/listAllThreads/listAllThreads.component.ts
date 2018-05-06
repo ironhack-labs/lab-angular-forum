@@ -4,8 +4,6 @@ import { Threads  } from '../threads-interface';
 import { ActivatedRoute } from "@angular/router";
 import { promised } from "q";
 
-
-
 @Component({
   selector: 'app-listAllThreads',
   templateUrl: './listAllThreads.component.html',

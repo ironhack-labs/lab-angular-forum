@@ -6,7 +6,8 @@
   <li *ngFor="let e of threads"> 
     <h2> Tittle: {{e.title}} </h2>
      <h3>Author: {{e._author.username}}</h3> 
-    <h3>Fecha: {{e.date}}</h3>  
+    <h3>Fecha: {{e.date}}</h3> 
+    <a [routerLink]="['/threads',e._id]">Single Thread</a> 
   </li>  
 </ul>
 <a [routerLink]="['/threads/new']">New Thread</a>
