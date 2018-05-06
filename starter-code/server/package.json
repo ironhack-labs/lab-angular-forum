@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
@@ -16,10 +17,12 @@
     "express": "~4.14.1",
     "express-ejs-layouts": "~2.2.0",
     "express-session": "^1.15.1",
-    "mongoose": "~4.8.5",
+    "mongoose": "^5.0.17",
     "morgan": "~1.7.0",
+    "nodemon": "^1.17.4",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "update": "^0.7.4"
   }
 }
