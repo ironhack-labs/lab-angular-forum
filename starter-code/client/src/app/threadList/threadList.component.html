@@ -3,7 +3,9 @@
   
   {{entry.title}}
 {{entry._author.username}}
-{{entry.date | date }} </div>
+{{entry.date | date }}
+<a [routerLink]="['/threads', entry._id]">Details</a>
+</div>
 
 <a [routerLink]="['/login']">Login</a>
 <a [routerLink]="['/signup']">Signup</a>

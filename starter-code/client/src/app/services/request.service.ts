@@ -18,4 +18,8 @@ export class RequestService {
   threadsNew(info) {
     return this.http.post(`${this.BASE_URL}/threads`, info, this.options).map(res => res.json())
   }
+  threadsOne(id) {
+    return this.http.get(`${this.BASE_URL}/threads/${id}`)
+    .map((res) => res.json())
+  }
 }

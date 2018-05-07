@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { ThreadsNewComponent } from './threadsNew/threadsNew.component';
+import { ThreadsOneComponent } from './threadsOne/threadsOne.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ThreadsNewComponent } from './threadsNew/threadsNew.component';
     ThreadListComponent,
     LoginComponent,
     SignupComponent,
-    ThreadsNewComponent
+    ThreadsNewComponent,
+    ThreadsOneComponent
 ],
   imports: [
     BrowserModule,
