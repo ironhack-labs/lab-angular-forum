@@ -1,0 +1,17 @@
+<h1>THREADS LIST</h1>
+<div *ngFor="let entry of threads">
+  
+  {{entry.title}}
+{{entry._author.username}}
+{{entry.date | date }}
+<a [routerLink]="['/threads', entry._id]">Details</a>
+</div>
+
+<a [routerLink]="['/login']">Login</a>
+<a [routerLink]="['/signup']">Signup</a>
+<div *ngIf="authService.user">
+
+  <a [routerLink]="['/threads/new']">NEW</a>
+
+
+</div>

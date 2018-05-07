@@ -1,0 +1,21 @@
+<div *ngIf="thread">
+    <div>
+      <h1>{{thread.title}}</h1>
+      <h2>Author:
+        <span>{{thread._author.username}}</span>
+      </h2>
+      <p>{{thread.content}}</p>
+    </div>
+</div>
+
+<a [routerLink]="['/home']">Home</a>
+<div *ngIf="authService.user">
+<form>
+  <label>REPLIE</label>
+<textarea name="reply" id="content" cols="30" rows="10" [(ngModel)]="reply.content" ></textarea>
+<button type="submit"(click)="addReply(thread._id)"> Add a reply </button>
+</form>
+<div *ngFor="let reply of thread.replies">
+  {{reply.content}}
+</div>
+</div>
