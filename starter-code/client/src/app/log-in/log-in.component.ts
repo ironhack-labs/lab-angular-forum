@@ -17,7 +17,7 @@ export class LogInComponent {
     
      logIn(){
        this.authService.logIn(this.logInData)
-       .subscribe(() => this.router.navigate(["/home"]));
+       .subscribe(() => this.router.navigate(["/index"]));
      }
     
      logOut(){

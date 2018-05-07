@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms'
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AuthService } from './services/auth.service';
+import { NewThreadComponent } from './newThread/newThread.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AuthService } from './services/auth.service';
     AppComponent,
     AllThreadsComponent,
     SignUpComponent,
-    LogInComponent
+    LogInComponent,
+    NewThreadComponent
 ],
   imports: [
     BrowserModule,

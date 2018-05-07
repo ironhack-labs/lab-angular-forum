@@ -1,7 +1,7 @@
 
 
-  <div *ngIf="authService.user">
-    <h2>{{userSessionService.user.username}} you are log in!</h2>
+  <div *ngIf="user">
+    <h2>Hello {{userSessionService}}</h2>
     <button (click)="logOut()" type="submit" >Log Out</button>
 </div>
 
@@ -20,4 +20,4 @@
     </form>
 </div>
 
-<a [routerLink]="['/home']" >Back Home</a>
+<a [routerLink]="['/index']" >Back</a>
