@@ -1,0 +1,11 @@
+<div *ngIf="!this.session.user">
+  <a [routerLink]='["/login"]'><button>login show</button></a> 
+  <a [routerLink]='["/signup"]'><button>signup show</button></a> 
+</div>
+<div *ngIf="this.session.user">
+  <h1>{{title}}</h1>
+<button (click)="session.logout().subscribe()">logout</button>
+</div>
+<!-- <app-my-private-page *ngIf="this.session.user"></app-my-private-page> -->
+
+<router-outlet></router-outlet>
