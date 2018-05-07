@@ -1,0 +1,23 @@
+
+
+  <div *ngIf="authService.user">
+    <h2>{{userSessionService.user.username}} you are log in!</h2>
+    <button (click)="logOut()" type="submit" >Log Out</button>
+</div>
+
+<div *ngIf="!authService.user">
+    <h2>Log In</h2>
+    <form>
+    <div >
+        <label for="">Username</label>
+        <input type="text" [(ngModel)]="logInData.username"   name ="username">
+    </div>
+    <div >
+        <label for="">Pasword</label>
+        <input type="password" [(ngModel)]="logInData.password"   name="password">
+    </div>
+    <button (click)="logIn()" type="submit">Log in</button>
+    </form>
+</div>
+
+<a [routerLink]="['/home']" >Back Home</a>

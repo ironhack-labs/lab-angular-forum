@@ -1,0 +1,5 @@
+<div *ngFor="let thread of threadsArray">
+  <a [routerLink]="['/threads',thread._id]"><h3>{{ thread.title }}</h3></a>
+<p> {{ thread._author.username }} </p>
+<p> {{ thread.date | date: "full"}}</p>
+</div>
