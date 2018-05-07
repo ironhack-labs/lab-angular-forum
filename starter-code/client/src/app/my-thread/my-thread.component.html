@@ -1,0 +1,33 @@
+<p>
+  my-thread works!
+</p>
+
+<div class="container">
+  <div class="poster" *ngIf='thread'>
+    <h2>{{thread.title}}</h2>
+    <p>
+      <strong>{{thread._author.username}}</strong>
+    </p>
+    <p>{{thread.content}}</p>
+  </div>
+  <div *ngFor="let reply of thread.replies">
+    
+    <div class="repl">
+      <p>
+        <strong>{{reply._author.username}}</strong>
+      </p>
+      <p>{{reply.content}}</p>
+    </div>
+  </div>
+
+  <div *ngIf="sessionService.user">
+
+    <div>
+      <textarea name="reply" id="reply" cols="30" rows="10" [(ngModel)]='reply'></textarea>
+    </div>
+    <div>
+      <button (click)="newReply()">Reply </button>
+    </div>
+  </div>
+
+</div>
