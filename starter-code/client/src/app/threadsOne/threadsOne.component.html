@@ -1,3 +1,11 @@
-<p>
-  threadsOne works!
-</p>
+<div *ngIf="thread">
+    <div>
+      <h1>{{thread.title}}</h1>
+      <h2>Author:
+        <span>{{thread._author.username}}</span>
+      </h2>
+      <p>{{thread.content}}</p>
+    </div>
+</div>
+
+<a [routerLink]="['/home']">Home</a>

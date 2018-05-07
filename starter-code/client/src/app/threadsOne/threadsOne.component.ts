@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../services/request.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-threadsOne',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./threadsOne.component.css']
 })
 export class ThreadsOneComponent implements OnInit {
-
-  constructor() { }
+thread: any;
+  constructor( private requestService: RequestService, public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe( params => {
+      this.requestService.threadsOne(params.id)
+      .subscribe( thread => this.thread = thread );
+    })
   }
 
 }
