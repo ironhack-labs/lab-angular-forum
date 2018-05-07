@@ -7,3 +7,9 @@
 
 <a [routerLink]="['/login']">Login</a>
 <a [routerLink]="['/signup']">Signup</a>
+<div *ngIf="authService.user">
+
+  <a [routerLink]="['/threads/new']">NEW</a>
+
+
+</div>

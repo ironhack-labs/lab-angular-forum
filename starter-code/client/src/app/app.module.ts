@@ -11,13 +11,15 @@ import { AuthService } from './services/auth.service'
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { ThreadsNewComponent } from './threadsNew/threadsNew.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadListComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ThreadsNewComponent
 ],
   imports: [
     BrowserModule,
