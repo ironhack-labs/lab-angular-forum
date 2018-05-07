@@ -11,6 +11,7 @@ import { ListThreadsComponent } from './list-threads/list-threads.component';
 import { SessionService } from './session.service'
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 
 
@@ -19,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     ListThreadsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent
 ],
   imports: [
     BrowserModule,

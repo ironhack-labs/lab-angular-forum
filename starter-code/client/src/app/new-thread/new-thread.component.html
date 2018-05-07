@@ -1,0 +1,16 @@
+<p>
+  new-thread works!
+</p>
+
+<form>
+    <h2> Nuevo thread </h2>
+    <label> Titulo </label>
+    <input type="text" [(ngModel)]="title" name="title"/>
+    <br>
+    <label> Contenido </label>
+    <input type="text" [(ngModel)]="content" name="content"/>
+
+    <div style="padding-top:30px">
+      <button (click)="newThread()"> Post </button>
+    </div>
+  </form>

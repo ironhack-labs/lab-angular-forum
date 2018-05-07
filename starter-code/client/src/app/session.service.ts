@@ -23,6 +23,7 @@ export class SessionService {
 
   handleUser(user?:object){
     this.user = user;
+    console.log(this.user)
     return this.user;
   }
 
@@ -48,7 +49,7 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http.get(`${BASEURL}/api/loggedin`, this.options)
+    return this.http.post(`${BASEURL}/api/loggedin`, {}, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);

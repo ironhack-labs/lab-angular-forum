@@ -8,6 +8,8 @@ const BASE_URL = 'http://localhost:3000';
 
 @Injectable()
 export class ThreadsService {
+  title: string;
+  content: string;
 
   options: any = { withCredentials: true };
 
@@ -18,5 +20,11 @@ export class ThreadsService {
       .map((res) => res.json());
   }
   
+  newThread(title,content) {
+    console.log(title,content)
+    return this.http.post(`${BASE_URL}/api/threads/`, { title, content } , this.options)
+    .map((res) => res.json());
+  }
+
 }
 
