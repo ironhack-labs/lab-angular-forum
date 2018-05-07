@@ -1,0 +1,12 @@
+<div class="navbar" *ngIf="!this.sessionService.user">
+  <app-auth-signup></app-auth-signup>
+  <app-auth-login></app-auth-login>
+</div>
+<div *ngIf="this.sessionService.user"><button (click)="sessionService.logout().subscribe()">Log out</button></div>
+<div *ngIf="this.sessionService.user"><a [routerLink]='["/threads/new"]'>create new thread </a> ></div>
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<router-outlet></router-outlet>
