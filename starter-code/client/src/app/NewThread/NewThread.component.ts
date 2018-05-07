@@ -14,6 +14,8 @@ export class NewThreadComponent implements OnInit {
     content: ''
   };
 
+
+
   constructor(public threadService: ThreadsService, public router: Router) { }
 
   ngOnInit() {
