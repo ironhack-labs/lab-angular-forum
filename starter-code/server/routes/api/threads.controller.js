@@ -4,12 +4,11 @@ const Thread = require("../../models/thread.model");
 const Reply = require("../../models/reply.model");
 const loggedIn = require("../../utils/isAuthenticated");
 
-
 router.post("/:id/replies", loggedIn, (req, res, next) => {
-  console.log("REPLIES")
+  // console.log("REPLIES")
   const newReply = new Reply({
     _author: req.user._id,
-    title: req.body.title,
+    //title: req.body.title,
     content: req.body.content
   });
 
@@ -73,10 +72,10 @@ router.post("/", loggedIn, (req, res, next) => {
     content: req.body.content
   });
 
-  console.log(newThread)
+  console.log(newThread);
 
   newThread.save(err => {
-    console.log(err)
+    console.log(err);
     if (err) {
       return res.status(500).json(err);
     }
@@ -87,7 +86,5 @@ router.post("/", loggedIn, (req, res, next) => {
     return res.status(200).json(newThread);
   });
 });
-
-
 
 module.exports = router;

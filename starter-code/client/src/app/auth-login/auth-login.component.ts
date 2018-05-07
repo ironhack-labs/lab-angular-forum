@@ -18,7 +18,7 @@ export class AuthLoginComponent implements OnInit {
   login() {
     console.log(this.username, this.password);
     this.sessionService.login(this.username, this.password).subscribe(() => {
-     // this.router.navigate(["/private"]);
+     this.router.navigate(["/"]);
     });
   }
 }

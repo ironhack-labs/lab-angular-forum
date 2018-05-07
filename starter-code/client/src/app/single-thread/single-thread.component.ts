@@ -9,29 +9,44 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class SingleThreadComponent implements OnInit {
   thread: Object = {};
-  title: string = "";
+  // title: string = "";
   content: string = "";
   id = "";
+  replies: Array<object> = [];
   constructor(
     public threadsServiceService: ThreadsServiceService,
-    route: ActivatedRoute
+    public route: ActivatedRoute
   ) {
-    route.params.subscribe(params => {
+  
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
       this.id = params.id;
-      this.threadsServiceService.getOneThread(params.id).subscribe(thread => {
-        this.thread = thread;
-      });
+
+      this.getOneThread(this.id);
+
     });
   }
 
-  ngOnInit() {}
-
   newReply() {
     let reply = {
-      title: this.title,
+      // title: this.title,
       content: this.content
     };
+    this.content = ""; 
+    this.threadsServiceService.newReply(reply, this.id).subscribe(thread => {
+      this.getOneThread(this.id);
+    });
+  }
 
-    this.threadsServiceService.newReply(reply, this.id).subscribe();
+  getOneThread(id) {
+    this.threadsServiceService.getOneThread(id).subscribe(thread => {
+      {
+        this.replies = thread.replies;
+        console.log(this.thread)
+        return this.thread = thread;
+      }
+    });
   }
 }
