@@ -24,4 +24,15 @@ export class GetThreadsService {
       .get(`${this.BASE_URL}/api/threads/${id}`)
       .map(res => res.json());
   }
+
+  updateThread(content, id) {
+    console.log("Reply added: " + content);
+    return this.http
+      .post(
+        `${this.BASE_URL}/api/threads/${id}/replies`,
+        { content },
+        this.options
+      )
+      .map(res => res.json());
+  }
 }

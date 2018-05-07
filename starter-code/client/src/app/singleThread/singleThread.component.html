@@ -3,5 +3,18 @@
   <p>Posted on: {{thread.date | date: "short"}}</p>
 
   <p>{{thread.content}}</p>
+  <div *ngIf="thread.replies">
+        <ul *ngFor="let reply of thread.replies">
+          <li>{{ reply._author.username }} - {{ reply.date | date:'short' }}: {{ reply.content }}</li>
+        </ul>
+      </div>
+</div>
+<div *ngIf="authService.user">
+  <form (ngSubmit)="addReply(myContent.value, myForm)" #myForm="ngForm">
+    <p> Add Reply </p>
+    <textarea type="text" name="content" [(ngModel)]="content" #myContent="ngModel" required>
+    </textarea>
+    <button type="submit"> Reply </button>
+  </form>
 </div>
 <a [routerLink]="['/index']">Back</a>
