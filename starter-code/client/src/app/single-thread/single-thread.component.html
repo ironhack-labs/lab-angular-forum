@@ -1,0 +1,26 @@
+<h1>{{thread.title}}</h1>
+<p>{{thread.content}}</p>
+<i>By: {{thread._author.username}}</i>
+
+<p>Replies: </p>
+
+<div *ngFor="let reply of replies">
+  <p>
+  {{reply.content}}, <i>By: {{reply._author.username}}</i>
+  </p>
+</div>
+
+
+<h1> Add reply </h1>
+<form>
+  <!-- <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title" /> -->
+  <br>
+  <label> Content </label>
+  <textarea [(ngModel)]="content" name="content" rows="3"></textarea>
+
+  <div>
+    <button (click)="newReply()"> New thread </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p>

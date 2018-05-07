@@ -1,0 +1,14 @@
+<div *ngIf="!sessionService.user">
+
+  <button [routerLink]="['/login']">
+    LOGIN</button>
+  <button [routerLink]="['/signup']">SIGNUP</button>
+
+</div>
+<div *ngIf="sessionService.user">
+  <button [routerLink]="['/threads/new']">NEW THREAD</button>
+  <button (click)="logout()">LOGOUT</button>
+  <button [routerLink]="['/']"> home</button>
+</div>
+
+<router-outlet></router-outlet>

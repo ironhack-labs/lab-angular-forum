@@ -1,0 +1,8 @@
+<h1> THREADS</h1>
+
+
+<div *ngFor = "let thread of threads">
+  {{thread.title}}
+
+  <button [routerLink]="['threads', thread._id]"> detail</button>
+</div>
