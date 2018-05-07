@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -10,8 +11,9 @@ const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
+const cors = require("cors");
 
-mongoose.connect('mongodb://localhost/forum-development');
+mongoose.connect(process.env.DBURL, console.log("estoy dentro"));
 
 const app = express();
 
@@ -23,6 +25,16 @@ app.use(session({
 }));
 
 configure(passport);
+
+var whitelist = [process.env.WHITELIST_URI];
+var corsOptions = {
+  origin: function(origin, callback) {
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 app.use(passport.initialize());
 app.use(passport.session());
