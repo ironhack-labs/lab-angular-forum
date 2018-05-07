@@ -26,5 +26,10 @@ export class ThreadsService {
     .map((res) => res.json());
   }
 
+  oneThread(id) {
+    return this.http.get(`${BASE_URL}/api/threads/${id}`)
+    .map((res) => res.json());
+  }
+
 }
 

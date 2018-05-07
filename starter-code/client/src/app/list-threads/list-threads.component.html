@@ -8,16 +8,8 @@
       <h4>{{t.title}} </h4>
       <small>{{t._author.username}}</small>
       <p>{{t.date | date}} </p>
+      <a [routerLink]="['/threads',t._id]">Ver</a>
     </li>
   </ul>
 </div>
 
-
-<!-- <div *ngIf="!sessionService.user">
-  <app-login-form></app-login-form>
-</div>
-
-<div *ngIf="sessionService.user">
-  <h2>BIENVENIDO SR PATATA</h2>
-  <button (click)="sessionService.logout().subscribe()"> Logout </button>
-</div> -->

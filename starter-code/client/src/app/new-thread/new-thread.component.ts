@@ -19,6 +19,9 @@ export class NewThreadComponent implements OnInit {
 
   newThread() {
     this.ThreadS.newThread(this.title,this.content).subscribe(()=>this.router.navigate(['/home']));
+  }
+
+  getOne() {
     
   }
 
