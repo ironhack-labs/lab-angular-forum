@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Abel';
+  src: url('./assets/fonts/abel-regular.ttf');
+}
+body{
+  font-family: 'Abel', sans-serif;
+  font-size:16px;
+  box-sizing: border-box;
+}
+button{
+  border:none;
+  background: #10378d;
+  color:whitesmoke;
+  padding: 1rem 1rem;
+  transition: all 0.3s ease-in;
+  margin: 0;
+}
+button:hover{
+  color: #10378d;
+  background: whitesmoke;
+  border: 1px solid #10378d;
+}
+strong{
+  color:#10378d;
+}
+span.light{
+  color:lightslategray;
+}
+span.small{
+  color:rgb(70, 83, 95);
+  font-size: 0.7rem;
+}
+.post{
+  border: 1px solid darkslategrey;
+  padding: 1rem 2rem;
+  background: #f8f4f4;
+}
+.reply-edit-container{
+  position:relative;
+  margin-left: 3rem;
+}
+.reply-edit{
+  display:flex;
+}
+.reply-edit textarea{
+  width: 30vw;
+  height: 10vh;
+}
+li{
+  display:block;
+  list-style: none;
+  margin-left: 1rem;
+  padding: 1rem;
+  background: #dddddd;
+}
+.back{
+  position:absolute;
+  top : 1rem;
+  left: 0;
+  padding: 1rem;
+  margin: 1rem 2rem;
+}
+.back:hover, a:hover{
+  background: rgb(79, 115, 151);
+  
+}
+a{
+  background: lightslategray;
+  color:white;
+  text-decoration: none;
+  display:block;
+  transition: all 0.3s ease-in;
+  padding: 1rem 2rem;
+  margin: 0.25rem 0;
+}
+.threadForm{
+  display:flex;
+  flex-direction: column;
+  width: 30vw;
+}
+.main{
+  display: flex;
+  justify-content: center;
+}
+.logPattern > *{
+  background: rgb(44, 44, 136);
+  display:inline-block;
+}
+.form-container h2{
+ text-align: center;
+}
+form > button {
+width:100%;
+}
+form input{
+  float: right;
+  padding: 1rem 2rem;
+}
+form label{
+  display:inline-block;
+  padding:1rem;
+}
