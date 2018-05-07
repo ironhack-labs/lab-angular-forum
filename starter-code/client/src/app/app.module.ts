@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { NewThreadComponent } from './newThread/newThread.component';
 import { ThreadDetailComponent } from './threadDetail/threadDetail.component';
+import { RepliesService } from './services/replies.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ThreadDetailComponent } from './threadDetail/threadDetail.component';
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ThreadsService, SessionService],
+  providers: [ThreadsService, SessionService, RepliesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
