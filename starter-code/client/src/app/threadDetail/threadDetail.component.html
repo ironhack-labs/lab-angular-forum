@@ -1,0 +1,20 @@
+<a [routerLink]="['']"> Back to list </a>
+<div *ngIf="thread">
+  <div class="thread-info">
+    <h2> {{ thread.title }} <span class="secondary">{{ thread._author.username }}</span></h2>
+    <p> {{ thread.content }} </p>
+    <ul class="replies-list">
+      <li *ngFor="let reply of replies">
+        <p>{{ reply.content }}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="reply-form" *ngIf="sessionService.user">
+      <form>
+          <h4> New Reply </h4>
+          <label> Content </label>
+          <textarea type="text" [(ngModel)]="reply" name="content"></textarea>
+          <button (click)="saveReply()"> Create Reply </button>
+        </form>
+  </div>
+</div>

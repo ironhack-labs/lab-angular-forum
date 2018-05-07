@@ -1,0 +1,12 @@
+<div class="container">
+  <form>
+    <h2> New Thread </h2>
+    <label> Title </label>
+    <input type="text" [(ngModel)]="title" name="title" />
+    <br>
+    <label> Content </label>
+    <textarea type="text" [(ngModel)]="content" name="content"></textarea>
+    <button (click)="createThread()"> Create Thread </button>
+  </form>
+  <a [routerLink]="['/']">Back</a>
+</div>
