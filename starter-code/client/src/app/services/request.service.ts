@@ -22,4 +22,8 @@ export class RequestService {
     return this.http.get(`${this.BASE_URL}/threads/${id}`)
     .map((res) => res.json())
   }
+  addReply(id, reply){
+    return this.http.post(`${this.BASE_URL}/threads/${id}/replies`, reply, this.options)
+    .map( res => res.json())
+  }
 }

@@ -10,6 +10,10 @@ import { AuthService } from '../services/auth.service'
 })
 export class ThreadsOneComponent implements OnInit {
 thread: any;
+reply = {
+  title: "",
+  content: ""
+}
   constructor( private requestService: RequestService, public authService: AuthService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -18,5 +22,10 @@ thread: any;
       .subscribe( thread => this.thread = thread );
     })
   }
+  addReply(id) {
+    this.requestService.addReply(id, this.reply).subscribe( thread => this.thread = thread)
+
+  }
 
 }
+
