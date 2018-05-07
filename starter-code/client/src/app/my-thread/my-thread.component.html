@@ -3,7 +3,7 @@
 </p>
 
 <div class="container">
-  <div class="poster" *ngIf='thread'>
+  <div *ngIf='thread'>
     <h2>{{thread.title}}</h2>
     <p>
       <strong>{{thread._author.username}}</strong>
@@ -12,7 +12,7 @@
   </div>
   <div *ngFor="let reply of thread.replies">
     
-    <div class="repl">
+    <div >
       <p>
         <strong>{{reply._author.username}}</strong>
       </p>
