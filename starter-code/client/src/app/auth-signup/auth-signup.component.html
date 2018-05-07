@@ -1,0 +1,22 @@
+<p>
+  auth-signup works!
+</p>
+
+
+<div>
+  <form>
+    <h2> Signup </h2>
+    <label> Username </label>
+    <input type="text" [(ngModel)]="username" name="username" />
+    <br>
+    <label> Name </label>
+    <input type="mail" [(ngModel)]="email" name="email" />
+    <br>
+    <label> Password </label>
+    <input type="password" [(ngModel)]="password" name="password" />
+    <div>
+      <button (click)="signup()"> Signup </button>
+    </div>
+  </form>
+  <p *ngIf="error" class="error"> {{ error }} </p>
+</div>
