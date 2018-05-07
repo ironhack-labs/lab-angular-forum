@@ -20,7 +20,7 @@ export class ThreadsService {
   }
   signup(user) {
     return this.http
-      .post(`${this.BASE_URL}/api/signup`, user)
+      .post(`${this.BASE_URL}/api/signup`, user, this.option)
       .map(res => res.json())
       .map(user => (this.user = user))
       .catch(this.handleError);
@@ -28,14 +28,14 @@ export class ThreadsService {
 
   login(user) {
     return this.http
-      .post(`${this.BASE_URL}/api/login`, user)
+      .post(`${this.BASE_URL}/api/login`, user, this.option)
       .map(res => res.json())
       .map(user => (this.user = user))
       .catch(this.handleError);
   }
-  tnew(option) {
+  tnew(info) {
     return this.http
-      .post(`${this.BASE_URL}/api/threads`, option)
+      .post(`${this.BASE_URL}/api/threads`, info, this.option)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -46,7 +46,7 @@ export class ThreadsService {
   }
   reply(idThread, reply){
     return this.http
-      .post(`${this.BASE_URL}/api/threads/${idThread}/replies`, reply)
+      .post(`${this.BASE_URL}/api/threads/${idThread}/replies`, reply, this.option)
       .map(res => res.json())
       .catch(this.handleError);
   }
