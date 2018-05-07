@@ -10,17 +10,20 @@ import { RequestService  } from '../app/services/request.service';
 import { AuthService } from './services/auth.service'
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadListComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
 ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [RequestService, AuthService ],
   bootstrap: [AppComponent]

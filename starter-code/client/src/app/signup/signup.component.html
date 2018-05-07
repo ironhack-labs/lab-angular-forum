@@ -1,7 +1,9 @@
- <h1> Authentication Sample </h1>
+<h1> Authentication Sample </h1>
 <form>
-  <h2> Login  </h2>
-
+  <h2> Signup </h2>
+  <label> Email </label>
+  <input type="email" [(ngModel)]="formInfo.email" name="email"/>
+  <br>
   <label> Username </label>
   <input type="text" [(ngModel)]="formInfo.username" name="username"/>
   <br>
@@ -12,4 +14,3 @@
   <button (click)="signup()"> signup </button>
 </form>
 <p class="error"> {{ error }} </p> 
-
