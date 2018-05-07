@@ -1,0 +1,7 @@
+<div *ngIf="thread">
+  <h2>{{thread._author.username}} | {{thread.title}}</h2>
+  <p>Posted on: {{thread.date | date: "short"}}</p>
+
+  <p>{{thread.content}}</p>
+</div>
+<a [routerLink]="['/index']">Back</a>

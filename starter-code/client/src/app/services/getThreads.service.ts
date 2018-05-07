@@ -18,4 +18,10 @@ export class GetThreadsService {
       .post(`${this.BASE_URL}/api/threads`, thread, this.options)
       .map(res => res.json());
   }
+
+  getThread(id) {
+    return this.http
+      .get(`${this.BASE_URL}/api/threads/${id}`)
+      .map(res => res.json());
+  }
 }
