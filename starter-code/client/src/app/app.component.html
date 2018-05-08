@@ -1,0 +1,10 @@
+<h1>Welcome to the Forum Jungle</h1>
+
+<div *ngIf="!service.user">
+  <a [routerLink]="['/login']">Login</a>
+  <a [routerLink]="['/signup']">Signup</a>
+</div>
+
+<div *ngIf="service.user">Logged</div>
+
+<router-outlet></router-outlet>

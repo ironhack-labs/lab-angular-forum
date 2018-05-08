@@ -1,0 +1,14 @@
+<p>signup works!</p>
+
+<form>
+  <h2>Signup</h2>
+  <label>Username</label>
+  <input type="text" [(ngModel)]="username" name="username" />
+  <label>Password</label>
+  <input type="password" [(ngModel)]="password" name="password" />
+  <label>Email</label>
+  <input type="text" [(ngModel)]="email" name="email" />
+  <button (click)="signup()">signup</button>
+</form>
+
+<p>{{error}}</p>
