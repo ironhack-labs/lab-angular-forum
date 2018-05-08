@@ -1,0 +1,9 @@
+<p>list-threads works!</p>
+
+<ul>
+  <li *ngFor="let t of threads">
+    <h4>{{t.title}} </h4>
+    <p>{{t._author.username}}</p>
+    <p>{{t.date | date}} </p>
+  </li>
+</ul>
