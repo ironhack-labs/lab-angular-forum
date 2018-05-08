@@ -1,0 +1,16 @@
+<p>AuthLog InComponent works!</p>
+
+<h1> Authentication Sample </h1>
+<form>
+  <h2> Log In </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="password" name="password"/>
+
+  <div style="padding-top:30px">
+    <button (click)="login()"> Log In </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p>
