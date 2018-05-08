@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next) => {
     ;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({ username }, "username", (user) => {
     if (user !== null) {
       return res
           .status(400)
@@ -70,7 +70,7 @@ router.post("/logout", function(req, res) {
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
+router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
