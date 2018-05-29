@@ -1,0 +1,25 @@
+<div *ngIf="thread">
+  <div class="post">
+    <h2><span class="light">{{thread._author.username}}</span> | <strong> {{thread.title}}</strong></h2>
+    <p><span class="small">Posted on: {{thread.date | date: "short"}}</span></p>
+  
+    <p>{{thread.content}}</p>
+  </div>
+  <div *ngIf="thread.replies">
+        <ul *ngFor="let reply of thread.replies">
+          <li><strong>{{ reply._author.username }} </strong>- <span class="small">{{ reply.date | date:'short' }} </span>| {{ reply.content }}</li>
+        </ul>
+      </div>
+</div>
+<hr/>
+<div *ngIf="authService.user" class="reply-edit-container">
+  <form (ngSubmit)="addReply(myContent.value, myForm)" #myForm="ngForm">
+    <h4> Add Reply </h4>
+    <div class="reply-edit">
+      <textarea type="text" name="content" [(ngModel)]="content" #myContent="ngModel" required>
+      </textarea>
+      <button type="submit"> Reply </button>
+    </div>
+  </form>
+</div>
+<a [routerLink]="['/index']" class="back">Back</a>
