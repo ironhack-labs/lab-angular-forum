@@ -28,6 +28,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', loggedIn, (req, res, next) => {
+  console.log("back post")
   const newThread = new Thread({
     _author: req.user._id,
     title: req.body.title,

@@ -1,0 +1,15 @@
+<h1>Welcome to the Forums</h1>
+<a [routerLink]="['/home']">Home</a>
+
+<div *ngIf="!service.user">
+  <a [routerLink]="['/login']">Log in</a>
+  <a [routerLink]="['/signup']">Signup</a>
+</div>
+
+<div *ngIf="service.user">
+  <a [routerLink]="['/threads/new']">New Thread</a>
+</div>
+
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+<p>
+  list-threads works!
+</p>
+
+<div>
+  <ul>
+    <li *ngFor="let t of threads">
+      <h4>{{t.title}} </h4>
+      <small>{{t._author.username}}</small>
+      <p>{{t.date | date}} </p>
+      <a [routerLink]="['/threads',t._id]">Ver</a>
+    </li>
+  </ul>
+</div>
+
