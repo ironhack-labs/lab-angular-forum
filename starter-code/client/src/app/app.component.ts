@@ -9,6 +9,7 @@ import { SessionService } from '../services/session.service';
 export class AppComponent {
   constructor(private sessionService: SessionService) {}
   title = 'app';
+  threads = [];
 
   logout(){
     this.sessionService.logout().subscribe();

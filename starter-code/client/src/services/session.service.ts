@@ -6,7 +6,7 @@ import { environment } from '../environments/environment';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-const BASEURL = environment.BASEURL;
+const {BASEURL} = environment;
 
 
 
