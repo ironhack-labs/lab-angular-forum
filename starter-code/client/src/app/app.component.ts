@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { SessionService } from '../services/session.service';
 export class AppComponent {
   constructor(private sessionService: SessionService) {}
   title = 'app';
-  threads = [];
 
   logout(){
     this.sessionService.logout().subscribe();

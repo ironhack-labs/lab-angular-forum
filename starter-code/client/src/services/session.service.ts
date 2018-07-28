@@ -53,7 +53,7 @@ export class SessionService {
   };
 
   logout(){
-    return this.http.post(`${BASEURL}/api/logout`, this.options).pipe(
+    return this.http.get(`${BASEURL}/api/logout`, this.options).pipe(
       map((res: Response) => {
         this.user = null;
       }),

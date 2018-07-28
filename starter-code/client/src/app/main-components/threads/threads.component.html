@@ -1,5 +1,6 @@
 
-<button (click)="newThread()">New Thread</button>
+<button (click)="newThread()" *ngIf="sessionService.user">New Thread</button>
+
 <div class="newThread-form" *ngIf="threadsService.enableNewThreadForm">
   <router-outlet></router-outlet>
 </div>
