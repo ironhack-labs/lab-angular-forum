@@ -1,0 +1,20 @@
+<div *ngIf="thread">
+  <h2>{{thread.title}}</h2>
+  <sub>Made by {{thread._author.username | json}}</sub>
+  <p>{{thread.content}}</p>
+
+  <div>
+    <h3>Add Reply</h3>
+    <p>Content</p>
+    <textarea [(ngModel)]="newReply" cols="30" rows="5"></textarea>
+    <br>
+    <button (click)="createReply()">Create Thread</button>
+  </div>
+
+  <div *ngIf="thread.replies[0]">
+    <h3>Replies</h3>
+    <ul>
+      <li *ngFor="let reply of thread.replies">{{reply.content}} <br> By {{reply._author.username}}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<p>
+  Title 
+  <input type="text" [(ngModel)]="newThread.title">
+</p>
+
+<p>Content</p>
+<textarea [(ngModel)]="newThread.content" cols="30" rows="5"></textarea>
+<br>
+<button (click)="createThread()">Create Thread</button>
