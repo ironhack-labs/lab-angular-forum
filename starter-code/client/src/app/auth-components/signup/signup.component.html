@@ -1,0 +1,16 @@
+
+<form (ngSubmit)="submitForm(signupForm)" #signupForm="ngForm">
+  <div class="form-field">
+    <label for="username">Username: </label>
+    <input type="text" name="username" [ngModel]="username" required placeholder="username">
+  </div>
+  <div class="form-field">
+    <label for="password">Password: </label>
+    <input type="password" name="password" [ngModel]="password" required placeholder="password">
+  </div>
+  <div class="form-field">
+    <label for="email">Email: </label>
+    <input type="email" name="email" [ngModel]="email" required placeholder="email">
+  </div>
+  <button type="submit">Sign up</button>
+</form>

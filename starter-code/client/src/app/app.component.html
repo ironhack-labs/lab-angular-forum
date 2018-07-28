@@ -1,0 +1,11 @@
+
+<ul class="logged" *ngIf="sessionService.user">
+  <li><a href="#">Logout</a></li>
+</ul>
+<ul class="not-logged" *ngIf="!sessionService.user">
+  <li><a [routerLink]="['/login']">Login</a></li>
+  <li><a [routerLink]="['/signup']">Signup</a></li>
+</ul>
+
+
+<router-outlet></router-outlet>
