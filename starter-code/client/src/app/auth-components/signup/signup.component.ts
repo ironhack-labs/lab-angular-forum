@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../../services/session.service';
 import { User } from '../../../interfaces/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +10,7 @@ import { User } from '../../../interfaces/User';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,7 @@ export class SignupComponent implements OnInit {
     this.sessionService.signup(newUser.value)
     .subscribe( (user: User) => {
       console.log(`User ${user.username} logged OK`);
+      this.router.navigate(['/']);
     });
   }
 
