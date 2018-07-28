@@ -31,7 +31,7 @@ export class ThreadService {
   }
 
   handleError(error){
-    console.log('SessionServiceError')
+    console.log('ThreadServiceError')
     console.log(error.message);
     console.log(error);
     return error;

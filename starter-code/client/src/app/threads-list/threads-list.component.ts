@@ -9,12 +9,14 @@ import { ThreadService, Thread } from '../../services/thread.service';
 })
 export class ThreadsListComponent implements OnInit {
 
-  threadsList: Array<Thread> = [];
+  threadsList: Array<Thread>;
 
   constructor(private threadServ: ThreadService) { }
 
   ngOnInit() {
-    this.threadServ.getThreads().subscribe(threads => this.threadsList = threads);
+    this.threadServ.getThreads().subscribe(threads => {
+      this.threadsList = threads;
+    });
   }
 
 }

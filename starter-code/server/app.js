@@ -31,12 +31,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware Setup
-var whitelist = [
+const whitelist = [
   'http://localhost:4200',
 ];
-var corsOptions = {
+const corsOptions = {
   origin: function(origin, callback){
-      var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+      const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
       callback(null, originIsWhitelisted);
   },
   credentials: true
