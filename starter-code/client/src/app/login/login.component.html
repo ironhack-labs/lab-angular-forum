@@ -1,0 +1,9 @@
+<h3>Log In</h3>
+
+<span *ngIf="error">{{error}}<br><br></span>
+
+<form (ngSubmit)="login(userForm)" #userForm="ngForm">
+  Username: <input type="text" [(ngModel)]="username" name="username" required> <br><br>
+  Password: <input type="password" [(ngModel)]="password" name="password" required> <br><br>
+  <button>Log In</button>
+</form>

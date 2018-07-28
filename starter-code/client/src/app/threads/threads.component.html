@@ -1,0 +1,16 @@
+<p *ngIf="!authService.user">
+  <a [routerLink]="['/login']">Log In</a><br><br>
+  <a [routerLink]="['/signup']">Sign Up</a>
+</p>
+
+<div *ngIf="authService.user">
+  <a [routerLink]="['/threads', 'new']">Create thread</a><br><br>
+  <button (click)="authService.logout().subscribe()">Log Out</button>
+</div>
+
+<h2>All the Threads</h2>
+<div *ngFor="let thread of threadService.threads">
+  <a [routerLink]="['/threads', thread._id]">{{thread.title}}</a>
+  <p>{{thread.content}}</p>
+  <hr>
+</div>

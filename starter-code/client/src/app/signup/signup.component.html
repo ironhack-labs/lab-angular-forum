@@ -1,0 +1,10 @@
+<h3>Sign Up</h3>
+
+<span *ngIf="error">{{error}}<br><br></span>
+
+<form (ngSubmit)="createUser(userForm)" #userForm="ngForm">
+  Username: <input type="text" [(ngModel)]="username" name="username" required> <br><br>
+  E-Mail: <input type="email" [(ngModel)]="email" name="email" required> <br><br>
+  Password: <input type="password" [(ngModel)]="password" name="password" required> <br><br>
+  <button>Create User</button>
+</form>
