@@ -1,8 +1,7 @@
   <div class="card" style="width: 18rem;" *ngFor ='let thread of threads'>
-    <img class="card-img-top" [src]="dish.image" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{thread.title}}</h5>
-      <p class="card-text">{{thread.author}}</p>
+      <p class="card-text">{{thread.content}}</p>
      
     </div>
   </div>
