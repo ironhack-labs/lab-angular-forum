@@ -11,6 +11,7 @@ const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
 
+
 mongoose.connect('mongodb://localhost/forum-development');
 
 const app = express();
