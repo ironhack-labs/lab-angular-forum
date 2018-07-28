@@ -1,0 +1,11 @@
+<p>
+  threads works!
+</p>
+
+<div *ngIf="threads && threads.length > 0" class="threadsContainer">
+  hola
+  <div *ngFor="let thread of threads, let i = index" class="thread">
+    <h3><a [routerLink]="['/thread'][thread._id]">{{thread.title}}</a></h3>
+    <p>{{thread._author}} on {{thread.date}}</p>
+  </div>
+</div>
