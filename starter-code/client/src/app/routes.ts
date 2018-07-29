@@ -1,9 +1,13 @@
 import { Routes } from '@angular/router';
 import { ThreadsComponent } from './threads/threads.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
 // import { DishesComponent } from './dishes/dishes.component';
 // import { SinglerecipeComponent } from './singlerecipe/singlerecipe.component';
 
 export const routes: Routes = [
   { path: '', component: ThreadsComponent },
-  // { path: 'singledish/:id', component: SinglerecipeComponent }
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent}
 ];

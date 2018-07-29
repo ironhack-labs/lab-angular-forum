@@ -7,13 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AllthreadsService } from '../services/allthreads.service';
 import { routes } from './routes';
 import { ThreadsComponent } from './threads/threads.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThreadsComponent
+    ThreadsComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,7 @@ import { ThreadsComponent } from './threads/threads.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ AllthreadsService ],
+  providers: [ AllthreadsService, AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

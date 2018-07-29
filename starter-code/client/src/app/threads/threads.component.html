@@ -1,7 +1,12 @@
+<!-- <li *ngIf=!Auth.user><a [routerLink]="['/login']">Login</a></li>
+ <li *ngIf=!Auth.user><a [routerLink]="['/signup']">Signup</a></li>
+  <li *ngIf='Auth.user'><a href="#" (click)="logout()">Logout</a></li> -->
+  
+  <div *ngIf='Auth.user'>
   <div class="card" style="width: 18rem;" *ngFor ='let thread of threads'>
     <div class="card-body">
       <h5 class="card-title">{{thread.title}}</h5>
       <p class="card-text">{{thread.content}}</p>
-     
     </div>
+  </div>
   </div>
