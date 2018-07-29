@@ -27,7 +27,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/', loggedIn, (req, res, next) => {
+router.post('/new', loggedIn, (req, res, next) => {
   const newThread = new Thread({
     _author: req.user._id,
     title: req.body.title,
@@ -56,7 +56,7 @@ router.post('/:id/replies', loggedIn, (req, res, next) => {
       if (err)     { return res.status(500).json(err); }
       if (!thread) { return res.status(404).json(err); }
 
-      thread.replies.push(newReply);
+      thread.replies.unshift(newReply);
 
       thread.save( (err) => {
         if (err)          { return res.status(500).json(err); }

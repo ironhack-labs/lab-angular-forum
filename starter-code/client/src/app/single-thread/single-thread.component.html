@@ -1,0 +1,20 @@
+<div *ngIf="thread">
+  <h3>Title: {{thread.title}}</h3>
+  <p>Made by {{thread._author.username | json}}</p>
+  <p>Content: {{thread.content}}</p>
+
+  <h3>Replies:</h3>
+  <ul *ngFor="let reply of thread.replies">
+    <li>{{reply.content}} by {{reply._author.username | json}}</li>
+  </ul>
+  <br>
+  <br>
+  <form #form="ngForm" *ngIf="sessionService.user">
+    <h2> Reply </h2>
+    <label>Content: </label>
+    <input type="text" [(ngModel)]="content" name="content" />
+    <br>
+    <button (click)="reply(thread._id,content,form)"> Add Reply</button>
+  </form>
+  <p class="error"> {{ error }} </p>
+</div>
