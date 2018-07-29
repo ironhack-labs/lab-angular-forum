@@ -1,0 +1,41 @@
+<div *ngIf="!sessionService.user" id="LoginForm">
+    <div class="container">
+  
+    <div class="login-form">
+    <div class="main-div">
+        <div class="panel">
+       <h2> SignUp</h2>
+       <p>Please create account</p>
+       </div>
+        <form id="Login">
+    
+            <div class="form-group">
+    
+    
+                <input type="text" class="form-control" [(ngModel)]="usernameS"  name="username" placeholder="Username">
+    
+            </div>
+    
+            <div class="form-group">
+    
+                <input type="password" class="form-control"  [(ngModel)]="passwordS" name="password" id="inputPassword" placeholder="Password">
+    
+            </div>
+            <div class="form-group">
+    
+                <input type="text" class="form-control"  [(ngModel)]="email"  name="email" placeholder="Email">
+    
+            </div>
+            
+            <div class="forgot">
+            <a href="reset.html">Forgot password?</a>
+    </div>
+            <button (click)="sessionService.signup(usernameS,passwordS,email).subscribe()" class="btn btn-primary">Sign Up</button>
+    
+        </form>
+        </div>
+    </div></div>
+</div>
+
+    
+    

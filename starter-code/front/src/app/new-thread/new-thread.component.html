@@ -1,0 +1,19 @@
+<form >
+  <div class="form-group">
+    
+    <label for="title">Title</label>
+    <input type="text" class="form-control" [(ngModel)]="title" name="title" id="title" placeholder="Title">
+
+</div>
+<div class="form-group">
+    
+  <label for="content">Content</label>
+
+  <textarea  class="form-control" [(ngModel)]="content" name="content" id="content" placeholder="Content" rows="5"></textarea>
+
+</div>
+<button (click)="add(title,content)">
+  Add
+</button>
+
+</form>

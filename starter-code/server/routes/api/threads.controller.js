@@ -58,7 +58,7 @@ router.post('/:id/replies', loggedIn, (req, res, next) => {
 
       thread.replies.push(newReply);
 
-      thread.save( (err) => {
+      Thread.findByIdAndUpdate( thread._id,thread,(err) => {
         if (err)          { return res.status(500).json(err); }
         if (thread.errors){ return res.status(400).json(thread); }
 
