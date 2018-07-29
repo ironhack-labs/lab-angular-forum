@@ -1,0 +1,14 @@
+<div style="text-align:center">
+    <h1 *ngIf="!sS.user" >Welcome to TheForum!</h1>
+    <h1 *ngIf="sS.user" >Welcome to TheForum {{sS.user.username}}!</h1>
+  
+  </div>
+  <ul>
+    <li *ngIf="!sS.user"><a [routerLink]="['/signup']">Signup</a></li>
+    <li *ngIf="!sS.user"><a [routerLink]="['/login']">Login</a></li>
+    <li *ngIf="sS.user"><a [routerLink]="['/home']">Home</a></li>
+    <li *ngIf="sS.user"><a href="#" (click)="logout()">Logut</a></li>
+  </ul>
+  <br>
+
+<router-outlet></router-outlet>
