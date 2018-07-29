@@ -1,0 +1,10 @@
+    <h1 *ngIf="!sS.user">Welcome to {{title}}!</h1>
+    <h1 *ngIf="sS.user">Welcome {{ sS.user.username }}!</h1>
+  <ul>
+    <li><a [routerLink]="['/']">HOME</a></li>
+    <li *ngIf="!sS.user"><a [routerLink]="['/signup']">Signup</a></li>
+    <li *ngIf="!sS.user"><a [routerLink]="['/login']">Login</a></li>
+    <li *ngIf="sS.user"><a href="#" (click)="logout()">Logut</a></li>
+  </ul>
+
+  <router-outlet></router-outlet>
