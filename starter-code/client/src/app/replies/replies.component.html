@@ -1,0 +1,19 @@
+<h2>New reply</h2>
+<form (ngSubmit)="saveReply(replyForm);" #replyForm="ngForm">
+  <div>
+    <label>Content</label>
+    <textarea [(ngModel)]="content" name="content" cols="30" rows="10" required></textarea>
+  </div>
+  <button type="submit">Save</button>
+</form>
+
+<h2>Replies</h2>
+<ul>
+  <li *ngFor="let r of replies">
+    <p>{{r.content}}</p>
+    <h4>
+      {{r._author.username}} |
+      {{r.date | date:'dd/MM/yyyy'}}
+    </h4>
+  </li>
+</ul>

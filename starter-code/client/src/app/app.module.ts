@@ -12,6 +12,7 @@ import { SignupComponent } from "./signup/signup.component";
 import { SessionService } from "../services/session.service";
 import { NewThreadComponent } from './new-thread/new-thread.component';
 import { SingleThreadComponent } from './single-thread/single-thread.component';
+import { RepliesComponent } from './replies/replies.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SingleThreadComponent } from './single-thread/single-thread.component';
     LoginComponent,
     SignupComponent,
     NewThreadComponent,
-    SingleThreadComponent
+    SingleThreadComponent,
+    RepliesComponent
   ],
   imports: [
     BrowserModule,

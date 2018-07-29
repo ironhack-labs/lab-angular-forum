@@ -7,11 +7,12 @@ import { environment } from '../environments/environment';
 const { BASEURL } = environment;
 
 export interface Thread {
-  _author?: object,
-  title: string,
-  content: string,
-  date?: Date,
-  replies?: Array<object>
+  _id?: string;
+  _author?: object;
+  title: string;
+  content: string;
+  date?: Date;
+  replies?: Array<object>;
 }
 
 @Injectable()
@@ -43,6 +44,15 @@ export class ThreadService {
 
   newThread(thread: Thread): Observable<Thread> {
     return this.http.post(`${BASEURL}/api/threads`, thread, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError( e => of(this.handleError(e)))
+    );
+  }
+
+  newReply(threadId: string, content: string): Observable<Thread> {
+    return this.http.post(`${BASEURL}/api/threads/${threadId}/replies`, { content }, this.options).pipe(
       map((res: Response) => {
         return res.json();
       }),

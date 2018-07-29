@@ -16,8 +16,12 @@ export class SingleThreadComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.threadsServ.getThread(params.id).subscribe(thread => this.thread = thread);
+      this.update(params.id);
     });
+  }
+
+  update(id) {
+    this.threadsServ.getThread(id).subscribe(thread => this.thread = thread);
   }
 
 }
