@@ -1,0 +1,9 @@
+<p>
+  threads works!
+</p>
+
+<h2>POSTS</h2>
+<div *ngFor="let thread of threads">
+  <p [routerLink]='["/threads", thread._id]'>{{thread.title}} {{thread._author.username}} {{thread.date}}</p>
+</div>
+
