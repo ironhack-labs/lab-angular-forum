@@ -1,16 +1,16 @@
 
 <div class="thread-list" *ngIf="threadsService.showThreadList">
-  <button (click)="newThread()" *ngIf="sessionService.user">New Thread</button>
+  <button class="btn btn-info" (click)="newThread()" *ngIf="sessionService.user">New Thread</button>
   
   <div class="newThread-form" *ngIf="threadsService.enableNewThreadForm">
     <router-outlet></router-outlet>
   </div>
   
-  <div class="threads" *ngFor="let thread of threads">
-    <div class="thread">
+  <div class="threads">
+    <div class="thread" *ngFor="let thread of threads">
       <h2>{{thread.title}}</h2>
       <p>{{thread.content}}</p>
-      <button (click)="threadDetails(thread._id)">Details</button>
+      <button class="btn btn-outline-success" (click)="threadDetails(thread._id)">Details</button>
     </div>
   </div>
 </div>

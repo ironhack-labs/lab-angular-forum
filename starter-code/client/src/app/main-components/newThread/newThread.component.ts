@@ -20,4 +20,8 @@ export class NewThreadComponent implements OnInit {
     this.threadsService.sendThread(thread.value).subscribe();
     this.threadsService.enableNewThreadForm = false;
   }
+
+  cancelForm(){
+    this.threadsService.enableNewThreadForm = false;
+  }
 }

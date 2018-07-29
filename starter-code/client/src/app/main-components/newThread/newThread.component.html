@@ -5,7 +5,10 @@
   </div>
   <div class="form-field">
     <label for="content">Content</label>
-    <textarea name="content" cols="30" rows="10" placeholder="Your thread" [ngModel]="content" required></textarea>
-    <button type="submit">Create thread</button>
+    <textarea name="content" cols="30" rows="5" placeholder="Your thread" [ngModel]="content" required></textarea>
+    <div class="buttons">
+      <button class="btn btn-success" type="submit">Create thread</button>
+      <button class="btn btn-danger" (clic)="cancelForm()">Cancel</button>
+    </div>
   </div>
 </form>

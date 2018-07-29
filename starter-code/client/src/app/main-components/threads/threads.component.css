@@ -1,0 +1,32 @@
+.thread-list > button{
+  position: fixed;
+  right: 50px;
+  top: 50px;
+  z-index: 1;
+}
+
+.threads > :nth-child(even){
+  background-color: rgb(250, 253, 230)
+}
+
+.threads > :nth-child(odd){
+  background-color: rgb(228, 247, 224)
+}
+
+.thread{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.thread button{
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
+  padding: 0 10px;
+}
+
+.thread p{
+  text-align: center;
+}

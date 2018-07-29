@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px dashed rgb(124, 158, 190);
+  width: 400px;
+  margin: 20px auto;
+}
+
+form > *{
+  margin: 10px;
+}
+
+form button{
+  margin-bottom: 10px;
+}
