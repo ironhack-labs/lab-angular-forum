@@ -11,6 +11,7 @@ import { NewThreadComponent } from './new-thread/new-thread.component';
 import { SingleThreadComponent } from './single-thread/single-thread.component';
 import { ThreadsComponent } from './threads/threads.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

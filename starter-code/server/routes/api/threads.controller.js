@@ -56,7 +56,7 @@ router.post('/:id/replies', loggedIn, (req, res, next) => {
       if (err)     { return res.status(500).json(err); }
       if (!thread) { return res.status(404).json(err); }
 
-      thread.replies.push(newReply);
+      thread.replies.unshift(newReply);
 
       thread.save( (err) => {
         if (err)          { return res.status(500).json(err); }
