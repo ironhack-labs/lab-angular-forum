@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ThreadService, Thread } from '../../services/thread.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-replies',
   templateUrl: './replies.component.html',
-  styleUrls: ['./replies.component.css']
+  styleUrls: ['./replies.component.css'],
+  providers: [ThreadService]
 })
 export class RepliesComponent implements OnInit {
   error: string = "";
@@ -12,7 +14,7 @@ export class RepliesComponent implements OnInit {
   @Input() threadId: string;
   @Output() onRepliesUpdate = new EventEmitter<string>();
 
-  constructor(private threadServ: ThreadService) { }
+  constructor(private threadServ: ThreadService, private sessionService: SessionService) { }
 
   ngOnInit() {
   }
