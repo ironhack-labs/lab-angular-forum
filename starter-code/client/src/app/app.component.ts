@@ -15,4 +15,7 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.threadService.getAll().subscribe(threads => this.threads = threads)
   }
+  logout(){
+    this.sessionService.logout().subscribe()
+  }
 }
