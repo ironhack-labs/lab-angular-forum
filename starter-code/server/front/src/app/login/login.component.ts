@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/sessions';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { SessionService } from '../../services/sessions';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private sessionService:SessionService) { }
+  constructor(private sessionService:SessionService, private router:Router) { }
 
   ngOnInit() {
   }

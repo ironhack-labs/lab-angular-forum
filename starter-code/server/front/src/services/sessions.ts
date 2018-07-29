@@ -22,7 +22,7 @@ export class SessionService {
   }
 
   isLogged() {
-    return this.http.get(`${BASEURL}/api/auth/currentuser`, this.options).pipe(
+    return this.http.get(`${BASEURL}/api/loggedin`, this.options).pipe(
       map((res: Response) => {
         this.user = res.json();
         console.log(`Automatically login ${this.user.username}`);
@@ -42,9 +42,10 @@ export class SessionService {
     return e;
   }
 
-  signup(username: string, password: string): Observable<object> {
-    return this.http
-      .post(`${BASEURL}/api/auth/signup`, { username, password }, this.options)
+  signup(username: string, password: string, email:string): Observable<object> {
+    console.log(username, password, email)
+      console.log("pasa por envio")
+    return this.http.post(`${BASEURL}/api/signup`, { username, password, email }, this.options)
       .pipe(
         map((res: Response) => {
           let data = res.json();
@@ -57,7 +58,7 @@ export class SessionService {
 
   login(username: string, password: string): Observable<object> {
     return this.http
-      .post(`${BASEURL}/api/auth/login`, { username, password }, this.options)
+      .post(`${BASEURL}/api/login`, { username, password }, this.options)
       .pipe(
         map((res: Response) => {
           let user = res.json();
@@ -69,7 +70,7 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.get(`${BASEURL}/api/auth/logout`, this.options).pipe(
+    return this.http.get(`${BASEURL}/api/logout`, this.options).pipe(
       map((res: Response) => {
         this.user = null;
       }),

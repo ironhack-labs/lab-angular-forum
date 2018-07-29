@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SessionService } from '../services/sessions';
 import { HttpModule } from '@angular/http';
+import { ThreadsService } from '../services/threads';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { HttpModule } from '@angular/http';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private sessionService:SessionService) { }
+  constructor(public threadService: ThreadsService ,public sessionService:SessionService) { }
 
   logout(){
     this.sessionService.logout().subscribe();
