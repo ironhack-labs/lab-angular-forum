@@ -53,7 +53,10 @@ export class SessionService {
           this.user = user;
           return this.user;
         }),
-        catchError(e => of(this.errorHandler(e)))
+        catchError(e => {
+          of(this.errorHandler(e));
+          throw new Error(e.json().message);
+        })
       );
   }
 
