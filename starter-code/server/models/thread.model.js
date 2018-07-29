@@ -21,7 +21,8 @@ const ThreadSchema = new Schema(
       default: Date.now
     },
     replies: [ReplySchema]
-  }
+  },
+  { usePushEach: true }
 );
 
 const Thread = mongoose.model("Thread", ThreadSchema);

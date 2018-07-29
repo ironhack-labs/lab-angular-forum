@@ -54,6 +54,7 @@ router.post("/", (req, res, next) => {
 });
 
 router.post("/:id/replies", (req, res, next) => {
+  console.log(req.body)
   const newReply = new Reply({
     _author: req.user._id,
     title: req.body.title,

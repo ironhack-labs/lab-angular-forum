@@ -1,17 +1,25 @@
-<h1>
-  Forum
-</h1>
+<div class="container">
+  <h1>
+    Forum
+  </h1>
 
-<li *ngIf=sessionService.user><a [routerLink]="['/threads/new']">New thread</a></li>
+  <li *ngIf=sessionService.user>
+    <a [routerLink]="['/threads/new']">New thread</a>
+  </li>
 
 
-<li *ngIf=!sessionService.user><a [routerLink]="['/login']">Login</a></li>
-<li *ngIf=!sessionService.user><a [routerLink]="['/signup']">Signup</a></li>
-<li *ngIf=sessionService.user><a href="#" (click)="logout()">Logout</a></li>
+  <li *ngIf=!sessionService.user>
+    <a [routerLink]="['/login']">Login</a>
+  </li>
+  <li *ngIf=!sessionService.user>
+    <a [routerLink]="['/signup']">Signup</a>
+  </li>
+  <li *ngIf=sessionService.user>
+    <a href="#" (click)="logout()">Logout</a>
+  </li>
 
-<div *ngFor="let thread of threads">
-  {{thread.title}}
-  {{thread._author.username}}
-  {{thread.date | date: 'dd/MM/yyyy'}}
-  <a [routerLink]="['/threads', thread._id]">Details</a>
+  <div *ngFor="let thread of threads" class="thread">
+    {{thread.title}} {{thread._author.username}} {{thread.date | date: 'dd/MM/yyyy'}}
+    <a [routerLink]="['/threads', thread._id]">Details</a>
+  </div>
 </div>
