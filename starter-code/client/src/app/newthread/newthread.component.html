@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+  <h3 class="center-align">New Thread</h3>
+    <article class="col s6 offset-s3">
+      <form method="POST">
+        <div class="input">
+          <label for="title">Title</label>
+          <input type="text" [(ngModel)]="title" name="title" required>
+        </div>
+
+        <div class="input">
+          <label for="content">Content</label>
+          <input type="text" [(ngModel)]="content" name="content" required>
+        </div>
+        
+        <p class="center-align">
+          <button (click)="newThread(title, content)"class="btn" type="submit">Login</button>
+        </p>
+        
+      </form>
+      
+    </article>
+  </div>
+</div>

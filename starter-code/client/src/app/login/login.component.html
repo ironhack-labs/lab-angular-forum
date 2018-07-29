@@ -1,0 +1,26 @@
+<h2>Login</h2>
+
+<div class="container">
+    <div class="row">
+    <h3 class="center">LOGIN</h3>
+      <div class="col s6 ">
+        <form method="POST">
+          <div class="input">
+            <label for="username">Username</label>
+            <input type="text" [(ngModel)]="username" name="username" required>
+          </div>
+  
+          <div class="input">
+            <label for="password">Password</label>
+            <input type="password" [(ngModel)]="password" name="password" required>
+          </div>
+          
+          <p class="center-align">
+            <button (click)="login(username, password)"class="btn btn-secondary" type="submit">Login</button>
+          </p>
+  
+        </form>
+  
+      </div>
+    </div>
+  
