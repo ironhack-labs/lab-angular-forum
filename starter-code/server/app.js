@@ -16,6 +16,22 @@ mongoose.connect('mongodb://localhost/forum-development');
 
 const app = express();
 
+app.use(session({
+  secret: "forum-app",
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    maxAge: 2419200000
+  },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+configure(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Middleware Setup
 var whitelist = [
   'http://localhost:4200',
@@ -28,18 +44,6 @@ var corsOptions = {
   credentials: true
 };
 app.use(cors(corsOptions));
-
-app.use(session({
-  secret: "forum-app",
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
-
-configure(passport);
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

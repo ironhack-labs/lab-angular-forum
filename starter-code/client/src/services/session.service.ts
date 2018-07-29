@@ -8,8 +8,6 @@ import { map, catchError } from 'rxjs/operators';
 
 const {BASEURL} = environment;
 
-
-
 @Injectable()
 export class SessionService {
 
@@ -25,8 +23,9 @@ export class SessionService {
       map((res: Response) => {
         this.user = res.json();
         console.log("Automatically logged in");
-        return this.user;
-      })
+        return res.json();
+      }),
+      catchError( e => of(this.errorHandler(e)))
     )
   };
 

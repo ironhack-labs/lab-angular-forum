@@ -13,6 +13,9 @@ export class ThreadsService {
 
   options: object = {withCredentials: true};
   enableNewThreadForm: boolean = false;
+  showThreadList: boolean = true;
+  showOneThread: boolean = true;
+  
   constructor(private http: Http) { }
 
   errorHandler(e){
@@ -32,5 +35,13 @@ export class ThreadsService {
 
   sendThread(newThread): Observable<any>{
     return this.http.post(`${BASEURL}/api/threads`, newThread, this.options).pipe();
+  }
+
+  getSingleThread(id: string): Observable<Thread>{
+    return this.http.get(`${BASEURL}/api/threads/${id}`).pipe(
+      map((res: Response) => {
+        return res.json();
+      })
+    )
   }
 }

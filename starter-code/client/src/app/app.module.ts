@@ -11,16 +11,20 @@ import { ThreadsService } from '../services/threads.service';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth-components/signup/signup.component';
 import { LoginComponent } from './auth-components/login/login.component';
+import { HomeComponent } from './main-components/home/home.component';
 import { ThreadsComponent } from './main-components/threads/threads.component';
 import { NewThreadComponent } from './main-components/newThread/newThread.component';
+import { SingleThreadComponent } from './main-components/singleThread/singleThread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
+    HomeComponent,
     ThreadsComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    SingleThreadComponent
   ],
   imports: [
     BrowserModule,

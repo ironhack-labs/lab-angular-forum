@@ -1,0 +1,5 @@
+<div class="single-thread" *ngIf="threadService.showOneThread && thread">
+  <h1>{{thread.title}} <span>by {{thread._author.username}} on {{thread.date | date: 'short'}}</span></h1>
+  <p>{{thread.content}}</p>
+  <button (click)="backHome()">Back</button>
+</div>
