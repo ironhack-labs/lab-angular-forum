@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>IRONFORUM</h1>
+<ul>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
+  <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
+</ul>
+
+<h2>Threads</h2>
+<div *ngFor= "let thread of threads">
+  <p>{{thread.title}} - {{thread.author}} - {{thread.date | date:'dd/MM/yyyy'}}</p>
+</div>
+
+
+<router-outlet></router-outlet>
+
