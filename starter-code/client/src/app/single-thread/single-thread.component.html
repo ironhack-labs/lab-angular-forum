@@ -1,0 +1,6 @@
+<div *ngIf="thread">
+  <h2>{{thread.title}}</h2>
+  <h4>{{thread._author.username}}</h4>
+  <p>{{thread.content}}</p>
+  <app-replies [replies]="thread.replies" [threadId]="thread._id" (onRepliesUpdate)="update($event);"></app-replies>
+</div>
