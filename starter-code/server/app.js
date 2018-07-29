@@ -10,6 +10,7 @@ const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
+const cors = require("cors");
 
 mongoose.connect('mongodb://localhost/forum-development');
 
@@ -19,6 +20,7 @@ app.use(session({
   secret: "forum-app",
   resave: true,
   saveUninitialized: true,
+  cookie: { httpOnly: true, maxAge: 2419200000 },
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
@@ -27,10 +29,22 @@ configure(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+var whiteList = [
+  'http://localhost:4200'
+];
+var corsOptions = {
+  origin: function(origin, callback){
+    var originWhiteListed = whiteList.indexOf(origin) !== -1;
+    callback(null, originWhiteListed);
+  },
+  credentials: true
+}
+app.use(cors(corsOptions));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.locals.title = 'Express - Generated with IronGenerator';
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

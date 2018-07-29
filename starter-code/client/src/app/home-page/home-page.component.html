@@ -1,0 +1,11 @@
+<a [routerLink]="['/login']" *ngIf="!authService.user">Log in</a><br>
+<a [routerLink]="['/signup']" *ngIf="!authService.user">Sign up</a><br>
+<a [routerLink]="['/threads/new']" *ngIf="authService.user">New thread</a><br>
+<a (click)="logout()" *ngIf="authService.user">Log out</a>
+
+<div *ngFor="let thread of threadList">
+    <h3>{{thread.title}}</h3>
+    <h4>{{thread._author.username}}</h4>
+    <p>{{thread.date | date : 'M/d/yy, h:mm a'}}</p>
+    <a [routerLink]="['/singlethread', thread._id]">Detail</a>
+</div>

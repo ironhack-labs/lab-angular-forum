@@ -1,0 +1,15 @@
+<div *ngIf="thread">
+  <h1>{{thread.title}}</h1>
+  <p>{{thread.content}}</p>
+  <p>{{thread._author.username}}</p>
+  <a [routerLink]="['']">Back to list</a>
+  <h2>Replies</h2>
+  <form>
+    <label for="content">Content</label>
+    <input type="text" name="content" [(ngModel)]="content">
+    <button (click)="addReply(thread._id, content)">Add reply</button>
+  </form>
+  <ul *ngFor="let reply of thread.replies">
+    <li>{{reply.content}} by {{reply._author.username}}</li>
+  </ul>
+</div>

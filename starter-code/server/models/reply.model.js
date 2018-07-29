@@ -14,7 +14,10 @@ const ReplySchema = new Schema({
     type: Date,
     default: Date.now
   }
-});
+},{
+  usePushEach: true,
+}
+);
 
 const Reply = mongoose.model('Reply', ReplySchema);
 module.exports = Reply;
