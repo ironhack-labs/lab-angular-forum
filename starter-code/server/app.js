@@ -10,6 +10,8 @@ const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const configure    = require('./config/passport.js');
+const cors = require('cors')
+
 
 mongoose.connect('mongodb://localhost/forum-development');
 
@@ -19,8 +21,29 @@ app.use(session({
   secret: "forum-app",
   resave: true,
   saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    maxAge: 2419200000
+  },
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+
+//Middleware...
+const whitelist = [
+  'http://localhost:4200',
+]
+
+const corsOptions = {
+  origin: (origin, cb) => {
+    var originIsWhiteListed = whitelist.indexOf(origin) !== -1;
+    cb(null, originIsWhiteListed);
+  },
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
+
 
 configure(passport);
 

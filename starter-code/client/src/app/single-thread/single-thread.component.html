@@ -1,0 +1,23 @@
+  <div class="card" style="width: 18rem;" *ngIf="thread">
+    <div class="card-body">
+      <h4 class="card-title">Title: {{thread.title}}</h4>
+      <h3 class="card-text">Author:{{thread._author.username}}</h3>
+      <p class="card-text">Content: {{thread.content}}</p>
+    </div>
+  </div>
+
+<div>
+<h2>Replies</h2>
+   <ul *ngFor="let reply of thread.replies">
+     <li>{{reply.content}} by {{reply._author.username | json}}</li>
+   </ul>
+</div>
+
+  <form #form="ngForm">
+    <h3> "Wanna" reply this? </h3>
+    <label> Then, type your reply, please... </label>
+    <input type="text" [(ngModel)]="content" name="content"/>
+    
+  
+    <button (click)="reply(thread._id, content, form)" type="submit"> Add reply! </button>
+  </form>

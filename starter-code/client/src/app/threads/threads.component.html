@@ -1,0 +1,16 @@
+<!-- <li *ngIf=!Auth.user><a [routerLink]="['/login']">Login</a></li>
+ <li *ngIf=!Auth.user><a [routerLink]="['/signup']">Signup</a></li>
+  <li *ngIf='Auth.user'><a href="#" (click)="logout()">Logout</a></li> -->
+  
+  <div *ngIf='Auth.user'>
+  <div class="card" style="width: 18rem;" *ngFor ='let thread of threads'>
+    <div class="card-body">
+      <h5 class="card-title">{{thread.title}}</h5>
+      <p class="card-text">{{thread.content}}</p>
+    </div>
+    <button href='#' [routerLink]="['/threads', thread._id]" type="button" class="btn btn-info">Explore this thread</button>
+  </div>
+
+  <!-- <a [routerLink] = "['/singledish', dish._id]">Ver entrada</a> -->
+  <button href='#' [routerLink]="['/threads/new']" type="button" class="btn btn-warning">Create new thread</button>
+  </div>

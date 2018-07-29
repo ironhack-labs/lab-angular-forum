@@ -1,0 +1,10 @@
+<form>
+  <h2> New thread </h2>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <br>
+  <label> Content </label>
+  <input type="text" [(ngModel)]="content" name="content"/>
+
+  <button (click)="newThread(title,content)"> Create</button>
+</form>
