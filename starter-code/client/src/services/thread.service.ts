@@ -32,6 +32,15 @@ export class ThreadService {
     );
   }
 
+  getThread(id): Observable<Thread> {
+    return this.http.get(`${BASEURL}/api/threads/${id}`).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError( e => of(this.handleError(e)))
+    );
+  }
+
   newThread(thread: Thread): Observable<Thread> {
     return this.http.post(`${BASEURL}/api/threads`, thread, this.options).pipe(
       map((res: Response) => {
