@@ -30,9 +30,4 @@ export class ThreadsService {
       .pipe(map(res => res.json()));
   }
 
-  // reply(id: string, content: string) {
-  //   return this.http
-  //     .post(`${BASEURL}/api/threads/${id}/replies`, { content }, this.options)
-  //     .pipe(map(res => res.json()));
-  // }
 }
