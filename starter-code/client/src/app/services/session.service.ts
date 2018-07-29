@@ -24,7 +24,7 @@ export class SessionService {
   }
 
   isLogged(){
-    return this.http.post(`${baseurl}/api/loggedin`, this.options).pipe(
+    return this.http.get(`${baseurl}/api/loggedin`, this.options).pipe(
       map( (res:Response) => {
         this.user = res.json();
         console.log(`Automatically login ${this.user.username}`);
@@ -57,7 +57,7 @@ export class SessionService {
   }
 
   logout(): Observable<void>{
-    return this.http.post(`${baseurl}/api/logout`,this.options).pipe(
+    return this.http.get(`${baseurl}/api/logout`,this.options).pipe(
       map( (res:Response) => {
         this.user = null;
         return;
