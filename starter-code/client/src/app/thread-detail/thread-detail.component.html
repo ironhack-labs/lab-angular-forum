@@ -1,0 +1,28 @@
+<p *ngIf="!thread">
+  Loading thread info
+</p>
+
+<div *ngIf="thread" class="thread">
+  <h3>{{thread.title}}</h3>
+  <p>{{thread._author.username}} on {{thread.date | date: 'dd/MM/yyyy'}}</p>
+  <p>{{thread.content}}</p>
+</div>
+
+<div *ngIf="thread && thread.replies">
+  <h4>Replies</h4>
+  <div *ngFor="let reply of thread.replies">
+    <p>{{reply._author.username}} on {{reply.date | date: 'dd/MM/yyyy'}}</p>
+    <p>{{reply.content}}</p>
+  </div>
+</div>
+
+<div *ngIf="sessionService.user">
+  <h4>Create new reply</h4>
+  <form>
+    <label> Content </label>
+    <br />
+    <textarea [(ngModel)]="content" name="content"></textarea>
+
+    <button (click)="newReply(content)"> Publish </button>
+  </form>
+</div>

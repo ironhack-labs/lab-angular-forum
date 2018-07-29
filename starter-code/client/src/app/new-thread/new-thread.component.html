@@ -1,0 +1,11 @@
+<form>
+  <h2> New post </h2>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <br>
+  <label> Content </label>
+  <textarea [(ngModel)]="content" name="content"></textarea>
+
+  <button (click)="newThread(title, content)"> Publish </button>
+</form>
+<p class="error"> {{ error }} </p>
