@@ -27,7 +27,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/', loggedIn, (req, res, next) => {
+router.post('/new', loggedIn, (req, res, next) => {
   const newThread = new Thread({
     _author: req.user._id,
     title: req.body.title,

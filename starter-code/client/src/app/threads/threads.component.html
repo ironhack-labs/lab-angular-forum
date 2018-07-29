@@ -1,4 +1,5 @@
-<p>
-  threads works!
-</p>
 
+<h2>Threads</h2>
+<div *ngFor= "let thread of threads">
+  <p>{{thread.title}} - {{thread._author.username}} - {{thread.date | date:'dd/MM/yyyy'}}</p>
+</div>

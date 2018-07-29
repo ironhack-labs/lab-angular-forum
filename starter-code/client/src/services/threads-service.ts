@@ -8,7 +8,7 @@ const {BASEURL} = environment;
 
 @Injectable()
 export class ThreadsService {
-  options: object = { withCredentials: true };  //por qué se usa?
+  options: object = { withCredentials: true };  //por qué se usa? cookies?
 
   constructor(private http: Http) {}
 
@@ -18,17 +18,17 @@ export class ThreadsService {
       .pipe(map(res => res.json()));
   }
 
-  // getById(id: string) {
-  //   return this.http
-  //     .get(`${BASEURL}/api/threads/${id}`, this.options)
-  //     .pipe(map(res => res.json()));
-  // }
+  getById(id: string) {
+    return this.http
+      .get(`${BASEURL}/api/threads/${id}`, this.options)
+      .pipe(map(res => res.json()));
+  }
 
-  // createThread(title: string, content: string) {
-  //   return this.http
-  //     .post(`${BASEURL}/api/threads/new`, { title, content }, this.options)
-  //     .pipe(map(res => res.json()));
-  // }
+  createThread(title: string, content: string) {
+    return this.http
+      .post(`${BASEURL}/api/threads/new`, { title, content }, this.options)
+      .pipe(map(res => res.json()));
+  }
 
   // reply(id: string, content: string) {
   //   return this.http
