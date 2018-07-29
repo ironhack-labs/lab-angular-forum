@@ -18,12 +18,6 @@ export class ThreadsService {
   
   constructor(private http: Http) { }
 
-  errorHandler(e){
-    console.log("ThreadsServiceError");
-    console.log(e.getMessage());
-    console.log(e);
-  }
-
   getThreads(): Observable<Array<Thread>>{
     return this.http.get(`${BASEURL}/api/threads`).pipe(
       map((res: Response) => {
@@ -43,5 +37,19 @@ export class ThreadsService {
         return res.json();
       })
     )
+  }
+
+  addReply(id: string, content: string): Observable<any>{
+    return this.http.post(`${BASEURL}/api/threads/${id}/replies`, {content}, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      })
+    )
+  }
+
+  errorHandler(e){
+    console.log("ThreadsServiceError");
+    console.log(e.getMessage());
+    console.log(e);
   }
 }

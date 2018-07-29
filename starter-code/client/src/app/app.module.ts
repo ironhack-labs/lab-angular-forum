@@ -15,6 +15,7 @@ import { HomeComponent } from './main-components/home/home.component';
 import { ThreadsComponent } from './main-components/threads/threads.component';
 import { NewThreadComponent } from './main-components/newThread/newThread.component';
 import { SingleThreadComponent } from './main-components/singleThread/singleThread.component';
+import { NewReplyComponent } from './main-components/newReply/newReply.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SingleThreadComponent } from './main-components/singleThread/singleThre
     HomeComponent,
     ThreadsComponent,
     NewThreadComponent,
-    SingleThreadComponent
+    SingleThreadComponent,
+    NewReplyComponent
   ],
   imports: [
     BrowserModule,

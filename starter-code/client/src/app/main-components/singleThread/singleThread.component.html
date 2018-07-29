@@ -1,5 +1,10 @@
 <div class="single-thread" *ngIf="threadService.showOneThread && thread">
   <h1>{{thread.title}} <span>by {{thread._author.username}} on {{thread.date | date: 'short'}}</span></h1>
   <p>{{thread.content}}</p>
+  <h2>Replies</h2>
+  <div class="replies" *ngFor="let reply of thread.replies">
+    {{reply._author.username}} said {{reply.content}} on {{reply.date | date:short}}
+  </div>
+  <router-outlet></router-outlet>
   <button (click)="backHome()">Back</button>
 </div>
