@@ -36,10 +36,14 @@ export class AllthreadsService {
   getThread(id) {
     return this.http.get(`${BASEURL}/api/threads/${id}`).map(res => res.json());
   }
-  }
+  
 
-  //   (res => {
-  //     const newthread = res.json();
-  //   console.log(this.newThread);
-  //   return this.newThread;
-  // });
+  replyThread(id, content) {
+    return this.http.post(`${BASEURL}/api/threads/${id}/replies`, { content }, this.options).pipe(map( (res: Response) => {
+      let reply = res.json();
+      this.replyThread = reply;
+      console.log(this.replyThread);
+      return this.replyThread;
+    }));
+  }
+}

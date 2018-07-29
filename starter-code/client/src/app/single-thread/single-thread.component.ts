@@ -12,7 +12,9 @@ import { Http, Response } from '@angular/http';
 export class SingleThreadComponent implements OnInit {
   threadId: String;
   thread: Observable<Array<object>>;
-  constructor(public singlethread: AllthreadsService, private route: ActivatedRoute) { }
+
+  content: String;
+  constructor(public singlethread: AllthreadsService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -20,4 +22,14 @@ export class SingleThreadComponent implements OnInit {
       this.singlethread.getThread(this.threadId).subscribe(res => this.thread = res);
   });
 }
+  reply(id, content, form){
+    this.singlethread.replyThread(id, content).subscribe(data => {
+      this.reply = data;
+      console.log(this.reply);
+      form.reset();
+      this.singlethread.getThread(this.threadId).subscribe(res => this.thread = res);
+    });
+  }
 }
+
+
