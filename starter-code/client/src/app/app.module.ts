@@ -7,12 +7,18 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { routes } from './routes';
+import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
+import { ThreadsComponent } from './threads/threads.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    NewThreadComponent,
+    SingleThreadComponent,
+    ThreadsComponent
   ],
   imports: [
     BrowserModule,

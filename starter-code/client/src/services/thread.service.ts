@@ -10,13 +10,19 @@ const url = environment.BASEURL;
   providedIn:"root"
 })
 export class ThreadsService {
+  options:object = {withCredentials:true};
   constructor(private http: Http) {}
   getAll() {
-    return this.http.get(`${url}/api/threads`).pipe(
+    return this.http.get(`${url}/api/threads`, this.options).pipe(
       map(res => res.json()));
   }
   getById(id: string) {
-    return this.http.get(`${url}/api/threads/${id}`).pipe(
+    return this.http.get(`${url}/api/threads/${id}`, this.options).pipe(
       map(res => res.json()))
+  }
+
+  createThread(title:string,content:string){
+    return this.http.post(`${url}/api/threads/new`, {title, content}, this.options).pipe(
+      map(res => res.json()));
   }
 }

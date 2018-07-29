@@ -1,0 +1,5 @@
+<div *ngIf="thread">
+  <h3>Title: {{thread.title}}</h3>
+  <p>Made by {{thread._author.username | json}}</p>
+  <p>Content: {{thread.content}}</p>
+  </div>

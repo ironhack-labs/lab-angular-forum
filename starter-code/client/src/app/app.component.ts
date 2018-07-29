@@ -9,11 +9,10 @@ import { SessionService } from '../services/session.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  threads:any;
+  //threads:any;
   title = 'app';
   constructor(public threadService: ThreadsService, public sessionService: SessionService){}
   ngOnInit(){
-    this.threadService.getAll().subscribe(threads => this.threads = threads)
   }
   logout(){
     this.sessionService.logout().subscribe()
