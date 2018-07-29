@@ -33,6 +33,9 @@ export class AllthreadsService {
         return this.newThread;
       }));
     }
+  getThread(id) {
+    return this.http.get(`${BASEURL}/api/threads/${id}`).map(res => res.json());
+  }
   }
 
   //   (res => {

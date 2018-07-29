@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthenticationService } from '../services/authentication.service';
 import { NewThreadComponent } from './new-thread/new-thread.component';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 
 
@@ -20,7 +21,8 @@ import { NewThreadComponent } from './new-thread/new-thread.component';
     ThreadsComponent,
     LoginComponent,
     SignupComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    SingleThreadComponent
   ],
   imports: [
     BrowserModule,

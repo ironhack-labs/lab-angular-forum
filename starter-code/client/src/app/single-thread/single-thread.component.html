@@ -1,0 +1,10 @@
+  <div class="card" style="width: 18rem;" *ngIf="thread">
+    <div class="card-body">
+      <h4 class="card-title">Title: {{thread.title}}</h4>
+      <h3 class="card-text">Author:{{thread._author.username}}</h3>
+      <p class="card-text">Content: {{thread.content}}</p>
+    </div>
+   
+
+  <!-- <button href='#' [routerLink]="['/threads/new']" type="button" class="btn btn-warning">Create new thread</button> -->
+  </div>
