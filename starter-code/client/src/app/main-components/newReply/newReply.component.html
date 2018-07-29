@@ -1,0 +1,7 @@
+<form *ngIf="sessionService.user">
+  <div class="form-field" >
+    <label for="content">Reply</label>
+    <textarea name="content" id="" cols="30" rows="3" placeholder="Your reply" #content></textarea>
+  </div>
+  <button class="btn btn-success" (click)="addReply(content.value)">Reply!</button>
+</form>
