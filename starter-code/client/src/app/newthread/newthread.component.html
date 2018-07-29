@@ -1,0 +1,26 @@
+<section class="container">
+    <div class="row">
+    <h3 class="center-align">New Thread</h3>
+      <article class="col s6 offset-s3">
+        <form method="POST" action="formulario-contacto.php">
+          <div class="input-field">
+            <i class="material-icons prefix">title</i>
+            <label for="title">Title</label>
+            <input type="text" [(ngModel)]="title" name="title" required>
+          </div>
+  
+          <div class="input-field">
+            <i class="material-icons prefix">comment</i>
+            <label for="content">Content</label>
+            <input type="text" [(ngModel)]="content" name="content" required>
+          </div>
+          
+          <p class="center-align">
+            <button (click)="newThread(title, content)"class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>Login</button>
+          </p>
+          
+        </form>
+        
+      </article>
+    </div>
+  </section>

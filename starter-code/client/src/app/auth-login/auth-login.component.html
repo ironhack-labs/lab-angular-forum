@@ -1,0 +1,27 @@
+<section class="container">
+  <div class="row">
+  <h3 class="center-align">LOGIN</h3>
+    <article class="col s6 offset-s3">
+      <form method="POST" action="formulario-contacto.php">
+        <div class="input-field">
+          <i class="material-icons prefix">perm_identity</i>
+          <label for="username">Username</label>
+          <input type="text" [(ngModel)]="username" name="username" required>
+        </div>
+
+        <div class="input-field">
+          <i class="material-icons prefix">lock</i>
+          <label for="password">Password</label>
+          <input type="password" [(ngModel)]="password" name="password" required>
+        </div>
+        
+      
+        <p class="center-align">
+          <button (click)="login(username, password)"class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>Login</button>
+        </p>
+
+      </form>
+
+    </article>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<div class="container" *ngIf="thread">
+  <h1>{{thread.title}}</h1>
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <p class="card-text">Author:</p>
+      <p>{{thread._author.username}}</p>
+      <p class="card-text">Content:</p>
+      <p>{{thread.content}}</p>
+      <div *ngIf="!thread.replies.length == 0">
+        <p class="card-text">Replies:</p>
+        <ul *ngFor="let reply of thread.replies">
+          <li>{{reply.content}} by {{reply._author.username}}</li>
+        </ul>
+      </div>
+    </div>
+    <a [routerLink]="['/']" class="btn btn-primary">Home</a>
+  </div>
+
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <form *ngIf="sessionService.user" (ngSubmit)="newReply(myForm)" #myForm="ngForm">
+        <h2> Reply </h2>
+        <label for="content">Content:</label>
+        <input type="text" [(ngModel)]="content" name="content" />
+        <button type="submit" class="btn btn-primary">Reply</button>
+      </form>
+    </div>
+  </div>
+</div>
