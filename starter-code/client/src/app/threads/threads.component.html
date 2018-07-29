@@ -1,11 +1,8 @@
-<p>
-  threads works!
-</p>
+<span *ngIf="sessionService.user"><a href="#" [routerLink]="['/threads', 'new']">New thread</a></span>
 
 <div *ngIf="threads && threads.length > 0" class="threadsContainer">
-  hola
   <div *ngFor="let thread of threads, let i = index" class="thread">
-    <h3><a [routerLink]="['/thread'][thread._id]">{{thread.title}}</a></h3>
-    <p>{{thread._author}} on {{thread.date}}</p>
+    <h3><a [routerLink]="['/threads', thread._id]">{{thread.title}}</a></h3>
+    <p>{{thread._author.username}} on {{thread.date | date: 'dd/MM/yyyy'}}</p>
   </div>
 </div>

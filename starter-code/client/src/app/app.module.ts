@@ -10,14 +10,18 @@ import { RouterModule } from '@angular/router'
 import { routes } from './routes';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component'
-import { SessionService } from './services/session.service'
+import { SessionService } from './services/session.service';
+import { NewThreadComponent } from './new-thread/new-thread.component';
+import { ThreadDetailComponent } from './thread-detail/thread-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent,
+    ThreadDetailComponent
   ],
   imports: [
     BrowserModule,

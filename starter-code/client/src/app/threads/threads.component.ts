@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThreadsService } from '../services/thread.service'
+import { SessionService } from '../services/session.service'
 
 @Component({
   selector: 'app-threads',
@@ -9,7 +10,7 @@ import { ThreadsService } from '../services/thread.service'
 export class ThreadsComponent implements OnInit {
   threads: Array<Object>
 
-  constructor(public threadsService: ThreadsService) { }
+  constructor(public threadsService: ThreadsService, public sessionService: SessionService) { }
 
   ngOnInit() {
     this.getThreads()
