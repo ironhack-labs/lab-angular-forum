@@ -17,6 +17,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:id", (req, res, next) => {
+  console.log(req.params)
   Thread.findById(req.params.id)
     .populate("_author replies._author")
     .exec((err, thread) => {

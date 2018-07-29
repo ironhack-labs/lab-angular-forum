@@ -12,6 +12,7 @@ import { routes } from './routes';
 import { ListthreadsComponent } from './listthreads/listthreads.component';
 import { ThreadService } from './services/threads.service';
 import { NewthreadComponent } from './newthread/newthread.component';
+import { SinglethreadComponent } from './singlethread/singlethread.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NewthreadComponent } from './newthread/newthread.component';
     AuthSignupComponent,
     ListthreadsComponent,
     NewthreadComponent,
+    SinglethreadComponent,
   ],
   imports: [
     BrowserModule,

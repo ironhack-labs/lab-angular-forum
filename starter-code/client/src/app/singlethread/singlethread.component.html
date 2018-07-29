@@ -1,0 +1,12 @@
+<div class="container" *ngIf="thread">
+  <h1>{{thread.title}}</h1>
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <p class="card-text">Author:</p>
+      <p>{{thread._author.username}}</p>
+      <p class="card-text">Content:</p>
+      <p>{{thread.content}}</p>
+      <a [routerLink]="['/']" class="btn btn-primary">Home</a>
+    </div>
+  </div>
+</div>

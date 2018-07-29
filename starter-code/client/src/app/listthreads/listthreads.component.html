@@ -13,4 +13,5 @@
   {{thread.title}}
   {{thread._author.username}}
   {{thread.date | date: 'dd/MM/yyyy'}}
+  <a [routerLink]="['/threads', thread._id]">Details</a>
 </div>

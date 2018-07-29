@@ -43,4 +43,12 @@ export class ThreadService {
         this.router.navigate(['/']);
       });
   }
+
+  getThread(id) {
+    return this.http
+      .get(`${BASEURL}/api/threads/${id}`)
+      .map(res => {
+        return res.json();
+      });
+  }
 }
