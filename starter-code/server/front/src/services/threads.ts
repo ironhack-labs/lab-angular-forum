@@ -20,4 +20,10 @@ export class ThreadsService {
       .get(`${BASEURL}/api/threads`, this.options)
       .pipe(map(res => res.json()));
   }
+
+  createNewThread(title: string, content: string) {
+    return this.http
+      .post(`${BASEURL}/api/threads/new`, { title, content }, this.options)
+      .pipe(map(res => res.json()));
+  }
 }

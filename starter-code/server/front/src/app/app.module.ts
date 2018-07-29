@@ -12,14 +12,16 @@ import { RouterModule } from '../../node_modules/@angular/router';
 import { routes } from './routes';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http";
-import { ThreadsComponent } from './threads/threads.component'
+import { ThreadsComponent } from './threads/threads.component';
+import { NewThreadComponent } from './new-thread/new-thread.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    ThreadsComponent
+    ThreadsComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

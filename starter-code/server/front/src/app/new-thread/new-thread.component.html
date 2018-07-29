@@ -1,0 +1,14 @@
+<p>
+  new-thread works!
+</p>
+
+<form>
+  <h2> New thread </h2>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <br>
+  <label> Content </label>
+  <input type="text" [(ngModel)]="content" name="content"/>
+   <button (click)="createNewThread(title,content)"> Create</button>
+</form>
+<p class="error"> {{ error }} </p> 

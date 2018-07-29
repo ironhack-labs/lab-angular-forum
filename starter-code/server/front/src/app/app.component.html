@@ -9,6 +9,8 @@
   <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Signup</a></li>
   <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Login</a></li>
   <li *ngIf="sessionService.user"><a href="#" (click)="logout()">Logut</a></li>
+  <li *ngIf="sessionService.user"><a href="#" [routerLink]="['/threads/new']">Create thread</a></li>
+
 </ul>
 
 <router-outlet></router-outlet>
