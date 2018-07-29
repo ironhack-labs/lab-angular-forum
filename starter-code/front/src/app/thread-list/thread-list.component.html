@@ -1,0 +1,7 @@
+<div>
+  <div *ngFor="let thread of threads">
+    <h2>{{thread.title}}</h2>
+    <p>{{thread.content}}</p>
+    <a [routerLink]="['threads',thread._id]">More</a>
+  </div>
+</div>

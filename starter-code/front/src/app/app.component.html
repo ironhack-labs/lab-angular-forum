@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1 *ngIf="!sessionService.user" >Welcome to {{ title }}!</h1>
+    <h1 *ngIf="sessionService.user" >Welcome {{ sessionService.user.username }}!</h1>
+  
+  </div>
+  <ul>
+    <li><a [routerLink]="['/']">HOME</a></li>
+    <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Signup</a></li>
+    <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Login</a></li>
+    <li *ngIf="sessionService.user"><a href="#" (click)="sessionService.logout().subscribe()">Logout</a></li>
+    <li *ngIf="sessionService.user"><a [routerLink]="['/threads','new']">New Thread</a></li>
+
+  </ul>
+  
+  
+
+<router-outlet></router-outlet>

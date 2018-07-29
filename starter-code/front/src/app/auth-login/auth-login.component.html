@@ -1,0 +1,35 @@
+<div id="LoginForm">
+    <div class="container">
+  
+    <div class="login-form">
+    <div class="main-div">
+        <div class="panel">
+       <h2>Admin Login</h2>
+       <p>Please enter your username and password</p>
+       </div>
+        <form id="Login">
+    
+            <div class="form-group">
+    
+    
+                <input type="text" class="form-control" [(ngModel)]="username" name="username" id="inputEmail" placeholder="Username">
+    
+            </div>
+    
+            <div class="form-group">
+    
+                <input type="password" class="form-control" [(ngModel)]="password" name="password" id="inputPassword" placeholder="Password">
+    
+            </div>
+            <div class="forgot">
+            <a href="reset.html">Forgot password?</a>
+    </div>
+            <button (click)="sessionService.login(username,password).subscribe()" class="btn btn-primary">Login</button>
+    
+        </form>
+        </div>
+    </div></div>
+</div>
+
+    
+    

@@ -1,0 +1,37 @@
+
+<div class="info">
+  <div>
+    <h2>{{thread.title}}</h2>
+    <p>{{thread.content}}</p>
+    <span><b>{{thread._author.username}}</b></span>
+  </div>
+</div>
+<div class="replies">
+  <h3>Replies</h3>
+  <ul>
+    <li *ngFor="let reply of thread.replies">
+        {{reply.content}} <br> <b>{{reply._author.username}}</b>
+    </li>
+  </ul>
+</div>
+<div class="new">
+
+  <h4>New Reply</h4>
+  <form *ngIf="sessionService.user">
+
+  
+    
+    <div class="form-group">
+        
+      <label for="content">Content</label>
+    
+      <textarea  class="form-control" [(ngModel)]="content" name="content" id="content" placeholder="Content" rows="5"></textarea>
+    
+    </div>
+    <button (click)="newReply(content)">
+      Add
+    </button>
+    
+   
+  </form>
+</div>
