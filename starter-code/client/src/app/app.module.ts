@@ -10,6 +10,7 @@ import { ThreadsComponent } from './threads/threads.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthenticationService } from '../services/authentication.service';
+import { NewThreadComponent } from './new-thread/new-thread.component';
 
 
 
@@ -18,7 +19,8 @@ import { AuthenticationService } from '../services/authentication.service';
     AppComponent,
     ThreadsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,

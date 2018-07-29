@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from '../../node_modules/rxjs';
 import {environment} from '../environments/environment';
 import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
+
 
 
 const BASEURL = environment.BASEURL;
@@ -12,8 +14,9 @@ const BASEURL = environment.BASEURL;
 
 export class AllthreadsService {
 
+  options: object = {withCredentials: true};
 
-  constructor(public http: Http) {}
+  constructor(private http: Http) {}
 
   getThreads() {
    return this.http.get(`${BASEURL}/api/threads`).map(res => {
@@ -22,5 +25,18 @@ export class AllthreadsService {
      return threads;
    });
   }
-}
+  newThread(title: String, content: String): Observable<Object> {
+    return this.http.post(`${BASEURL}/api/threads`, {title, content}, this.options).pipe(map( (res: Response) => {
+        let thread = res.json();
+        this.newThread = thread;
+        console.log(this.newThread);
+        return this.newThread;
+      }));
+    }
+  }
 
+  //   (res => {
+  //     const newthread = res.json();
+  //   console.log(this.newThread);
+  //   return this.newThread;
+  // });
