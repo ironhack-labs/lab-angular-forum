@@ -22,7 +22,6 @@ router.post("/login", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  console.log(req.body)
   const { username, email, password } = req.body;
 
   if (!username || !password || !email) {
