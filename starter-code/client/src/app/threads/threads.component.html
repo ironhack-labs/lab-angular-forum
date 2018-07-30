@@ -1,0 +1,4 @@
+<h2>POSTS</h2>
+<div *ngFor="let thread of threads">
+  <p [routerLink]= '["/threads", thread._id]'>{{thread.title}} by {{thread._author.username | json}} on {{thread.date}}</p>
+</div>

@@ -47,7 +47,7 @@ router.post("/signup", (req, res, next) => {
       email,
       password: hashPass
     });
-
+    console.log(newUser)
     newUser.save((err) => {
       if (err) {
         res.status(400).json({ message: "Something went wrong" });
@@ -65,17 +65,17 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.post("/logout", function(req, res) {
+router.get("/logout", function(req, res) {
   req.logout();
   res.status(200).json({ message: 'Success' });
 });
 
-router.post("/loggedin", function(req, res) {
+router.get("/loggedin", function(req, res) {
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
 
-  return res.status(403).json({ message: 'Unauthorized' });
+  return res.status(200).json({ message: 'No hay nadie loggeado' });
 });
 
 module.exports = router;
