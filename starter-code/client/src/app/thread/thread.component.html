@@ -1,0 +1,10 @@
+
+<form > 
+  <h3> New post </h3>
+  <label> Title </label>
+  <input type="text" [(ngModel)]="title" name="title"/>
+  <br>
+  <label> Content </label>
+  <textarea [(ngModel)]="content" name="content"></textarea>
+</form>
+  <button (click)="newThread(title, content)"> Post </button>

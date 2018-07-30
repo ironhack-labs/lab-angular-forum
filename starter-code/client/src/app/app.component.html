@@ -1,0 +1,12 @@
+<h1 *ngIf="!sessionService.user">  Welcome </h1>
+  
+<h1 *ngIf="sessionService.user" >Welcome {{ sessionService.user.username }}</h1>
+
+
+<a *ngIf="sessionService.user" href="#" (click)="logout()">Logut</a><br>
+<a  [routerLink]="['/']">Home</a><br>
+<a  *ngIf="!sessionService.user" [routerLink]="['/signup']">signup</a><br>
+<a  *ngIf="!sessionService.user" [routerLink]="['/login']">login</a>
+
+
+<router-outlet></router-outlet>
