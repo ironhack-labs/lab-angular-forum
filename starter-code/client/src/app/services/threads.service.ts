@@ -9,11 +9,28 @@ interface user {
 }
 
 @Injectable()
-export class SessionService {
+export class ThreadsService {
     
-    constructor(private http: Http){}
+    options: object = {
+        withCredentials: true
+      }
+       constructor(private http: Http) { }
+       getAllThreads() {
+        return this.http.get(`http://localhost:3000/api/threads`).pipe(
+          map( (res: Response) => {
+            return res.json()
+          })
+        )
+      }
 
-    getAllThreads(){
-
+       newThread(title: string, content: string) {
+        let postInfo = {
+          title,
+          content
+        }
+        return this.http.post(`http://localhost:3000/api/threads`, postInfo, this.options).pipe(
+          map( (res: Response) => {
+           })
+        )
+      }
     }
-}

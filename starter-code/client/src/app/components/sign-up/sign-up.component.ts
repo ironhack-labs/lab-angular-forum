@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../services/threads.service';
+import { SessionService } from '../../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,9 +9,15 @@ import { SessionService } from '../../services/threads.service';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  signUp(username: string, email: string, password: string) {
+    console.log('signup');
+    this.sessionService.signup(username, email, password).subscribe( (user: any) => {
+      this.router.navigate(['/']);
+    });
+  }
 }

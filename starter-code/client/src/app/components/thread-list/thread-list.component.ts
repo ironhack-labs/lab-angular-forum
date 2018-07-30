@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThreadsService } from '../../services/threads.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-thread-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThreadListComponent implements OnInit {
 
-  constructor() { }
+  threadList: Array<any> = [];
 
-  ngOnInit() {
+  constructor(public threadsService: ThreadsService, public sessionService: SessionService) { }
+   ngOnInit() {
+    this.getThreads()
   }
-
+   getThreads() {
+    this.threadsService.getAllThreads().subscribe( threadList => this.threadList = threadList )
+  }
 }

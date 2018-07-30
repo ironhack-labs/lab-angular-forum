@@ -9,13 +9,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '../../node_modules/@angular/router';
 import { routes } from './app.routing';
 import { HttpModule } from '../../node_modules/@angular/http';
+import { ThreadsService } from './services/threads.service';
+import { NewThreadComponent } from './components/newThread/newThread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadListComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    NewThreadComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,10 @@ import { HttpModule } from '../../node_modules/@angular/http';
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService],
+  providers: [
+    SessionService,
+    ThreadsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
