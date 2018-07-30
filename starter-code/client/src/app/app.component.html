@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>IRONFORUM</h1>
+<ul>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
+  <li *ngIf="sessionService.user"><a [routerLink]="['/threads/new']">New thread</a></li>
+  <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
+</ul>
+
+
+<router-outlet></router-outlet>
+
