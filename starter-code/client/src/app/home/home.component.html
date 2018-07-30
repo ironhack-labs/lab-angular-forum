@@ -1,0 +1,10 @@
+<div *ngIf="sessionService.user">
+  <a href="#" [routerLink]="['/threads', 'new']">New thread</a>
+</div>
+
+<div *ngIf="sessionService.user && thread" >
+    <div *ngFor="let t of thread, let i = index" >
+      <h3><a [routerLink]="['/thread', t._id]">{{t.title}}</a></h3>
+      <p>{{t._author.username}}</p>
+    </div>
+  </div>
