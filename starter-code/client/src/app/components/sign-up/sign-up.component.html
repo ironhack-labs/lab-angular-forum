@@ -1,0 +1,11 @@
+<form>
+  <h2>Sign Up</h2>
+  <label for="username">Username: </label>
+  <input type="text" [(ngModel)]="username" name="username">
+  <label for="password">Password: </label>
+  <input type="password" [(ngModel)]="password" name="password">
+  <label for="email">Email: </label>
+  <input type="email" [(ngModel)]="email" name="email">
+  <button (click)="signUp(username, email, password)">Sign Up</button>
+</form>
+<p class="error"> {{ error }} </p>
